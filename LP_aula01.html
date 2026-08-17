@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Curso: LP Aula01</title>
+  <!-- Google Fonts + Material Icons + estilos locais -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira+Stencil+One&family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <link rel="stylesheet" href="./aula.css">
+</head>
+<body>
+  <!-- Camada de cabecalho -->
+  <div class="logo">
+    <button class="escola" onclick="window.location.assign('menu_aulas.html')">
+      MENU DE AULAS
+    </button>
+    <img src="imagens/eu_pixar3d_dir.png" class="icone">
+  </div>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <br>
+    <div id="btn_menu">
+      <button class="escola">
+        TOPICOS
+      </button>
+    </div>
+    <!-- Conteúdo da sidebar -->
+    <div id="menu">
+      <ul>
+        <li><a href="#logica" class="itemMenu">
+          Lógica de Programação</a></li>
+        <li><a href="#algoritmos" class="itemMenu">
+          Algoritmos</a></li>
+        <li><a href="#python" class="itemMenu">
+          Linguagem Python</a></li>
+        <li><a href="#print" class="itemMenu">
+          Comando print()</a></li>
+        <li><a href="#input" class="itemMenu">
+          Comando input()</a></li>
+        <li><a href="#proj" class="itemMenu">
+          <span>Projeto</span></a></li>
+        <li><a href="#resumo" class="itemMenu">
+          <span>Resumo da Aula</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Cabeçalho da aula -->
+  <header>
+    <h3 class="escola">Curso: Lógica de Programação Usando Linguagem Python</h3>
+    <h1>Aula 01: Introdução<br>à Lógica de Programação</h1>
+    <p class="subtitle">Conceitos fundamentais</p>
+  </header>
+
+  <!--------------------------- Conteúdo da aula ------------------------------->
+  <main>
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="logica">
+      <h2 class="topico">Lógica de Programação</h2>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <p><strong>Lógica de Programação</strong> é a capacidade de organizar 
+            pensamentos e instruções de forma sequencial e estruturada para resolver 
+            problemas computacionais.</p>
+          <ul>
+            <li>Estrutura hierárquica com tags</li>
+            <li>Semântica moderna (HTML5)</li>
+            <li>Base para CSS e JavaScript</li>
+          </ul>
+          <br>
+          <img src="imagens/logica.png" width="100%" alt="Lógica de Programação">
+        </div>
+        <div class="coluna">
+          <img src="imagens/logica2.jpeg" width="100%" alt="Lógica de Programação">
+          <h2 class="topico">Pensamento Computacional</h2>
+          <ul>
+              <li><strong>Decomposição:</strong> Quebrar problemas complexos em partes 
+                menores</li>
+              <li><strong>Reconhecimento de Padrões:</strong> Identificar similaridades 
+                e tendências</li>
+              <li><strong>Abstração:</strong> Focar nos aspectos essenciais, ignorando 
+                detalhes desnecessários</li>
+              <li><strong>Algoritmos:</strong> Criar sequências de instruções para 
+                resolver problemas</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="algoritmos">
+      <h2 class="topico">Algoritmos</h2>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <p>Um <strong>algoritmo</strong> é uma sequência finita e bem definida de 
+            instruções para resolver um problema ou executar uma tarefa.</p>
+          <h2 class="topico">Características dos Algoritmos</h2>
+          <ul>
+              <li><strong>Finitude:</strong> Deve ter um fim</li>
+              <li><strong>Clareza:</strong> Cada instrução deve ser clara e sem ambiguidade</li>
+              <li><strong>Efetividade:</strong> Deve resolver o problema proposto</li>
+              <li><strong>Entrada:</strong> Pode ter zero ou mais dados de entrada</li>
+              <li><strong>Saída:</strong> Produz pelo menos um resultado</li>
+          </ul>
+          <h2 class="topico">Representação: Pseudocódigo</h2>
+          <p>É uma forma de representar algoritmos usando linguagem natural estruturada, 
+            antes de convertê-los para uma linguagem de programação específica.</p>
+          <h2 class="topico">Vantagens do Pseudocódigo</h2>
+          <ul>
+              <li>Independente de linguagem de programação</li>
+              <li>Focado na lógica, não na sintaxe</li>
+              <li>Fácil de entender e modificar</li>
+              <li>Facilita a comunicação entre programadores</li>
+          </ul>
+        </div>
+        <div class="coluna">
+          <img src="imagens/algoritmo.png" width="100%" alt="Lógica de Programação">
+                      <div class="example">
+          <h2 class="atividade">Exemplo:<br>Calcular área de um retângulo</h2>
+          <div class="codigo">
+            <pre>
+  ALGORITMO CalcularAreaRetangulo
+  INÍCIO
+      ESCREVER "Digite a largura:"
+      LER largura
+      ESCREVER "Digite a altura:"
+      LER altura
+      area ← largura * altura
+      ESCREVER "A área é:", area
+  FIM
+            </pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex01">
+      <h2 class="atividade">Exercício 1: Boas-vindas Personalizadas</h2>
+      <br>
+      <p>Escreva um pseudocódigo para um algoritmo que solicite ao usuário seu 
+        nome e idade, e depois exiba uma mensagem personalizada no estilo "Bom 
+        dia &lt;NOME&gt;".</p>
+      <br>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="python">
+      <h2 class="topico">Introdução à Linguagem Python</h2>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <p><strong>Python</strong> é uma linguagem de programação de alto nível, 
+            interpretada e de propósito geral, conhecida por sua sintaxe clara e legibilidade.</p>
+          <h2 class="topico">Características do Python</h2>
+          <ul>
+              <li>Fácil de aprender e usar</li>
+              <li>Multiplataforma</li>
+              <li>Grande comunidade e bibliotecas</li>
+              <li>Suporte a múltiplos paradigmas (procedural, orientado a objetos, funcional)</li>
+          </ul>
+          <img src="imagens/python2.jpeg" width="50%" alt="Logo Python">
+        </div>
+        <div class="coluna">
+          <img src="imagens/python.png" width="100%" alt="Logo Python">
+          <br><br>
+          <h2 class="topico">Aplicações do Python</h2>
+          <ul>
+              <li>Desenvolvimento Web (Django, Flask)</li>
+              <li>Ciência de Dados e Machine Learning (Pandas, NumPy, Scikit-learn)</li>
+              <li>Automação de Tarefas</li>
+              <li>Desenvolvimento de Jogos</li>
+              <li>Computação Científica</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="print">
+      <h2 class="topico">O Comando <code>print()</code></h2>
+      <p>O comando <code>print()</code> em Python é usado para exibir informações 
+        na tela do console. Ele pode imprimir textos, números, variáveis e resultados 
+        de expressões.</p>
+      <h2 class="topico">Funcionalidades do print()</h2>
+      <ul>
+          <li>Exibir textos e mensagens</li>
+          <li>Mostrar valores de variáveis</li>
+          <li>Formatar saídas com múltiplos argumentos</li>
+          <li>Controlar o final da linha (nova linha ou espaço)</li>
+      </ul>
+      <h2 class="topico">Sintaxe Básica</h2>
+      <div class="codigo">
+        <pre>
+print("Sua mensagem aqui")
+print(variavel)
+print("Texto", variavel, "mais texto")
+        </pre>
+      </div>
+      <h2 class="topico">
+        Exemplos Simples</h2>
+      <div class="codigo">
+        <pre>
+# Exibir texto simples
+print("Olá, mundo!")
+
+# Exibir variáveis
+nome = "Maria"
+idade = 25
+print("Nome:", nome)
+print("Idade:", idade)
+
+# Exibir múltiplos valores
+print("Olá", nome, "! Você tem", idade, "anos.")
+
+# Formatação com f-strings (Python 3.6+)
+print(f"Olá {nome}! Você tem {idade} anos.")
+        </pre>
+      </div>
+      <div class="destaque">
+        <h4>Dica:</h4>
+        <p>O print() é sua principal ferramenta para debug e 
+        comunicação com o usuário!</p>
+      </div>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex02">
+      <h2 class="atividade">Exercício 2: Apresentação em Python</h2>
+      <br>
+      <p>Escreva um programa em linguagem Python que apresente informações 
+        a seu respeito na tela do terminal.</p>
+      <br>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="input">
+      <h2 class="topico">O comando <code>input()</code></h2>
+      <p>O comando <code>input()</code> é usado para <strong>ler dados do usuário 
+        via console</strong>, permitindo que o programa receba informações e as 
+        processe.</p>
+      <h2 class="topico">
+        Sintaxe e Características</h2>
+      <div class="codigo">
+        <pre>
+# Sintaxe básica
+variavel = input("Mensagem para o usuário: ")
+
+# O input() SEMPRE retorna uma string (texto)
+nome = input("Digite seu nome: ")  # Retorna string
+print(f"Olá, {nome}!")
+        </pre>
+      </div>
+      <h2 class="topico">Conversão de Tipos (Casting)</h2>
+      <div class="codigo">
+        <pre>
+# Para números inteiros
+idade = int(input("Digite sua idade: "))
+
+# Para números decimais
+altura = float(input("Digite sua altura: "))
+
+# Exemplo completo
+nome = input("Digite seu nome: ")
+idade = int(input("Digite sua idade: "))
+altura = float(input("Digite sua altura (em metros): "))
+
+print(f"Nome: {nome}")
+print(f"Idade: {idade} anos")
+print(f"Altura: {altura}m")
+        </pre>
+      </div>
+      <div class="destaque">
+        <h4>Importante:</h4>
+          Sempre converta os dados para o tipo correto antes de fazer 
+          cálculos matemáticos!</p>
+      </div>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex03">
+      <h2 class="atividade">Exercício 3: Soma de Dois Números</h2>
+      <br>
+      <p>Desenvolva um programa que peça dois números, realize a soma e exiba o 
+        resultado.</p>
+      <br>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex04">
+      <h2 class="atividade">Exercício 4: Média de Três Notas</h2>
+      <br>
+      <p>Calcule a média de três notas informadas pelo usuário e exiba o resultado.</p>
+      <br>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex05">
+      <h2 class="atividade">Exercício 5: Conversão de Temperatura</h2>
+      <br>
+      <p>Converta uma temperatura de Celsius para Fahrenheit usando a fórmula: 
+        F = (C * 9/5) + 32</p>
+      <br>      
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex06">
+      <h2 class="atividade">Desafio: Cálculo de Idade</h2>
+      <br>
+      <p>Crie um programa que solicite o ano de nascimento do usuário e calcule 
+        sua idade atual.</p>
+      <br>
+    </section>
+
+    <!-- Projeto ------------------------------------ -->
+    <section class="projeto" id="proj">
+      <h1 class="ideia">Projeto</h1>
+      <h3>Gerenciamento de Tarefas Simples</h3>
+      <p>Vamos criar nosso primeiro projeto prático aplicando todos os conceitos 
+        aprendidos!</p>
+      <br>
+      <h3>Objetivos do Projeto:</h3>
+      <ul>
+          <li>Solicitar o nome de uma tarefa do usuário</li>
+          <li>Armazenar a tarefa em uma variável</li>
+          <li>Exibir confirmação da tarefa adicionada</li>
+          <li>Aplicar formatação profissional na saída</li>
+      </ul>
+      <br>
+      <div class="destaque">
+          <h4>Este é o primeiro passo para um sistema mais complexo.</h4>
+          Em projetos futuros, expandiremos funcionalidades como: listar tarefas, 
+          marcar como concluídas, remover tarefas, etc.
+      </div>
+    </section>
+
+    <!-- Resumo da Aula ------------------------------------ -->
+    <section class="teoria" id="resumo">
+      <h1 class="escola">Resumo da Aula</h1>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <h2 class="topico">O que Aprendemos?</h2>
+          <ul>
+              <li>Conceitos fundamentais de Lógica de Programação</li>
+              <li>Definição e características de Algoritmos</li>
+              <li>Introdução à linguagem Python e suas aplicações</li>
+              <li>Uso do comando <code>print()</code> para exibir informações</li>
+              <li>Uso do comando <code>input()</code> para ler dados do usuário</li>
+          </ul>
+          <h2 class="topico">Habilidades Desenvolvidas</h2>
+          <ul>
+              <li>Capacidade de estruturar pensamentos logicamente</li>
+              <li>Criação de algoritmos simples em pseudocódigo</li>
+              <li>Escrita de programas básicos em Python</li>
+              <li>Interação com o usuário via console</li>
+          </ul>
+        </div>
+        <div class="coluna">
+          <img src="imagens/aprendendo.png" width="100%" alt="Resumo da Aula">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts de cotrole d(e) interação, sidebar e navegação da aula -->
+  <script src="aula.js"></script>
+</body>
+</html>

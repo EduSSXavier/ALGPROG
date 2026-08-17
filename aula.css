@@ -1,0 +1,352 @@
+:root {
+  --bg-start:  #030442; /* #0f172a; */
+  --bg-end: #000000;
+  --primary: #93bbf7;
+  --teoria: #01337e;
+  --exercicio: #02380f;
+  --destaque: #ffff98;
+  --accent: #5015bd;
+  --projeto: #bb9bfa;
+  --texto: #ffffff;
+  --text-reverso: #000000;
+  --card: rgb(1, 55, 141);
+  --border: rgba(14, 165, 233, 0.3);
+  --glow: rgba(34, 211, 238, 0.4);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  /* font-family: 'Roboto', sans-serif; */
+  font-family: "Saira", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: large;
+  background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+  color: var(--texto);
+  min-height: 100vh;
+  line-height: 1.6;
+  background-attachment: fixed;
+  transition: padding-left 0.4s ease;
+}
+
+/* ========== Camada superior com icone e botão ========== */
+.logo {
+  z-index: 1;
+  position: fixed;
+  top: -15px;
+  right: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 20px;
+  padding: 0rem 1rem;
+}
+
+.logo img{
+  border: var(--primary) solid 2px;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+
+.logo button{
+  border: var(--primary) solid 2px;
+  border-radius: 25px;
+  background: var(--bg-start);
+  color: var(--texto);
+  font-size: 14px;
+  padding: 3px 15px;
+}
+
+/* ========== Card de aula (menu de aulas) ========== */
+/* Grid de cartões */
+.aulas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 1rem 3rem;
+}
+
+.aulas-grid a {
+  color: var(--texto);
+  text-decoration: none;
+}
+
+.card-aula {
+  background: var(--bg-start);
+  color: var(--texto);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+
+.card-aula-header {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  background: var(--card);
+  color: var(--primary);
+  padding: 0.7rem;
+}
+
+.card-aula-header:hover {
+  background: var(--accent);
+  color: var(--texto);
+}
+
+.card-aula-numero {
+  font-size: 3rem;
+}
+
+.card-aula-rodape {
+  padding: 0.5rem;
+}
+
+.card-aula:hover {
+  transform: translateY(-12px);
+  border-color: var(--accent);
+  color: var(--destaque);
+}
+
+/* ==================== SIDEBAR ==================== */
+nav.sidebar {
+  position: fixed;
+  left: 0; 
+  top: 0; 
+  /* height: 100vh; */
+  width: 200px;
+  background: var(--bg-start);
+  /* backdrop-filter: blur(18px); */
+  border-right: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 0rem 1rem;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-family: 'Orbitron', sans-serif;
+  font-size: small;
+}
+
+nav.sidebar h2 { color: var(--texto); font-size: 0.5rem; margin-bottom: 1rem; display: flex; align-items: left; justify-content: center; gap: 3px; }
+nav.sidebar ul { list-style: none; }
+nav.sidebar li { margin-top: 15px;}
+nav.sidebar a { display: flex; align-items: center; gap: 6px; color:var(--texto); text-decoration: none; border-radius: 12px; transition: all 0.3s ease; font-weight: 400; }
+nav.sidebar a:hover, nav.sidebar a.active { background: var(--bg-end); color: var(--texto); transform: translateX(8px); }
+nav.sidebar a.active { border-left: 4px solid var(--accent); font-weight: 600; }
+nav.sidebar button{ 
+  border: var(--primary) solid 2px;
+  border-radius: 25px;
+  background: var(--bg-start);
+  color: var(--texto);
+  font-size: 14px;
+  padding: 3px 20px;
+}
+nav.sidebar button:hover {
+  background: var(--accent);
+}
+
+/* ==================== Conteúdo da aula ==================== */
+main {
+  /* margin-left: 280px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  max-width: 1100px;
+  padding: 2rem 2rem 3rem;
+  transition: margin-left 0.4s ease;
+}
+
+header {
+  text-align: center;
+  background: var(--bg-start);
+}
+
+section {
+  margin: 2rem 0;
+  padding: 1rem;
+  border-radius: 25px;
+  width: 100%;
+}
+
+.teoria {
+  background: var(--teoria);
+}
+
+.exercicio {
+  background: var(--exercicio);
+}
+
+.destaque {
+  background: var(--destaque);
+  color: darkblue;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.projeto {
+  background: var(--projeto);
+  color: rgb(0, 0, 0);
+  border-radius: 15px;
+  padding: 10px;
+}
+.projeto h2 {
+  color: var(--accent);
+}
+
+.duas_colunas {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.coluna {
+  width: 50%;
+}
+
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  background-color: var(--bg-start);
+  color: var(--primary);
+  border-radius: 15px;
+  /* -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; */
+}
+
+h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  color: var(--texto);
+  margin: 0,8rem 0;
+}
+
+.topico::before {
+  font-family: 'Material Icons Round';
+  content: "\f1c8"; /* Unicode para 'topic' */
+  margin-right: 10px;
+}
+
+.atividade::before {
+  font-family: 'Material Icons Round';
+  content: "\eb43"; /* Unicode para 'fitness center' */
+  margin-right: 10px;
+}
+
+.escola::before {
+  font-family: 'Material Icons Round';
+  content: "\e80c"; /* Unicode para 'school' */
+  margin-right: 10px;
+}
+
+.ideia::before {
+  font-family: 'Material Icons Round';
+  content: "\e0f0"; /* Unicode para 'lightbulb' */
+  margin-right: 10px;
+}
+
+.itemMenu::before {
+  font-family: 'Material Icons Round';
+  content: "\eaf8"; /* Unicode para 'flag circle' */
+  margin-right: 10px;
+}
+
+ul,ol { 
+  padding-left: 2.2rem; 
+  margin: 0.8rem 0;
+}
+
+img {
+  border-radius: 12px;
+  margin: 1.5rem 0;
+}
+
+strong {
+  color: var(--destaque);
+}
+
+table {
+    width: 100%;
+    border:var(--border) 2px solid;
+    background: var(--texto);
+    border-radius: 8px;
+    color: var(--text-reverso);
+    overflow: hidden;
+    box-shadow: 0 2px 10px var(--glow);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--accent);
+}
+
+th {
+    background: var(--primary);
+    color: var(--text-reverso);
+    font-weight: 600;
+}
+
+.codigo {
+  background: var(--bg-start);
+  border-radius: 20px;
+  padding: 5px;
+  margin: 5px;
+  width: 100%;
+  border: 1px solid var(--border);
+  color:var(--texto)
+}
+
+/* ==================== EXERCÍCIOS COM RESPOSTAS EXPANSÍVEIS ==================== */
+/* Botão de mostrar/ocultar resposta */
+.toggle_resposta {
+  background: var(--bg-end);
+  color: var(--texto);
+  border: 1px solid var(--primary);
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+.toggle_resposta:hover {
+  background: var(--accent);
+}
+
+/* Conteúdo da resposta (escondido por padrão) */
+.resposta {
+  background: var(--bg-end);
+  border-left: 4px solid var(--destaque);
+  border-radius: 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+}
+.resposta.mostrando {
+  max-height: none;
+}
+
+/* Responsivo */
+@media (max-width: 992px) {
+  nav.sidebar { width: 80px; padding: 2rem 0.5rem; }
+  nav.sidebar h2, nav.sidebar span { display: none; }
+  nav.sidebar a { justify-content: center; }
+  main { margin-left: 80px; }
+}
+@media (max-width: 600px) {
+  nav.sidebar { width: 100%; height: auto; position: relative; padding: 1rem; border-bottom: 1px solid var(--border); }
+  nav.sidebar.closed { transform: translateY(-100%) !important; }
+  main { margin-left: 0; margin-top: 80px; }
+  nav.sidebar ul { display: flex; overflow-x: auto; gap: 1rem; }
+  nav.sidebar a { min-width: 120px; text-align: center; flex-direction: column; }
+  #toggle-sidebar { display: none; }
+}
+

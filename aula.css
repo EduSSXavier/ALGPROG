@@ -81,6 +81,7 @@ body {
   overflow: hidden;
   position: relative;
   text-align: center;
+  width: 259px;
 }
 
 .card-aula-header {

@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Curso: LP Aula02</title>
+  <!-- Google Fonts + Material Icons + estilos locais -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira+Stencil+One&family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <link rel="stylesheet" href="./aula.css">
+</head>
+<body>
+  <!-- Camada de cabecalho -->
+  <div class="logo">
+    <button class="escola" onclick="window.location.assign('menu_aulas.html')">
+      MENU DE AULAS
+    </button>
+    <img src="imagens/eu_pixar3d_dir.png" class="icone">
+  </div>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <br>
+    <div id="btn_menu">
+      <button class="escola">
+        TOPICOS
+      </button>
+    </div>
+    <!-- Conteúdo da sidebar -->
+    <div id="menu">
+      <ul>
+      <li><a href="#condicional" class="itemMenu">
+        Condicionais</a></li>
+      <li><a href="#cmd_if" class="itemMenu">
+        Comando IF</a></li>
+      <li><a href="#python" class="itemMenu">
+        Regras Python</a></li>
+      <li><a href="#cmd_ifelse" class="itemMenu">
+        Comando IF/ELSE</a></li>
+      <li><a href="#cmd_ifelifelse" class="itemMenu">
+        Comando IF/ELIF/ELSE</a></li>
+      <li><a href="#proj" class="itemMenu">
+        <span>Projeto</span></a></li>
+      <li><a href="#resumo" class="itemMenu">
+        <span>Resumo da Aula</span></a></li>
+    </ul>
+  </nav>
+
+  <!-- Cabeçalho da aula -->
+  <header>
+    <h3 class="escola">Curso: Lógica de Programação Usando Linguagem Python</h3>
+    <h1>Aula 02:<br>Estuturas Condicionais</h1>
+    <p class="subtitle">Tome decisões inteligentes em seus algoritmos!</p>
+  </header>
+
+  <!--------------------------- Conteúdo da aula ------------------------------->
+  <main>
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria duas_colunas" id="condicional">
+      <div class="coluna">
+        <h2 class="topico">O que são Condicionais?</h2>
+        <p><strong>Condicionais</strong> são estruturas de controle que permitem 
+          que um programa tome decisões baseadas em condições específicas.</p>
+        
+        <br><br>
+        <h3 class="topico">Por que são importantes?</h3>
+        <ul>
+            <li><strong>Tomada de Decisão:</strong> Permitem que programas respondam de forma diferente a situações diferentes</li>
+            <li><strong>Controle de Fluxo:</strong> Determinam qual código será executado</li>
+            <li><strong>Lógica de Negócio:</strong> Implementam regras e validações</li>
+            <li><strong>Interatividade:</strong> Criam programas que respondem às ações do usuário</li>
+        </ul>
+      </div>
+      <div class="coluna">
+        <div style="text-align: center;">
+          <img src="imagens/condicional.png" width="70%" alt="Condicional">
+        </div>
+        <div class="destaque">
+          <h3 class="topico">Exemplo do Dia a Dia</h3>
+          <p><em><strong>"Se está chovendo, então levo guarda-chuva,<br>
+            senão saio sem guarda-chuva"</strong></em></p>
+          <p>Esta é uma decisão condicional que fazemos naturalmente!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="cmd_if">
+      <h2 class="topico">
+        Estrutura Condicional IF</h2>
+      <h3 class="topico">Sintaxe Básica</h3>
+      <div class="codigo">
+        <pre>
+if condição:
+  # código a ser executado
+  # se a condição for verdadeira
+        </pre>
+      </div>
+      <br>
+      <h3 class="topico">Exemplo Prático: Verificar idade</h3>
+      <div class="codigo">
+        <pre>
+idade = 18
+if idade >= 18:
+    print(" Vocé é maior de idade")
+    print(" Pode dirigir!")
+        
+# Resultado:
+# Como idade = 18 e 18 >= 18 é True, as duas mensagens serão exibidas.
+        </pre>
+      </div>
+      <br>
+      <h3 class="topico">Outro Exemplo: Calcular área de um retângulo</h3>
+      <div class="codigo">
+        <pre>
+# Entrada de dados
+base = float(input("Digite o valor da base: "))
+altura = float(input("Digite o valor da altura: "))
+
+# Processamento
+area = base * altura
+
+# Saída de dados
+print(f"A area do retangulo de base {base} e altura {altura} eh {area}")
+        </pre>
+      </div>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex01">
+      <h2 class="atividade">Exercício 1: Par ou Ímpar</h2>
+      <br>
+      <p>Criar um programa que verifica se um número é par ou ímpar</p>
+      <h3>Conceito</h3>
+      <p>Um número é <strong>par</strong> quando é divisível por 2 (resto da 
+        divisão por dois é igual a zero).</p>
+      <p>Usamos o operador <strong>%</strong> (módulo) para encontrar o resto.</p>
+      <h3>Exemplos:</h3>
+      <ul>
+          <li>8 % 2 = 0 (par)</li>
+          <li>7 % 2 = 1 (ímpar)</li>
+          <li>10 % 2 = 0 (par)</li>
+      </ul>
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+numero = int(input("Digite um número: "))
+
+if numero % 2 == 0:
+    print(f"{numero} é PAR")
+else:
+    print(f"{numero} é ÍMPAR")
+
+# Explicação:
+# O programa lê um número do usuário.
+# Usa a condicional if para verificar se o resto da divisão do número por 2 é 0.
+# Se for, imprime que o número é par; caso contrário, imprime que é ímpar.
+          </pre>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="python">
+      <h2 class="topico">
+        Algumas regras importantes da linguagem Python</h2> 
+      <br>
+      <h2 class="topico">
+        Operadores de Comparação</h2>
+      <ul>
+          <li><strong>==</strong>........ significa "Igual a"</li>
+          <li><strong>!=</strong>........ significa "Diferente de"</li>
+          <li><strong>&lt;</strong>........ significa "Menor que"</li>
+          <li><strong>&gt;</strong>........ significa "Maior que"</li>
+          <li><strong>&lt;=</strong>........ significa "Menor ou igual"</li>
+          <li><strong>&gt;=</strong>........ significa "Maior ou igual"</li>
+      </ul>
+      <br>
+      <h3 class="topico">Exemplos:</h3>
+      <div class="codigo">
+        <pre>
+# Comparações numéricas
+print(5 == 5)    # True
+print(5 != 3)    # True
+print(10 > 7)    # True
+print(4 <= 4)    # True
+
+# Comparações de strings
+nome = "Ana"
+print(nome == "Ana")     # True
+print(nome != "João")    # True
+        </pre>
+      </div>
+      <br>
+      <div class="destaque">
+        <h3 class="topico">Dica</h3>
+        <p>Use <strong>==</strong> para comparar (não <strong>=</strong>).
+          O símbolo <strong>=</strong> é usado para atribuir valores!</p>
+      </div>
+      <br>
+      <h2 class="topico">
+        Operadores Lógicos</h2> 
+      <br>       
+      <p><strong>AND ("E" lógico)</strong>: Ambas condições devem ser verdadeiras</p>
+      <div class="codigo">
+        <pre>
+idade = 20
+renda = 3000
+
+if idade >= 18 and renda >= 2000:
+print("Aprovado para empréstimo")
+        </pre>
+      </div>
+      <br>
+      <p><strong>OR ("OU" lógico)</strong>: Pelo menos uma condição deve ser 
+        verdadeira</p>
+      <div class="codigo">
+        <pre>
+dia = "sábado"
+
+if dia == "sábado" or dia == "domingo":
+  print("É final de semana!")
+        </pre>
+      </div>
+      <br>
+      <p><strong>NOT ("NÃO" lógico)</strong>: Inverte o valor da condição</p>
+      <div class="codigo">
+        <pre>
+chuva = False
+
+if not chuva:
+  print("Vou sair sem guarda-chuva")
+        </pre>
+      </div>
+      <br>
+      <h2><span class="material-icons-round">topic</span>
+        Combinações</h2>
+      <p>Agora vamos usar tudo junto.</p>
+      <br>
+      <div class="codigo">
+        <pre>
+idade = 25
+estudante = True
+renda = 1500
+
+if (idade >= 18 and renda >= 2000) or estudante:
+  print("Elegível para desconto")
+        </pre>
+      </div>
+      <br>
+      <h2><span class="material-icons-round">topic</span>
+        Aninhamento de Condicionais</h2>
+      <h3>O que é Aninhamento?</h3>
+      <p>É colocar uma estrutura condicional dentro de outra, criando 
+        estruturas de decisões mais complexas.</p>
+      <br>
+      <div class="codigo">
+        <pre>
+usuario_valido = True
+senha_correta = True
+conta_ativa = True
+
+if usuario_valido:
+    print("Usuário encontrado")
+    
+    if senha_correta:
+        print("Senha correta")
+        
+        if conta_ativa:
+            print("Acesso liberado!")
+            print("Bem-vindo ao sistema")
+        else:
+            print("Conta inativa. Contate o suporte")
+    else:
+        print("Senha incorreta")
+        print("Tente novamente")
+else:
+    print("Usuário não encontrado")
+        </pre>
+      </div>
+      <br>
+      <div class="destaque">
+        <h3 class="topico">Dica</h3>
+        <p>Use aninhamento quando a segunda condição só faz sentido se a 
+          primeira for verdadeira.</p>
+      </div>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria duas_colunas" id="cmd_ifelse">
+      <div class="coluna">
+        <h2 class="topico">
+          Estrutura Condicional IF/ELSE</h2>
+        <h3 class="topico">Sintaxe Básica</h3>
+        <div class="codigo">
+          <pre>
+if condição:
+    # código se TRUE
+else:
+    # código se FALSE
+          </pre>
+        </div>
+        <br>
+        <h3 class="topico">Quando usar:</h3>
+        <ul>
+            <li>Quando há duas opções mutuamente exclusivas</li>
+            <li>Para garantir que sempre uma ação seja executada</li>
+            <li>Situações de "ou isso ou aquilo"</li>
+        </ul>
+      </div>
+      <div class="coluna">
+        <br><br>
+        <h3 class="topico">Exemplo: Verificar Temperatura</h3>
+        <div class="codigo">
+          <pre>
+temperatura = 25
+
+if temperatura > 30:
+  print("Está muito quente!")
+  print("Vou ligar o ar condicionado")
+else:
+  print("Temperatura agradável")
+  print("Não preciso de ar condicionado")
+        
+  
+# Resultado:
+# Como 25 não é > 30, executa o bloco else.
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex02">
+      <h2 class="atividade">
+        Exercício 2: Verificar Idade para Votar</h2>
+      <br>
+      <p>Verificar se uma pessoa pode votar baseado na idade informada.</p>
+      <h3>Regras eleitorais no Brasil:</h3>
+      <ul>
+          <li><strong>16-17 anos:</strong> Voto facultativo</li>
+          <li><strong>18-69 anos:</strong> Voto obrigatório</li>
+          <li><strong>70+ anos:</strong> Voto facultativo</li>
+          <li><strong>&lt;16 anos:</strong> Não pode votar</li>
+      </ul>
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+idade = int(input("Digite sua idade: "))
+
+if idade < 16:
+    print("Não pode votar")
+elif idade < 18:
+    print("Voto facultativo")
+elif idade < 70:
+    print("Voto obrigatório")
+else:
+    print("Voto facultativo")
+
+
+# Explicação:
+# O programa lê a idade do usuário.
+# Usa if, elif e else para verificar a faixa etária e imprimir a mensagem correspondente.
+
+#Testes:
+# Idade 15: "Não pode votar"
+# Idade 17: "Voto facultativo"
+# Idade 25: "Voto obrigatório"
+# Idade 75: "Voto facultativo"
+          </pre>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex03">
+      <h2 class="atividade">
+        Exercício 3: Classificar Triângulos (Parte 1)</h2>
+      <br>
+      <p>Verificar se três lados informados podem formar um triângulo.</p>
+      <h3>📏 Regra Fundamental</h3>
+      <p>Para três lados formarem um triângulo:</p>
+      <ul>
+          <li>A soma de dois lados deve ser maior que o terceiro</li>
+          <li>Isso deve ser válido para todas as combinações</li>
+      </ul>
+      <h3>Exemplo:</h3>
+      <p>Lados: 3, 4, 5</p>
+      <ul>
+          <li>3 + 4 = 7 > 5 ✓</li>
+          <li>3 + 5 = 8 > 4 ✓</li>
+          <li>4 + 5 = 9 > 3 ✓</li>
+      </ul>
+      <p><strong>Resultado:</strong> É um triângulo!</p>
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+a = float(input("Lado A: "))
+b = float(input("Lado B: "))
+c = float(input("Lado C: "))
+
+if (a + b > c) and (a + c > b) and (b + c > a):
+    print("Os lados formam um triângulo!")
+    # Próximo slide: classificar tipo
+else:
+    print("Os lados NÃO formam um triângulo")
+
+# Explicação:
+# O programa lê os três lados do usuário.
+# Usa uma condicional if;else com operadores lógicos 
+# para verificar a regra fundamental.
+# Imprime se os lados formam ou não um triângulo.
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria duas_colunas" id="cmd_ifelifelse">
+      <div class="coluna">
+        <h2 class="topico">
+          Estrutura Condicional<br>IF/ELIF/ELSE</h2>
+        <h3 class="topico">Sintaxe Básica</h3>
+        <div class="codigo">
+          <pre>
+if primeira_condição:
+    # código para primeira condição
+elif segunda_condição:
+    # código para segunda condição
+elif terceira_condição:
+    # código para terceira condição
+(...)
+else:
+    # código se nenhuma condição for verdadeira
+          </pre>
+        </div>
+        <br>
+        <h3 class="topico">Quando usar:</h3>
+        <ul>
+            <li>Quando há duas opções mutuamente exclusivas</li>
+            <li>Para garantir que sempre uma ação seja executada</li>
+            <li>Situações de "ou isso ou aquilo"</li>
+        </ul>
+      </div>
+      <div class="coluna">
+        <br><br><br>
+        <h3 class="topico">Exemplo: Sistema de Notas</h3>
+        <div class="codigo">
+          <pre>
+nota = 85
+
+if nota >= 90:
+    print("Conceito A - Excelente!")
+elif nota >= 80:
+    print("Conceito B - Muito Bom!")
+elif nota >= 70:
+    print("Conceito C - Bom")
+elif nota >= 60:
+    print("Conceito D - Regular")
+else:
+    print("Conceito F - Insuficiente")
+
+# Resultado:
+# Como 85 >= 80, imprime "Conceito B - Muito Bom!"
+          </pre>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex04">
+      <h2 class="atividade">
+        Exercício 4: Classificar Triângulos (Parte 2)</h2>
+      <br>
+      <p>Verificar se três lados informados podem formar um triângulo.
+        <strong>Se formar um triângulo, qual o tipo?</strong>
+      </p>
+      <h3>Classificação</h3>
+      <ul>
+          <li><strong>Equilátero:</strong> 3 lados iguais</li>
+          <li><strong>Isósceles:</strong> 2 lados iguais</li>
+          <li><strong>Escaleno:</strong> 3 lados diferentes</li>
+      </ul>
+
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+a = float(input("Lado A: "))
+b = float(input("Lado B: "))
+c = float(input("Lado C: "))
+
+if (a + b &gt; c) and (a + c &gt; b) and (b + c &gt; a):
+    print("Forma um triângulo!")
+    
+    if a == b == c:
+        print("Tipo: EQUILÁTERO")
+    elif a == b or a == c or b == c:
+        print("Tipo: ISÓSCELES")
+    else:
+        print("Tipo: ESCALENO")
+else:
+    print("NÃO forma um triângulo")
+
+
+# Testes:
+# Entrada: 3, 4, 5
+# Saída: "Forma um triângulo!" e "Tipo: ESCALENO
+# Entrada: 2, 2, 2
+# Saída: "Forma um triângulo!" e "Tipo: EQUILÁTERO"
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex05">
+      <h2 class="atividade">
+        Desafio: Sistema de Login</h2>
+      <br>
+      <p>Implemente um sistema de login simples que verifique usuário e senha
+        informados estão corretos. Armazene em variáveis osusuário e senha 
+        esperados.</p>
+      <h3>Requisitos:</h3>
+      <ul>
+          <li>Usuário válido predefinido</li>
+          <li>Verificar usuário existe</li>
+          <li>Verificar senha correta</li>
+          <li>Mensagens informativas</li>
+      </ul>
+
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+usuario_correto = "admin"
+senha_correta = "123456"
+
+usuario_informado = input("Usuário: ")
+senha_informada = input("Senha: ")
+
+if usuario_informado == usuario_correto:
+    if senha_informada == senha_correta:
+        print(f"Login realizado com sucesso!")
+        print(f"Bem-vindo, {usuario_informado}!")
+        break
+    else:
+        print("Senha incorreta")
+else:
+    print("Usuário incorreto")
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projeto ------------------------------------ -->
+    <section class="projeto" id="proj">
+      <h1 class="ideia">Projeto</h1>
+      <h2>Sistema de Gerenciamento de Tarefas Simples (Parte 2):</h2>
+      <p>Modifique o prejeto gerado na Aula 1 para permitir que o usuário marque uma 
+        tarefa como concluída ou não concluída.</p>
+      <br>
+      <h3>Objetivos do Projeto:</h3>
+      <ul>
+        <li>Peça ao usuário para inserir o nome da tarefa.</li>
+        <li>Após adicionar a tarefa, pergunte se a tarefa está concluída (S/N).</li>
+        <li>Armazene essa informação e exiba o status junto com o nome da tarefa.</li>  
+      </ul>
+      <br>
+      <p>Exemplo de saída: Tarefa: Estudar Python - Status: Pendente</p>
+      <br>
+      <h3>Versão Anterior do código:</h3>
+      <div class="codigo">
+        <pre>
+# Sistema de Gerenciamento de Tarefas
+print("=== SISTEMA DE TAREFAS ===")
+
+# Solicitar nome da tarefa
+nome_tarefa = input("Digite o nome da tarefa: ")
+
+# Confirmar adição da tarefa
+print(f"Tarefa '{nome_tarefa}' adicionada com sucesso!")
+        </pre>
+      </div>
+
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+# Sistema de Gerenciamento de Tarefas - Versão Atualizada
+print("=== SISTEMA DE TAREFAS ===")
+
+# Solicitar nome da tarefa
+nome_tarefa = input("Digite o nome da tarefa: ")
+
+# Solicitar status da tarefa
+status_tarefa = input("A tarefa está concluída? (S/N): ")
+
+# Teste para verificar se a tarefa foi concluida
+if status_tarefa.upper() == "S":
+    status_tarefa_verificada = "Concluída"
+else:
+    status_tarefa = "Pendente"
+
+# Confirmar adição da tarefa
+print(f"Tarefa '{nome_tarefa}' adicionada com sucesso!")
+print(f"Status: {status_tarefa_verificada}")
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resumo da Aula ------------------------------------ -->
+    <section class="teoria" id="resumo">
+      <h1 class="escola">Resumo da Aula</h1>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <h2 class="topico">O que Aprendemos?</h2>
+      <ul>
+        <li>Estruturas condicionais: if, else, elif</li>
+        <li>Operadores de comparação e lógicos</li>
+        <li>Aninhamento de condicionais</li>
+        <li>Aplicação prática em exercícios reais</li>
+      </ul>
+      <h2 class="topico">Próximos Passos</h2>
+      <ul>
+          <li>Estruturas de repetição (loops)</li>
+      </ul>
+        </div>
+        <div class="coluna">
+          <img src="imagens/aprendendo.png" width="100%" alt="Resumo da Aula">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts de cotrole d(e) interação, sidebar e navegação da aula -->
+  <script src="aula.js"></script>
+</body>
+</html>

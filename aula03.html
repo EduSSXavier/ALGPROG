@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Curso: LP Aula03</title>
+  <!-- Google Fonts + Material Icons + estilos locais -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira+Stencil+One&family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <link rel="stylesheet" href="./aula.css">
+</head>
+<body>
+  <!-- Camada de cabecalho -->
+  <div class="logo">
+    <button class="escola" onclick="window.location.assign('menu_aulas.html')">
+      MENU DE AULAS
+    </button>
+    <img src="imagens/eu_pixar3d_dir.png" class="icone">
+  </div>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <br>
+    <div id="btn_menu">
+      <button class="escola">
+        TOPICOS
+      </button>
+    </div>
+    <!-- Conteúdo da sidebar -->
+    <div id="menu">
+      <ul>
+      <li><a href="#loops" class="itemMenu">
+        Loops</a></li>
+      <li><a href="#cmd_while" class="itemMenu">
+        Comando WHILE</a></li>
+      <li><a href="#parada" class="itemMenu">
+        Condições de Parada</a></li>
+      <li><a href="#contadores" class="itemMenu">
+        Contadores e Acumuladores</a></li>
+      <li><a href="#infinitos" class="itemMenu">
+        Loops Infinitos</a></li>
+      <li><a href="#cmd_break" class="itemMenu">
+        BREAK e CONTINUE</a></li>
+      <li><a href="#proj" class="itemMenu">
+        <span>Projeto</span></a></li>
+      <li><a href="#resumo" class="itemMenu">
+        <span>Resumo da Aula</span></a></li>
+    </ul>
+  </nav>
+
+  <!-- Cabeçalho da aula -->
+  <header>
+    <h3 class="escola">Curso: Lógica de Programação Usando Linguagem Python</h3>
+    <h1>Aula 03:<br>Estruturas de Repetição<br>Parte 1</h1>
+    <p class="subtitle">Executando diversas vezes um bloco de código</p>
+  </header>
+
+  <!--------------------------- Conteúdo da aula ------------------------------->
+  <main>
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="loops">
+      <h2 class="topico">O que são Loops?</h2>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <p><strong>Loops (Laços de Repetição)</strong> são estruturas que permitem 
+            executar um bloco de código repetidamente enquanto uma condição for 
+            verdadeira.</p>
+          <br>
+          <h3 class="topico">Importância da Repetição em Algoritmos</h3>
+          <ul>
+                  <li><strong>Eficiência:</strong> Evita escrever o mesmo código várias vezes</li>
+                  <li><strong>Flexibilidade:</strong> Permite processar quantidades variáveis de dados</li>
+                  <li><strong>Automatização:</strong> Executa tarefas repetitivas automaticamente</li>
+                  <li><strong>Escalabilidade:</strong> Funciona com 10 ou 10.000 itens</li>
+              </ul>
+        </div>
+        <div class="coluna">
+          <div style="text-align: center;">
+            <img src="imagens/loop.png" width="50%" alt="Condicional">
+          </div>
+          <div class="destaque">
+              <h3>Exemplo Prático</h3>
+              <p>Imagine que você precisa imprimir "Olá!" 100 vezes. 
+                  Sem usar loops, você precisaria escrever 100 linhas de 
+                  código. Usando loops, apenas 3 linhas!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="cmd_while">
+      <h2 class="topico">Loop While: Sintaxe e Funcionamento</h2>
+      <h3 class="topico">Sintaxe Básica</h3>
+      <div class="codigo">
+        <pre>
+while condição:
+    # bloco de código
+    # que será repetido
+        </pre>
+      </div>
+      <h3 class="topico">Como Funciona</h3>
+      <p><strong>Loops WHILE</strong> são estruturas que permitem 
+        executar um bloco de código repetidamente enquanto uma condição for 
+        verdadeira.</p>
+      <ol>
+          <li>Avalia a condição</li>
+          <li>Se verdadeira: executa o bloco e volta para o passo 1</li>
+          <li>Se falsa: sai do loop</li>
+      </ol>
+      <h3 class="topico">Exemplo Simples</h3>
+      <div class="codigo">
+        <pre>
+contador = 1
+while contador <= 5:
+    print(f"Contagem: {contador}")
+    contador = contador + 1
+print("Fim!")
+        </pre>
+      </div>      
+      <h4>Saída:</h4>
+      <div class="codigo">
+          <pre>
+Contagem: 1
+Contagem: 2
+Contagem: 3
+Contagem: 4
+Contagem: 5
+Fim!
+          </pre>
+      </div>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="parada">
+      <h2 class="topico">Condição de Parada</h2>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <h3 class="topico">O que é?</h3>
+          <p>A <strong>condição de parada</strong> é a expressão booleana 
+              que determina quando o loop deve terminar.</p>
+          <h3>Características Importantes</h3>
+          <ul>
+              <li>Deve ser uma expressão que retorna True ou False</li>
+              <li>Deve eventualmente se tornar False (senão o loop será infinito)</li>
+              <li>É verificada ANTES de cada execução do bloco</li>
+          </ul>
+          <h3>Exemplo: Controlando um Contador</h3>
+          <div class="codigo">
+            <pre>
+  contador = 0
+  while contador < 10:
+      # código a ser executado
+      contador += 1
+            </pre>
+          </div>
+          <h3>Exemplo: Testando uma Entrada do Usuário</h3>
+          <div class="codigo">
+            <pre>
+  resposta = ""
+  while resposta != "sair":
+      # código a ser executado
+      resposta = input("Digite: ")
+            </pre>
+          </div>
+        </div>
+        <div class="coluna">
+          <br><br>
+          <div style="text-align: center;">
+            <img src="imagens/pare.png" width="50%" alt="Condicional">
+          </div>
+          <h3>Exemplo: Usando uma Condição complexa</h3>
+          <div class="codigo">
+            <pre>
+  x = 10
+  y = 0
+  while x &gt; 0 and y &lt; 100:
+      # código a ser executado
+      x -= 1
+      y += 5
+            </pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="contadores">
+      <h2 class="topico">Contadores</h2>
+      <p>Variáveis que <strong>contam</strong> quantas vezes 
+          algo aconteceu.</p>
+      <h3 class="topico">Exemplo Simples:</h3>
+      <div class="codigo">
+        <pre>
+contador = 0
+while contador &lt; 5:
+  print("Executando...")
+  contador += 1  # Incrementa
+print(f"Executou {contador} vezes")
+          </pre>
+      </div>
+      <h4>Padrões Comuns</h4>
+      <ul>
+          <li><code>contador += 1</code> (incrementa)</li>
+          <li><code>contador -= 1</code> (decrementa)</li>
+          <li><code>contador += 2</code> (pula de 2 em 2)</li>
+      </ul>
+      <hr>
+      <h2 class="topico">Acumuladores</h2>
+      <p>Variáveis que <strong>acumulam</strong> valores ao longo das 
+        iterações.</p>
+      <h3 class="topico">Exemplo Simples</h3>
+      <div class="codigo">
+        <pre>
+soma = 0
+numero = 1
+while numero &lt;= 10:
+    soma += numero  # Acumula
+    numero += 1
+    
+print(f"Soma: {soma}")
+        </pre>
+      </div>
+      <h4>Tipos de Acumuladores</h4>
+      <ul>
+          <li><strong>Soma:</strong> soma += valor</li>
+          <li><strong>Produto:</strong> produto *= valor</li>
+          <li><strong>Concatenação:</strong> texto += palavra</li>
+      </ul>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex01">
+      <br>
+      <h2 class="atividade">
+        Exercício 1: Contagem</h2>
+      <p>Crie um programa que imprima os números de 1 a 100 usando o 
+        comando while.</p>
+      <h3>Passo a Passo</h3>
+      <ol>
+        <li>Inicializar uma variável contador</li>
+        <li>Definir a condição do while</li>
+        <li>Imprimir o número atual</li>
+        <li>Incrementar o contador</li>
+      </ol>
+      <h3>Dicas</h3>
+      <ul>
+          <li>Comece o contador em 1</li>
+          <li>Continue enquanto &lt;= 100</li>
+          <li>Não esqueça de incrementar!</li>
+      </ul>
+            
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+# Programa:
+
+contador = 1
+while contador &lt;= 100:
+    print(contador)
+    contador += 1
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex02">
+      <h2 class="atividade">
+        Exercício 2: Soma de Números</h2>
+      <br>
+      <p>Crie um programa que calcule a soma de todos os números ímpares
+        entre 1 e 100. O programa deve exibir a soma final e quantos números 
+        foram somados.</p>
+      <h3>Dicas</h3>
+      <p>Agora você precisa contar e acumular, por isso vai recisar de 
+        duas variáveis (uma para cada tarefa)</p>
+            
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+numero = 1
+contador = 0
+soma = 0
+while numero &lt;= 100:
+    if (numero%2) != 0:
+        soma += numero # Soma
+        contador += 1  # Conta
+    numero += 1
+
+print(f"Soma final: {soma}")
+print(f"Contagem: {contador}")
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="infinitos">
+      <h2 class="topico">Loops Infinitos</h2>
+      <p>Quando a condição de parada nunca se torna falsa (False), o programa fica 
+        "preso", executando o loop eternamente.</p>
+      <h3>Como Identificar?</h3>
+      <div class="codigo">
+        <pre>
+# ERRO: condição nunca muda
+
+contador = 1
+while contador <= 5:
+    print(contador)
+    # Esqueceu de incrementar!
+    
+
+# ERRO: condição nunca se torna False
+
+while True:
+    print("Infinito...")
+    # Sem break ou mudança na condição
+          </pre>
+      </div>
+      <h3>Como Evitar?</h3>
+      <div class="codigo">
+        <pre>
+# CORRETO: modificar a condição
+
+contador = 1
+while contador <= 5:
+  print(contador)
+  contador += 1  # Incrementa!
+        </pre>
+      </div>
+      <div class="destaque">
+      <h4>Dica Importante</h4>
+        <p>Sempre verifique se a variável da condição está sendo modificada 
+          dentro do loop!</p>
+      </div>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="cmd_break">
+      <h2 class="topico">Comandos <strong>break</strong> e 
+        <strong>continue</strong></h2>
+      <p>Comandos especiais que alteram o fluxo de execução dentro de loops.</p>
+      <br><hr>
+      <h3>Break</h3>
+      <p>Interrompe completamente a execução do loop.</p>
+      <div class="codigo">
+        <pre>
+contador = 1
+while contador &lt;= 10:
+    if contador == 6:
+        break  # Sai do loop
+    print(contador)
+    contador += 1
+print("Fim")
+
+# Saída: 1, 2, 3, 4, 5, Fim
+        </pre>
+      </div>
+      <br><hr>
+      <h3>Continue</h3>
+      <p>Pula para a próxima iteração, ignorando o resto do código.</p>
+      <div class="codigo">
+        <pre>
+contador = 0
+while contador &lt; 5:
+    contador += 1
+    if contador == 3:
+        continue  # Pula para próxima iteração
+    print(contador)
+
+# Saída: 1, 2, 4, 5
+        </pre>
+      </div>
+      <br><hr>
+      <h3>Exemplo Prático: Validação de Entrada</h3>
+      <div class="codigo">
+        <pre>
+while True:
+    idade = input("Digite sua idade (ou 'sair' para terminar): ")
+    
+    if idade == 'sair':
+        break  # Sai do programa
+    
+    if not idade.isdigit():
+        print("Por favor, digite apenas números!")
+        continue  # Volta para o início
+    
+    idade = int(idade)
+    print(f"Você tem {idade} anos.")
+    break  # Entrada válida, sai do loop
+        </pre>
+      </div>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex03">
+      <h2 class="atividade">Exercício 3: Soma até Digitar 0</h2>
+      <br>
+      <p>Peça números ao usuário até que ele digite 0, então exiba a 
+        soma de todos os números informados.</p>
+      <h3>Estratégia</h3>
+      <ol>
+          <li>Inicializar soma = 0</li>
+          <li>Loop infinito</li>
+          <li>Pedir número ao usuário</li>
+          <li>Se 0: quebrar o loop</li>
+          <li>Senão: somar ao total</li>
+          <li>Exibir resultado</li>
+      </ol>
+      <h4>Exemplo de Execução:</h4>
+      <div class="codigo">
+        <pre>
+Digite números para somar.
+Digite 0 para terminar.
+Número: 10
+Número: 5
+Número: 3
+Número: 0
+Soma total: 18.0
+        </pre>
+      </div>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex03">
+      <h2 class="atividade">Exercício 4: Jogo de Adivinhação</h2>
+      <br>
+      <p>Implemente um jogo onde o usuário tenta adivinhar um número secreto entre 
+        1 e 100 que é definido previamente no início do jogo.<br>O jogador tem 5 
+        tenttivas para acertar o número. Se acertar, recebe uma mensagem de 
+        felicitação e o jogo se encerra. Se o jogador falhar, o jogo 
+        termina com uma mensagem de derrota.</p>
+      <h4>Conceitos que você deve aplicar:</h4>
+      <ul>
+          <li><strong>Loop infinito</strong> com <strong>break</strong></li>
+          <li><strong>Contador</strong> de tentativas</li>
+          <li><strong>Condicionais</strong> aninhadas</li>
+      </ul>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex03">
+      <h2 class="atividade">Desafio: Jogo de Adivinhação Turbinado</h2>
+      <br>
+      <p>Altere a resposta do exercício anterior, inserindo uma forma 
+        de sortear o número secreto para que o jogo seja mais divertido.</p>
+      <p>Utilize a biblioteca <code>random</code> para isso.</p>
+      <br>
+    </section>
+
+    <!-- Projeto ------------------------------------ -->
+    <section class="projeto" id="proj">             
+      <h1 class="ideia">Projeto - Calculadora</h1>
+      <br>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <p>Crie uma calculadora que realiza as quatro operações aritméticas básicas
+            (soma, subtração, multiplicação e divisão) com um menu interativo onde o 
+            usuário escolhe as operações até decidir sair.</p>
+          <br>
+          <p>Para cada operação selecionada, solicite também ao usuário dois números 
+            para serem utilizados no calculo.</p>
+          <br>
+          <p>Na operação de divisão, não permita que sejam feitas divizões por zero.</p>
+        </div>       
+        <div class="coluna">
+          <div style="text-align: center;">
+            <img src="imagens/calculadora.png" alt="Condicional">
+          </div>
+        </div>       
+      </div>
+      <br>
+        <button class="toggle_resposta">
+          <span class="material-icons-round">keyboard_arrow_down</span> 
+          Mostrar/Ocultar resposta
+        </button>
+        <div class="resposta">
+          <div class="codigo">
+            <pre>
+  while True:
+      print("\n=== CALCULADORA SIMPLES ===")
+      print("1. Somar")
+      print("2. Subtrair") 
+      print("3. Multiplicar")
+      print("4. Dividir")
+      print("0. Sair")
+      
+      opcao = input("Escolha uma opção: ")
+      
+      if opcao == "0":
+          print("Obrigado por usar a calculadora!")
+          break
+      else:    
+          a = float(input("Primeiro número: "))
+          b = float(input("Segundo número: "))
+          
+          if opcao == "1":
+              print(f"Resultado: {a + b}")
+          elif opcao == "2":
+              print(f"Resultado: {a - b}")
+          elif opcao == "3":
+              print(f"Resultado: {a * b}")
+          elif opcao == "4":
+              if b != 0:
+                  print(f"Resultado: {a / b}")
+              else:
+                  print("Erro: Divisão por zero!")
+          else:
+              print("Opção inválida!")
+            </pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resumo da Aula ------------------------------------ -->
+    <section class="teoria" id="resumo">
+      <h1 class="escola">Resumo da Aula</h1>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <h2 class="topico">O que Aprendemos?</h2>
+          <ul>
+            <li>Conceito de loop</li>
+            <li>Comando WHILE</li>
+            <li>Condições de parada</li>
+            <li>Loops infinitos</li>
+            <li>Comandos BREAK e CONTINUE</li>
+          </ul>
+          <h2 class="topico">Próximos Passos</h2>
+          <ul>
+              <li>Estruturas de repetição (comando FOR)</li>
+          </ul>
+        </div>
+        <div class="coluna">
+          <img src="imagens/aprendendo.png" width="100%" alt="Resumo da Aula">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts de cotrole d(e) interação, sidebar e navegação da aula -->
+  <script src="aula.js"></script>
+</body>
+</html>

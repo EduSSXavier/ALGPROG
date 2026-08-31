@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Curso: LP Aula04</title>
+  <!-- Google Fonts + Material Icons + estilos locais -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira+Stencil+One&family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <link rel="stylesheet" href="./aula.css">
+</head>
+<body>
+  <!-- Camada de cabecalho -->
+  <div class="logo">
+    <button class="escola" onclick="window.location.assign('menu_aulas.html')">
+      MENU DE AULAS
+    </button>
+    <img src="imagens/eu_pixar3d_dir.png" class="icone">
+  </div>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <br>
+    <div id="btn_menu">
+      <button class="escola">
+        TOPICOS
+      </button>
+    </div>
+    <!-- Conteúdo da sidebar -->
+    <div id="menu">
+      <ul>
+      <li><a href="#cmd_for" class="itemMenu">
+        Comando FOR</a></li>
+      <li><a href="#cmd_range" class="itemMenu">
+        Função RANGE</a></li>
+      <li><a href="#naveg" class="itemMenu">
+        Navegando em Coleções</a></li>
+      <li><a href="#compara" class="itemMenu">
+        Comparação WHILE x FOR</a></li>
+      <li><a href="#manipula" class="itemMenu">
+        Manipulação de Listas</a></li>
+      <li><a href="#proj" class="itemMenu">
+        Projeto</a></li>
+      <li><a href="#resumo" class="itemMenu">
+        <span>Resumo da Aula</span></a></li>
+    </ul>
+  </nav>
+
+  <!-- Cabeçalho da aula -->
+  <header>
+    <h3 class="escola">Curso: Lógica de Programação Usando Linguagem Python</h3>
+    <h1>Aula 04:<br>Estruturas de Repetição<br>Parte 2</h1>
+    <p class="subtitle">Explorando coleções de dados</p>
+  </header>
+
+  <!--------------------------- Conteúdo da aula ------------------------------->
+  <main>
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="loops">
+      <h2 class="topico">O Comando FOR</h2>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <p>O laço <strong>for</strong> em Python é uma estrutura de repetição que permite 
+            iterar sobre sequências (listas, strings, ranges, etc.).</p>
+          <br>
+          <h3 class="topico">Sintaxe Básica</h3>
+          <div class="codigo">
+            <pre>
+for variavel in sequencia:
+    # código a ser executado
+            </pre>
+          </div>
+          <br>
+          <h4>Características principais:</h4>
+          <ul>
+            <li>A variável assume cada valor da sequência a cada iteração</li>
+            <li>O bloco de código é executado para cada elemento</li>
+            <li>A indentação define o escopo do laço</li>
+          </ul>
+        </div>
+        <div class="coluna">
+          <div style="text-align: center;">
+            <img src="imagens/loop2.png" width="50%" alt="Loop FOR">
+          </div>
+          <h3>Exemplo Básico</h3>
+          <div class="codigo">
+            <pre>
+# Iterando sobre uma string
+for letra in "Python":
+  print(letra)
+
+# Saída: P, y, t, h, o, n
+# (cada letra em uma linha)
+            </pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="cmd_range">
+      <h2 class="topico">Uso da Função <strong>range()</strong></h2>
+      <p>A função <strong>range()</strong> é fundamental para criar sequências
+        numéricas controladas:</p>
+      <h3 class="topico">Sintaxes de Range()</h3>
+      <div class="codigo">
+        <pre>
+range(stop)               # De 0 até stop-1
+
+range(start, stop)        # De start até stop-1
+
+range(start, stop, step)  # De start até stop-1, com passo step
+        </pre>
+      </div>
+      <br>
+      <h3 class="topico">Exemplos Práticos</h3>
+      <div class="codigo">
+        <pre>
+# range(5) → 0, 1, 2, 3, 4
+
+for i in range(5):
+    print(i)
+
+
+# range(2, 8) → 2, 3, 4, 5, 6, 7
+
+for i in range(2, 8):
+    print(i)
+
+
+# range(0, 10, 2) → 0, 2, 4, 6, 8
+
+for i in range(0, 10, 2):
+    print(i)
+        </pre>
+      </div>      
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex01">
+      <h2 class="atividade">Exercício 1: Contagem</h2>
+      <br>
+      <p>Crie um programa que imprima os números de 1 a 100 usando o 
+        comando <strong>for</strong>.</p>
+            
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+for numero in range(1, 101):
+    print(numero)
+          </pre>
+        </div>
+      </div>
+      <br>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex02">
+      <h2 class="atividade">Exercício 2: Contador Regressivo</h2>
+      <br>
+      <p>Crie um contador regressivo para o lançamento de um foguete
+        de 10 até 1 usando FOR.</p>
+            
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+print("Contador regressivo iniciando...")
+print()
+
+for numero in range(10, 0, -1):
+    print(f"Contagem: {numero}")
+
+print("LANÇAR FOGUETE!")
+          </pre>
+        </div>
+      </div>
+      <br>
+    </section>
+    
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="naveg">
+      <h2 class="topico">Iteração sobre Strings e Sequências Numéricas</h2>
+      <p>Podemos usar o comando FOR para navegar sobre sequências controladas
+        de dados.</p>
+      <br>
+      <h3 class="topico">Tabela de Comparação</h3>
+      <div class="codigo">
+        <pre>
+nome = "Maria"
+
+for caractere in nome:
+  print(f"Letra: {caractere}")
+        </pre>
+      </div>
+      <br>
+      <h3>Iteração sobre sequências numéricas:</h3>
+      <div class="codigo">
+        <pre>
+listaDeNumeros = [10, 20, 30, 40, 50]
+
+for numero in listaDeNumeros:
+  print(f"Número: {numero}")
+
+# Somando todos os números
+soma = 0
+
+for numero in listaDeNumeros
+  soma += numero
+
+print(f"Soma total: {soma}")
+        </pre>
+      </div>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex03">
+      <h2 class="atividade">Exercício 3: Tabuada</h2>
+      <br>
+      <p>Criar um programa que exiba a tabuada de um número inteiro 
+        fornecido pelo usuário.</p>
+
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+numero = int(input("Digite um número para ver sua tabuada: "))
+
+print(f"\n--- Tabuada do {numero} ---")
+for i in range(1, 11):
+    resultado = numero * i
+    print(f"{numero} x {i:2} = {resultado:2}")
+
+print("-" * 20)
+          </pre>
+        </div>
+      </div>
+      <br>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="compara">
+      <h2 class="topico">Comparação entre WHILE e FOR</h2>
+      <br>      
+      <table>
+          <tr>
+              <th>Aspecto</th>
+              <th>WHILE</th>
+              <th>FOR</th>
+          </tr>
+          <tr>
+              <td>Uso principal</td>
+              <td>Repetição com condição</td>
+              <td>Iteração sobre sequências</td>
+          </tr>
+          <tr>
+              <td>Controle</td>
+              <td>Manual (contador próprio)</td>
+              <td>Automático</td>
+          </tr>
+          <tr>
+              <td>Sintaxe</td>
+              <td>Mais verbosa</td>
+              <td>Mais concisa</td>
+          </tr>
+          <tr>
+              <td>Risco</td>
+              <td>Loop infinito se mal usado</td>
+              <td>Mais seguro</td>
+          </tr>
+          <tr>
+              <td>Conclusão</td>
+              <td>Repetição com condição.</td>
+              <td>Mais direto para iterar sobre coleções ou intervalos.</td>
+          </tr>
+      </table>
+      <br>
+      <h3>Exemplo comparativo: Contar de 1 a 5</h3>
+      <div class="codigo">
+        <pre>
+# Com WHILE
+
+contador = 1
+while contador &lt;= 5:
+    print(contador)
+    contador += 1
+
+
+# Com FOR (mais simples)
+
+for contador in range(1, 6):
+    print(contador)
+        </pre>
+      </div>
+      <br>
+      <div class="destaque">
+        <h4>Quando usar cada um:</h4>
+        <ul>
+          <li><strong>WHILE</strong>: Quando a condição de parada for conhecida, mas 
+            o momento em que essa condição vai ocorrer for desconhecido.</li>
+          <li><strong>FOR</strong>: Quando o conjunto de elementos a serem iterados for 
+            conhecido (a condição de parada torna=se o final do conjunto).</li>
+        </ul>               
+      </div>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="manipula">
+      <h2 class="topico">Manipulação de Listas</h2>
+      <br>
+      <h3>Listas em Python</g3>
+      <p>Listas são coleções ordenadas e mutáveis, permitindo armazenar 
+        múltiplos itens em uma única variável.</p>     
+      <br>
+      <h3>Conceitos fundamentais para listas:</h3>
+      <div class="codigo">
+          <pre>
+# Criando uma lista vazia
+lista_nomes = []
+
+# Adicionando elementos
+lista_nomes.append("João")
+lista_nomes.append("Maria")
+
+# Iterando sobre a lista
+for nome in lista_nomes:
+    print(f"Nome cadastrado: {nome}")
+
+# Acessando elementos por índice
+for i in range(len(lista_nomes)):
+    print(f"Posição {i}: {lista_nomes[i]}")
+        </pre>
+      </div>
+      <br>
+      <h3>Operações básicas com FOR e listas:</h3>
+      <div class="codigo">
+          <pre>
+# Preenchendo uma lista com FOR
+numeros = []
+for i in range(1, 6):
+    numeros.append(i * 2)
+print(numeros)  # [2, 4, 6, 8, 10]
+
+
+# Processando dados de uma lista
+vendas = [100, 250, 180, 300, 90]
+total = 0
+for venda in vendas:
+    total += venda
+media = total / len(vendas)
+print(f"Média de vendas: {media}")
+        </pre>
+      </div>
+      <br>
+      <div class="destaque">
+        <h4>Importante:</h4>
+        <ul>
+          <li>Listas são coleções mutáveis, permitindo adição, remoção e 
+          modificação de elementos, oferecendo, inclusive, mais de uma 
+          maneira de realizar essas operações.</li>
+          <li>Porém, neste módulo, nosso foco é apenas a manipulação de 
+          dados usando o comando FOR. Por isso estamos mostrando apenas
+          o uso básico de listas.</li>
+          <li>Em aulas futuras, no módulo de programação de linguagem Python, 
+          abordaremos outros aspectos das listas e todo o seu potencial.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex04">
+      <h2 class="atividade">Exercício 4: Cadastro de Nomes</h2>
+      <br>
+      <p>Crie uma entrada de dados que armazena nomes em uma lista utilizando
+        o comando <code>while</code>. Em seguida, exiba todos os nomes cadastrados
+        na tela, usando o comando <code>for</code>.</p>
+
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+cadastro_nomes = []  # Lista vazia para armazenar nomes
+
+print("=== CADASTRO DE NOMES ===")
+print("Digite os nomes (digite 'fim' para encerrar)")
+print()
+
+# Loop para coletar nomes
+while True:
+    nome = input(f"Nome {contador}: ")
+    
+    if nome.lower() == 'fim':
+        break
+    
+    if nome:  # Verifica se não está vazio
+        cadastro_nomes.append(nome)
+    else:
+        print("Nome não pode estar vazio!")
+
+# Exibindo todos os nomes cadastrados
+print("\n" + "="*30)
+print("NOMES CADASTRADOS:")
+print("="*30)
+
+for nome in cadastro_nomes:
+    print(f"{i:2}. {nome}")
+
+print(f"\nTotal de nomes cadastrados: {len(cadastro_nomes)}")
+          </pre>
+        </div>
+      </div>
+      <br>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex05">
+      <h2 class="atividade">Exercício 5: Desafio</h2>
+      <br>
+      <h3>Cadastro de Notas e Média</h3>
+      <p>Cadastrar notas em uma lista e calcular a média aritmética e 
+        indicar qual a maior e qual a menor nota informadas.</p>
+      <h3>Dica:</h3>
+      <ul>
+        <li>Utilize um laço <strong>while</strong> para coletar as notas.</li>
+        <li>Utilize um laço <strong>for</strong> para contar e avaliar as notas.</li>
+      </ul>
+      
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+cadastro_notas = []
+
+print("=== CADASTRO DE NOTAS ===")
+print("Digite as notas (0 a 10) ou 'fim' para encerrar./n")
+
+# Coletando as notas
+while True:
+    entrada = input(f"Nota: ")
+    
+    if entrada.lower() == 'fim':
+        break
+    
+    nota = float(entrada)
+    if 0 &lt;= nota &lt;= 10:
+        cadastro_notas.append(nota)
+    else:
+        print("Nota deve estar entre 0 e 10!")
+
+# Calculando e exibindo resultados
+print("="*40))
+print("RELATÓRIO DE NOTAS")
+print("="*40)
+
+soma = 0
+quantidade = 0
+nota_maxima = 0
+nota_minima = 10
+
+for nota in cadastro_notas:
+    soma += nota
+    quantidade += 1
+
+    if nota &gt; nota_maxima:
+        nota_maxima = nota
+    if nota &lt; nota_minima:
+        nota_minima = nota
+
+media = soma / quantidade
+
+print(f"\nEstatísticas:")
+print(f"  Quantidade de notas: {quantidade}")
+print(f"  Soma das notas: {soma}")
+print(f"  Média aritmética: {media:.2f}")
+print(f"  Maior nota: {nota_maxima}")
+print(f"  Menor nota: {nota_minima}")
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projeto ------------------------------------ -->
+    <section class="projeto" id="proj">             
+      <h1 class="ideia">Projeto</h1>
+      <br>
+      <h2>Sistema de Gerenciamento de Tarefas Simples (Final):</h2>
+      <p>Vamos retomar nosso projeto incremental da Aula 2  e criar uma 
+        aplicação completa que gerencia tarefas com descrição e status.</p>
+      <h3>O Que Já Foi Feito Nas Aulas Anteriores:</h3>
+      <div class="codigo">
+        <pre>
+# Sistema de Gerenciamento de Tarefas - Versão Atualizada
+print("=== SISTEMA DE TAREFAS ===")
+
+# Solicitar nome da tarefa
+nome_tarefa = input("Digite o nome da tarefa: ")
+
+# Solicitar status da tarefa
+status_tarefa = input("A tarefa está concluída? (S/N): ")
+
+# Teste para verificar se a tarefa foi concluida
+if status_tarefa.upper() == "S":
+    status_tarefa_verificada = "Concluída"
+else:
+    status_tarefa = "Pendente"
+
+# Confirmar adição da tarefa
+print(f"Tarefa '{nome_tarefa}' adicionada com sucesso!")
+print(f"Status: {status_tarefa_verificada}")
+        </pre>
+      </div>
+      <h3>Agora Vamos Implementar o projeto completo</h3>
+      <ul>
+        <li>Guarde as tarefas e os status em listas.</li>
+        <li>Permita que o usuário adicione múltiplas tarefas
+            por meio de um loop controlado (WHILE).</li>
+        <li>Implemente uma opção para sair do programa.</li>
+        <li>Caso deseje tornar sua aplicação mais completa, 
+            implemente um menu para adicionar, excluir e
+            visualizar tarefas cadastradas e seus status.</li>
+      </ul>
+      <h3>Mãos à Obra!</h3>
+      <br>
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+# ---------------------------------------
+# Projeto: Gerenciador de Tarefas
+# Autor: Professor Xavier
+# ---------------------------------------
+
+# Dados --------------------------------
+listaTarefas = []
+
+# Cada tarefa será armazenada em uma lista
+# contendo [descrição, situação], ou seja,
+# uma lista de listas.
+#    listaTarefas = [
+#        ["Comprar leite", "pendente"],
+#        ["Estudar para a prova", "concluída"]
+#    ]
+# ---------------------------------------
+
+
+# Menu Principal ------------------------
+while True:
+    print("""\n\n
+          --- Gerenciador de Tarefas ---
+          1. Adicionar Nova Tarefa
+          2. Excluir Tarefa
+          3. Alterar situação da Tarefa
+          4. Listar Tarefas
+          5. Sair
+          -------------------------------
+          """)
+    
+    opcao = input("Escolha uma opção: ")
+
+    if opcao == "5":
+        print("[MSG] Saindo do gerenciador de tarefas...")
+        break
+    elif opcao == "1":
+        # Adicionar Tarefa
+        descricaoTarefa = input("Descrição da tarefa: ")
+        # Toda tarefa criada inicia com a situação "pendente"
+        listaTarefas.append([descricaoTarefa, "pendente"])
+        print(f"[MSG] Tarefa '{len(listaTarefas)}' adicionada com sucesso!")
+    elif opcao == "2":
+        # Excluir Tarefa
+        if not listaTarefas:
+            print("[MSG] Nenhuma tarefa cadastrada.")
+        else:
+            # Exibir tarefas cadastradas
+            print("\nTarefas Cadastradas:")
+            for i in range(len(listaTarefas)):
+                desc     = listaTarefas[i][0] #Extrai descrição da tarefa
+                situacao = listaTarefas[i][1] #Extrai situação da tarefa
+                print(f"{i + 1}. {desc} - {situacao}")
+            # solicitar tarefa que será excluída
+            numero = int(input("Número da tarefa a ser excluída: ")) - 1
+            if 0 <= numero < len(listaTarefas):
+                listaTarefas.pop(numero)
+                print(f"[MSG] Tarefa {numero + 1} excluída com sucesso!")
+            else:
+                print("[MSG] Número de tarefa inválido.")
+    elif opcao == "3":
+        # Alterar Situação da Tarefa        
+        if not listaTarefas:
+            print("[MSG] Nenhuma tarefa cadastrada.")
+        else:
+            # Exibir tarefas cadastradas
+            print("\nTarefas Cadastradas:")
+            for i in range(len(listaTarefas)):
+                desc     = listaTarefas[i][0] #Extrai descrição da tarefa
+                situacao = listaTarefas[i][1] #Extrai situação da tarefa
+                print(f"{i + 1}. {desc} - {situacao}")
+            # solicitar tarefa que terá a situação alterada
+            numero = int(input("Número da tarefa a ter a situação alterada: ")) - 1
+            if 0 <= numero < len(listaTarefas):
+                nova_situacao = input("Nova situação (pendente/concluída): ")
+                if nova_situacao in ["pendente", "concluída"]:
+                    listaTarefas[numero][1] = nova_situacao
+                    print(f"[MSG] Situação da tarefa {numero + 1} alterada para '{nova_situacao}' com sucesso!")
+                else:
+                    print("[MSG] Situação inválida. Use 'pendente' ou 'concluída'.")
+            else:
+                print("[MSG] Número de tarefa inválido.")
+    elif opcao == "4":
+        # Listar Tarefas
+        if not listaTarefas:
+            print("[MSG] Nenhuma tarefa cadastrada.")
+        else:
+            print("\nTarefas Cadastradas:")
+            for i in range(len(listaTarefas)):
+                desc     = listaTarefas[i][0] #Extrai descrição da tarefa
+                situacao = listaTarefas[i][1] #Extrai situação da tarefa
+                print(f"{i + 1}. {desc} - {situacao}")
+    else:
+        print("Opção inválida. Tente novamente.")
+# ---------------------------------------
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resumo da Aula ------------------------------------ -->
+    <section class="teoria" id="resumo">
+      <h1 class="escola">Resumo da Aula</h1>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <h2 class="topico">O que Aprendemos?</h2>
+          <ul>
+            <li>Comando FOR</li>
+            <li>Função RANGE</li>
+            <li>Comparação WHILE x FOR</li>
+            <li>Manipulação de Listas</li>
+          </ul>
+          <h2 class="topico">Próximos Passos</h2>
+          <ul>
+              <li>Listas e Tuplas</li>
+              <li>Dicionários</li>
+          </ul>
+        </div>
+        <div class="coluna">
+          <img src="imagens/aprendendo.png" width="100%" alt="Resumo da Aula">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts de cotrole d(e) interação, sidebar e navegação da aula -->
+  <script src="aula.js"></script>
+</body>
+</html>

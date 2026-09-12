@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Curso: LP Aula05</title>
+  <!-- Google Fonts + Material Icons + estilos locais -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira+Stencil+One&family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <link rel="stylesheet" href="./aula.css">
+</head>
+<body>
+  <!-- Camada de cabecalho -->
+  <div class="logo">
+    <button class="escola" onclick="window.location.assign('index.html')">
+      MENU DE AULAS
+    </button>
+    <img src="imagens/eu_pixar3d_dir.png" class="icone">
+  </div>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <br>
+    <div id="btn_menu">
+      <button class="escola">
+        TOPICOS
+      </button>
+    </div>
+    <!-- Conteúdo da sidebar -->
+    <div id="menu">
+      <ul>
+      <li><a href="#listas" class="itemMenu">
+        <span>Listas</span></a></li>
+      <li><a href="#tuplas" class="itemMenu">
+        <span>Tuplas</span></a></li>
+      <li><a href="#mpj1" class="itemMenu">
+        <span>Mini-projeto 1</span></a></li>
+      <li><a href="#dicio" class="itemMenu">
+        <span>Dicionários</span></a></li>
+      <li><a href="#dicio2" class="itemMenu">
+        <span>Mais Dicionários</span></a></li>
+      <li><a href="#sets" class="itemMenu">
+        SETs</span></a></li>
+      <li><a href="#mpj2" class="itemMenu">
+        <span>Mini-projeto 2</span></a></li>
+      <li><a href="#resumo" class="itemMenu">
+        <span>Resumo da Aula</span></a></li>
+    </ul>
+  </nav>
+
+  <!-- Cabeçalho da aula -->
+  <header>
+    <h3 class="escola">Curso: Lógica de Programação Usando Linguagem Python</h3>
+    <h1>Aula 05:<br>Listas, Tuplas, Dicionários e Sets</h1>
+    <p class="subtitle">Estruturas de Dados em Python</p>
+  </header>
+
+  <!--------------------------- Conteúdo da aula ------------------------------->
+  <main>
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="listas">
+      <h2 class="escola">Listas</h2>  
+      <div class="duas_colunas">
+        <div class="coluna">
+          <h3 class="topico">O Que é uma Lista?</h3>
+          <p>Na linguagem Python, uma lista é uma sequência ordenada de elementos
+            que podem ser modificados e armazenados em memória, em uma única variável.</p>
+          <p>A estutura de uma lista em Python permite a inclusão e exclusão de elementos
+            em qualquer lugar da sequência, incluindo o inicio e o fim.</p>
+        </div>
+        <div class="coluna">
+          <img src="./imagens/lista.png" style="width: 200px;">
+        </div>
+      </div>
+      <div class="exemplo">
+        <h3 class="topico">Criando Listas</h3>                 
+        <div class="codigo">
+          <pre>
+listaNumeros = [1, 2, 3, 4, 5]                  
+# ou 
+listaNumeros = list((1, 2, 3, 4, 5))
+
+listaFrutas = ["banana", "maca", "laranja"]     
+# ou 
+listaFrutas = list(("banana", "maca", "laranja"))
+
+listaVazia = []                                 
+# ou 
+listaVazia = list()
+          </pre>
+        </div>
+      </div>
+      <br>
+      <h3 class="topico">Índices de Lista</h3>
+      <p>As listas em Python podem ser indexadas, ou seja, acessadas por seus índices, 
+          que são numeros inteiros que indicam em que posição um elemento se encontra.</p>
+      <p>Os índices de uma lista comecam com 0, ou seja, o primeiro elemento está na 
+          posição 0, o segundo na posição 1 e assim por diante.</p>
+      <br>
+      <div class="exemplo">
+        <h3 class="topico">Incluindo novos elementos em listas</h3>                 
+        <div class="codigo">
+          <pre>
+listaFrutas = ["banana", "uva", "laranja"] 
+
+# Incluir um novo item no fim da lista
+listaFrutas.append("pera")
+
+# Incluir um novo item no inicio da lista
+listaFrutas.insert(0, "kiwi")
+
+# Incluir um novo item em uma posição específica
+listaFrutas.insert(1, "abacaxi")
+          </pre>
+        </div>
+      </div>
+      <br>
+      <div class="exemplo">
+        <h3 class="topico">Excluindo elementos de listas</h3>                 
+        <div class="codigo">
+          <pre>
+listaFrutas = ["banana", "uva", "laranja"] 
+
+# Excluir um item da lista (apenas a primeira ocorrência do item)
+listaFrutas.remove("uva")
+
+# Excluir o ultimo item da lista
+listaFrutas.pop()
+
+# Excluir o item de uma posição específica da lista
+listaFrutas.pop(1)
+
+# Excluir todos os itens da lista
+listaFrutas.clear()
+          </pre>
+        </div>
+      </div>
+      <br>
+      <div class="exemplo">
+        <h3 class="topico">Outras manipuações interessantes em listas</h3>                 
+        <div class="codigo">
+          <pre>
+listaNumeros = [120, 243,12,3322,78, 114] 
+
+# Criar uma cópia da lista
+listaNumerosCopiada = listaNumeros.copy()
+
+# Ordenar a lista
+listaNumeros.sort()
+
+# Inverter a ordem da lista
+listaNumeros.reverse()
+
+# Contar quantos elementos tem na lista
+print(len(listaNumeros))
+
+# Concatenar duas listas
+listaNumeros1 = [1,2,3,4]
+listaNumeros2 = [5,6,7,8]
+listaNumeros3 = listaNumeros1 + listaNumeros2
+
+# Descobrir se um item existe na lista
+print(4 in listaNumeros)
+
+# Encontrar o maior e o menor elemento da lista
+print(max(listaNumeros))
+print(min(listaNumeros))
+
+# Somar todos os elementos da lista
+print(sum(listaNumeros))
+
+# Contar quantos vezes um elemento aparece na lista
+print(listaNumeros.count(4))
+          </pre>
+        </div>
+      </div>
+      <br>        
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex01">
+      <h2 class="atividade">Exercício 1</h2>
+      <p>Crie uma lista com o nome de 5 pessoas e, em seguida, execute as 
+        seguintes operações:</p>
+      <br>
+      <ul>
+          <li>Exibir o primeiro e o ultimo elemento da lista.</li>
+          <li>Exibir todos os elementos da lista.</li>
+          <li>Exibir a quantidade de elementos da lista.</li>
+      </ul>
+      <br>            
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+# Crie uma lista com o nome de 5 pessoas
+pessoas = ["Joaquim", "Maria", "Joaquina", "Jose", "Joao"]
+
+# Exibir o primeiro e o ultimo elemento da lista
+print(pessoas[0], pessoas[4 ])      # Joaquim Joao
+print(pessoas[0], pessoas[-1])      # outra forna
+
+# Exibir todos os elementos da lista
+print(pessoas)
+
+# ou...
+for pessoa in pessoas:
+  print(pessoa)
+  
+# ou...
+for i in range(len(pessoas)):       # també mpodemos usar while
+  print(pessoas[i])
+
+# Exibir a quantidade de elementos da lista
+print(len(pessoas))
+          </pre>
+        </div>
+      </div>
+      <br>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="tuplas">
+      <h2 class="escola">Tuplas</h2>
+      <h3 class="topico">O Que é uma Tupla?</h3>
+      <p>Na linguagem Python, uma tupla é uma sequência ordenada de elementos
+            que <strong>não podem ser modificados</strong> e armazenados em memória, 
+            em uma única variável.</p>      
+      <br>
+      <div class="exemplo">
+          <h3 class="topico">Criando Tuplas</h3>                 
+          <p>Para diferenciar uma tupla de uma lista, utilizamos parênteses 
+              ao invés de colchetes.</p>
+          <div class="codigo">
+              <pre>
+tuplaNumeros = (1, 2, 3, 4, 5)  
+
+tuplaFrutas = ("banana", "uva", "laranja")
+
+tuplaVazia = ()
+
+tuplaComUmElemento = ("banana",)    # note o uso da virgula OBRIGATÓRIA
+
+tuplaComTiposDiversos = (1, "banana", 3.14, False)
+              </pre>
+          </div>
+      </div>
+      <br>
+      <h3 class="topico">Índices de Tuplas</h3>
+      <p>As tuplas também podem ser indexadas, ou seja, acessadas por seus índices, 
+          que são numeros inteiros que indicam em que posição um elemento se encontra.</p>
+      <p>Os índices de uma tupla comecam com 0, ou seja, o primeiro elemento está na 
+          posição 0, o segundo na posição 1 e assim por diante.</p>
+      <br>
+      <div class="exemplo">
+          <h3><span class="material-symbols-outlined">visibility</span>
+              Manipuações possíveis em tuplas</h3>                 
+          <div class="codigo">
+              <pre>
+tuplaCarros = ("Fiat", "Honda", "Ford", "Honda")
+
+print(tuplaCarros[0])           # Fiat
+print(tuplaCarros[1])           # Honda
+print(tuplaCarros[2])           # Ford
+print(tuplaCarros[-1])          # Honda
+print(tuplaCarros[-2])          # Ford
+
+print(len(tuplaCarros))         # 4
+
+print(tuplaCarros.count("Honda")) # 2
+
+print(tuplaCarros.index("Honda")) # 1
+              </pre>
+          </div>
+      </div>
+      <br>
+      <div class="exemplo">
+        <h3 class="topico">Manipuações possíveis em tuplas</h3>                 
+        <div class="codigo">
+          <pre>
+tuplaCarros = ("Fiat", "Honda", "Ford", "Honda")
+
+print(tuplaCarros[0])           # Fiat
+print(tuplaCarros[1])           # Honda
+print(tuplaCarros[2])           # Ford
+print(tuplaCarros[-1])          # Honda
+print(tuplaCarros[-2])          # Ford
+
+print(len(tuplaCarros))         # 4
+
+print(tuplaCarros.count("Honda")) # 2
+
+print(tuplaCarros.index("Honda")) # 1  (só indica a posição do primeiro elemento)
+          </pre>
+        </div>
+      </div>
+      <br>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex01">
+      <h2 class="atividade">Exercício 2</h2>
+      <p>Crie uma tupla com o nome de 5 cidades e, em seguida, execute as 
+        seguintes operações:</p>
+      <br>
+      <ul>
+          <li>Exibir o primeiro e o ultimo elemento da tupla</li>
+          <li>Exibir todos os elementos da tupla</li>
+          <li>Exibir a quantidade de elementos da tupla</li>
+          <li>Descobrir se um item existe na tupla</li>
+      </ul>
+      <br>            
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+cidades = ("Rio de Janeiro", "São Paulo", "Belo Horizonte", 
+            "Curitiba", "Florianópolis")
+
+# Exibir o primeiro e o ultimo elemento da tupla
+print(cidades[0])
+print(cidades[-1])
+
+# Exibir todos os elementos da tupla
+for cidade in cidades:
+  print(cidade)  
+
+# Exibir a quantidade de elementos da tupla
+print(len(cidades))
+
+# Descibrir se um item existe na tupla
+print("Belo Horizonte" in cidades)
+          </pre>
+        </div>
+      </div>
+      <br>
+    </section>
+
+    <!-- Mini-Projeto ------------------------------------ -->
+    <section class="projeto" id="mpj1">
+      <h2>Mini-projeto 1</h2>
+      <h4>Cadastro de Animais</h4>
+      <p>Crie um programa que cadastre animais para um petshop.</p>
+      <h4>Requisitos:</h4>
+      <ul>
+          <li>Usando um loop, cadastre cada animal informando:
+              <ul>   
+                  <li>Nome do animal</li> 
+                  <li>Tipo do animal</li>
+                  <li>Idade do animal</li>
+              </ul>
+              e guarde os dados dele em uma tupla.
+          </li>
+          <li>O loop deve continuar até que o usuário digite "fim" no nome do animal</li>
+          <li>As tuplas de animais devem ser armazenadas em uma lista</li>
+          <li>Ao final do cadastramento, deve-se exibir os dados de todos os animais 
+              cadastrados antes de encerrar o programa.</li>
+      </ul>
+      <div class="destaque">
+          <p>Este desafio combina diversos conceitos já vistos: loops,
+              estruturas condicionais, manipulação de strings...</p>   
+      </div>
+      <br>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="dicio">
+      <h2 class="escola">Dicionários</h2>   
+      <div class="duas_colunas">
+        <div class="coluna">
+          <h3 class="topico">O Que é um Dicionário?</h3>
+          <p>Um dicionário em Python é uma estrutura de dados que armazena pares chave-valor 
+            (key-value). É uma coleção ordenada (a partir da versão do Python 3.7), mutável 
+            e que não permite chaves duplicadas'</p>
+        </div>
+        <div class="coluna">
+          <img src="./imagens/dicionario.png" style="width: 200px;">
+        </div>
+      </div>        
+      <h3 class="topico">Características Principais</h3>
+      <ul>
+        <li>Chaves únicas: Cada chave pode aparecer apenas uma vez no dicionário.</li>
+        <li>Mutável: Pode ser modificado depois da criação.</li>
+        <li>Indexação por chave: Acesso aos valores aoss chaves.</li>
+        <li>Tipos de dados heterogêneo: Pode armazenar diferentes tipos de dados.</li>
+      </ul>
+      <p>As chaves em um dicionário podem ser de qualquer tipo imutável, como strings, 
+        números ou tuplas. Os valores associados às chaves podem ser de qualquer tipo, 
+        incluindo listas, tuplas, outros dicionários e objetos personalizados.</p>
+      <br>
+      <h3 class="topico">Sintaxe Básica</h3>
+      <div class="codigo">
+        <pre>
+# Criação de dicionário
+dicionario = {chave1: valor1, chave2: valor2, chave3: valor3}
+
+# Dicionário vazio# Dicionário vazio
+dicionario_vazio = {}
+
+# ou
+dicionario_vazio = dict()
+        </pre>
+      </div>      
+      <br>
+      <div class="exemplo">
+          <h3 class="topico">Exemplos de Uso de Dicionários</h3>                 
+          <div class="codigo">
+              <pre>
+# Exemplo 1: Informações de uma pessoa ----------------------------
+pessoa pessoa = {
+    "nome": "João Silva",
+    "idade": 30,
+    "cidade": "São Paulo",
+    "profissao": "Programador"
+}
+
+# Acessando valores
+print(pessoa["nome"])    # João Silva
+print(pessoa["idade"])   # 30
+print(pessoa["cidade"])  # São Paulo
+print(pessoa["profissao"])  # Programador
+
+# Adicionando novo par chave-valor
+pessoa["email"] = "joao@email.com"
+
+# Modificando um valor existente
+pessoa["idade"] = 31
+
+# Removendo um item
+del pessoa["cidade"]
+
+
+# Exemplo 2: Estoque de produtos ----------------------------
+estoque =  {
+    "notebook": 1515,
+    "mouse": 5050,
+    "teclado": 3030,
+    "monitor": 88
+}
+
+# Iterando sobre o Dicionário
+for chave in estoque:
+    print(f"{chave}: {estoque[chave]} unidades")
+# ou
+for produto, quantidade in estoque.items():
+    print(f"{produto}: {quantidade} unidades")
+
+# Verificando se uma chave existe
+if "notebook" in estoque:
+    print("Notebook disponível em estoque")
+              </pre>
+          </div>
+      </div>
+      <br>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex01">
+      <h2 class="atividade">Exercício 3</h2>
+      <p>Vamos criar dois dicionários: pessoa e deposito, O dicionário "pessoa" vai conter 
+        o nome, o email e o telefone de uma pessoa e o dicionário "deposito" vai conter o 
+        número de uma sala e uma lista de objetos que estão na sala.</p>
+      <p>Depois de criar os dicionários, vamos executar as seguintes tarefas:</p>
+      <ul>
+        <li>Incluir o nome da cidade que a pessoa mora</li>
+        <li>Alterar o email da pessoa</li>
+        <li>Remover o telefone da pessoa</li>
+        <li>Adicionar dois novos objetos à sala</li>
+        <li>Adicionar uma nova sala sem objetos</li>
+        <li>Acrescentar um objeto à nova sala</li>
+      </ul>
+      <br>            
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+# Criando os dicionários
+pessoa = {
+    "nome":"Fulano de Tal",
+    "email":"fulano@fakemail.com",
+    "telefone":"(11) 99999-9999"
+}
+
+deposito = {
+    1:["mesa", "cadeira", "computador", "livro"]
+}
+
+# Incluindo o nome da cidade que a pessoa mora
+pessoa["cidade"] = "Sao Paulo"
+
+# Alterando o email da pessoa   
+pessoa["email"] = "fulanodetal@novomail.com.br"
+
+# Removendo o telefone da pessoa
+del pessoa["telefone"]  
+
+# Adicionando dois novos objetos à sala
+deposito[1].append("caneta")
+deposito[1].append("lapis")
+
+# Adicionando uma nova sala sem objetos
+deposito[2] = []
+
+# Acrescentando um objeto à nova sala
+deposito[2].append("caderno")
+          </pre>
+        </div>
+        <div class="destaque">
+          <p>Você consegue exibir cada objeto de cada sala em uma linha separada?
+            (Dica: o comando FOR pode ajudar)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="dicio2">
+      <h2 class="escola">Ainda sobre Dicionários</h2>     
+      <h3 class="topico">Métodos</h3>
+      <p>Eis aqui alguns métodos úteis para trabalhar com dicionários:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Método</th>
+            <th>Descrição</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>copy()</td>
+            <td>Devolve uma cópia do dicionário</td>
+          </tr>
+          <tr>
+            <td>get()</td>
+            <td>Devolve o valor de uma determinada chave</td>
+          </tr>
+          <tr>
+            <td>items()</td>
+            <td>Devolve uma lista contendo tuplas de chaves e valores</td>
+          </tr>
+          <tr>
+            <td>keys()</td>
+            <td>Devolve uma lista contendo as chaves do dicionário</td>
+          </tr>
+          <tr>
+            <td>values()</td>
+            <td>Devolve uma lista contendo os valores do dicionário</td>
+          </tr>
+          <tr>
+            <td>pop()</td>
+            <td>Remove o elemento com a chave informada do dicionário, mas devolve o valor</td>
+          </tr>
+          <tr>
+            <td>clear()</td>
+            <td>Remove todos os elementos do dicionário</td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <div class="exemplo">
+          <h3 class="topico">Exemplos</h3>                 
+          <div class="codigo">
+              <pre>
+# Dicionário de exemplo ----------------------------
+
+dicionario = {'fruta': 'banana', 'animal': 'gato', 'numero': 2, 'status': True}
+
+# Exemplo de uso dos métodos -----------------------
+
+# copy()
+
+dicionario_copia = dicionario.copy()
+print(dicionario_copia)  # {'fruta': 'banana', 'animal': 'gato', 'numero': 2, 'status': True}
+
+# get()
+
+valor = dicionario.get('fruta')
+print(valor)  # banana
+
+# items()
+
+itens = dicionario.items()
+print(itens)  # dict_items([('fruta', 'banana'), ('animal', 'gato'), ('numero', 2), ('status', True)])
+
+# keys()
+
+chaves = dicionario.keys()
+print(chaves)  # dict_keys(['fruta', 'animal', 'numero', 'status'])
+
+# values()
+
+valores = dicionario.values()
+print(valores)  # dict_values(['banana', 'gato', 2, True])
+
+# pop()
+
+elemento = dicionario.pop('fruta')
+print(elemento)    # banana
+print(dicionario)  # {'animal': 'gato', 'numero': 2, 'status': True}
+
+# clear()
+
+dicionario.clear()
+print(dicionario)  # {}
+              </pre>
+          </div>
+      </div>
+      <br>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex01">
+      <h2 class="atividade">Exercício 4</h2>
+      <p>Vamos criar um cadastro de alunos e notas para uma escola.</p>
+      <h4>Requisitos:</h4>
+      <ul>
+        <li>Os alunos devem ser armazenados em um dicionário</li>
+        <li>Cada aluno deve ter seu nome como chave e um lista com 3 notas como valor</li>
+        <pre>
+Exemplo:
+{
+    "Fulano": [9, 8, 7],
+    "Beltrano": [8, 5, 3]
+}
+        </pre>
+        <li>Usando um loop, cadastre 4 ou mais alunos diferentes</li>
+        <li>Ao final do cadastramento, exiba os nomes de todos os alunos cadastrados e indique, 
+          ao lado de cada um, sua média de notas e sua avaliação de desempenho
+          <ul>
+            <li>Aprovado: média ≥ 7</li>
+            <li>Reprovado: média < 7</li>
+            <li>Exemplo: Fulano / média 8.0 / Aprovado</li>
+          </ul>
+        </li>
+      </ul>
+      <br>            
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+# Cadastro de Alunos
+
+cadastro = {}  # Dicionário vazio para armazenar os alunos
+
+while True:
+    # Solicitando informações de um aluno
+    nome = input("Digite o nome do aluno (ou 'fim' para encerrar): ")
+
+    if nome == "fim":
+        break
+
+    nota1 = float(input("Digite a primeira nota: "))
+    nota2 = float(input("Digite a segunda nota: "))
+    nota3 = float(input("Digite a terceira nota: "))
+
+    # Armazenando o aluno no dicionário
+    cadastro[nome] = [nota1, nota2, nota3]
+
+# Exibindo o catálogo de alunos
+print("\n=== CADASTRO DE ALUNOS ===")
+for chave in cadastro:
+    media = sum(cadastro[chave]) / len(cadastro[chave])
+    if media >= 7:
+        situacao = "Aprovado"
+    else:       
+        situacao = "Reprovado"
+    print(f"Nome: {chave} / Média: {media} / Situação: {situacao}")
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="sets">
+      <h2 class="escola">SETs</h2>   
+      <div class="duas_colunas">
+        <div class="coluna">
+          <h3 class="topico">O Que é um SET?</h3>
+          <p>Um set em Python é uma estrutura de dados que armazena uma coleção de elementos 
+            únicos.</p>
+        </div>
+        <div class="coluna">
+          <img src="./imagens/set.png" style="width: 200px;">
+        </div>
+      </div>        
+      <h3 class="topico">Características Principais</h3>
+      <ul>
+        <li>Elementos únicos: Não permite duplicatas.</li>
+        <li>Desordenado: Não mantém ordem de inserção.</li>
+        <li>Mutável: Pode ser modificado depois da criação.</li>
+        <li>Sem indexação: Não é possivel acessar por índice.</li>
+        <li>Operações matemáticas: Suporta união, interseção, diferença.</li>
+      </ul>
+      <br>
+      <h3 class="topico">Sintaxe Básica</h3>
+      <div class="codigo">
+        <pre>
+# Criação de set
+meu_set =  {elemento1, elemento2, elemento3}
+
+# Set vazio
+set_vazio = set() # Note: {} cria um dicionário vazio, não um set
+        </pre>
+      </div>      
+      <br>
+      <div class="exemplo">
+          <h3 class="topico">Exemplos de Uso de Sets</h3>                 
+          <div class="codigo">
+              <pre>
+# Exemplo 1: Removendo duplicatas de uma lista ----------------------------
+numeros_com_duplicatas = [1, 2, 3, 2, 4, 1, 5, 3]
+numeros_unicos = set(numeros_com_duplicatas)
+print(numeros_unicos)    # {1, 2, 3, 4, 5}
+
+# Convertendo de volta para lista
+lista_sem_duplicatas = list(numeros_unicos)
+print(lista_sem_duplicatas)  # [1, 2, 3, 4, 5]
+
+# Exemplo 2: Operações com Sets ----------------------------
+frutas_joao =  {"maçã", "banana", "laranja", "uva"}
+frutas_maria =  {"banana" , "kiwi", "laranja", "manga"}
+
+# União (frutas que pelo menos uma pessoa gosta)
+todas_frutas = frutas_joao | frutas_maria
+# ou 
+todas_frutas = frutas_joao.union(frutas_maria)
+
+# Interseção (frutas que ambos gostam)
+frutas_comuns = frutas_joao & frutas_maria
+# ou 
+frutas_comuns = frutas_joao.intersection(frutas_maria)
+
+# Diferença (frutas que apenas João gosta)
+frutas_so_joao = frutas_joao - frutas_maria
+# ou 
+frutas_so_joao = frutas_joao.difference(frutas_maria)
+
+print(f"Todas as frutas: {todas_frutas}")
+print(f"Frutas em comum: {frutas_comuns}")
+print(f"Frutas só do João: {frutas_so_joao}")
+              </pre>
+          </div>
+      </div>
+      <br>
+    </section>
+
+    <!-- Mini-Projeto ------------------------------------ -->
+    <section class="projeto" id="mpj2">
+      <h2>Mini-projeto 2</h2>
+      <h4>Controle de Acesso</h4>
+      <p>Crie um programa que controla o acesso de usuários a um sistema qualquer.</p>
+      <h4>Requisitos:</h4>
+      <ul>
+          <li>Crie um dicionário onde estarão definidos os usuários e suas senhas</li>
+          <li>O programa deve solicitar o nome de usuário e a senha</li>
+          <li>Se o usuário e senha forem corretos, exiba uma mensagem dizendo que o acesso 
+            foi permitido e encerre o programa</li>
+          <li>Se o usuário ou senha forem incorretos, exiba uma mensagem dizendo que o acesso 
+            foi negado e volte ao inicio do loop para uma nova tentativa</li>
+          <li>O loop deve continuar até que um usuário e senha corretos sejam digitados ou 
+            seja informado "fim" no usuario</li>
+      </ul>
+      <br>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+    <!-- Resumo da Aula ------------------------------------ -->
+    <section class="teoria" id="resumo">
+      <h1 class="escola">Resumo da Aula</h1>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <h2 class="topico">O que Aprendemos?</h2>
+          <ul>
+            <li>Listas</li>
+            <li>Tuplas</li>
+            <li>Dicionários</li>
+            <li>SETs</li>
+          </ul>
+        </div>
+        <div class="coluna">
+          <img src="imagens/aprendendo.png" width="100%" alt="Resumo da Aula">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts de cotrole d(e) interação, sidebar e navegação da aula -->
+  <script src="aula.js"></script>
+</body>
+</html>

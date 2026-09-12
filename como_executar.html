@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Curso: LP Como Executar Código em Python</title>
+  <!-- Google Fonts + Material Icons + estilos locais -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira+Stencil+One&family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <link rel="stylesheet" href="./aula.css">
+</head>
+<body>
+  <!-- Camada de cabecalho -->
+  <div class="logo">
+    <button class="escola" onclick="window.location.assign('index.html')">
+      MENU DE AULAS
+    </button>
+    <img src="imagens/eu_pixar3d_dir.png" class="icone">
+  </div>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <br>
+    <div id="btn_menu">
+      <button class="escola">
+        TOPICOS
+      </button>
+    </div>
+    <!-- Conteúdo da sidebar -->
+    <div id="menu">
+      <ul>
+        <li><a href="#desktop" class="itemMenu">
+          Execução no Desktop</a></li>
+        <li><a href="#online" class="itemMenu">
+          Execução Online</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Cabeçalho da aula -->
+  <header>
+    <h3 class="escola">Curso: Lógica de Programação Usando Linguagem Python</h3>
+    <h1>Conteúdo Extra:<br>Como Executar Código em Python</h1>
+    <p class="subtitle">Guia passo a passo para executar programas em Python</p>
+  </header>
+
+  <!--------------------------- Conteúdo da aula ------------------------------->
+  <main>
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="intro">
+      <h2 class="topico">Execução no Desktop</h2>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <h3 class="topico">Pré-requisitos</h3>
+          <p>Antes de executar um programa Python em seu computador, você precisa:</p>
+          <ul>
+            <li>Instalar o interpretador Python (versão 3.6 ou superior)</li>
+            <li>Ter um editor de texto ou IDE (como VS Code, PyCharm, ou mesmo o IDLE que vem com o Python)</li>
+            <li>Ter conhecimento básico de sintaxe Python</li>
+          </ul>
+        </div>
+        <div class="coluna">
+          <img src="imagens/python.png" width="100%" alt="Logo Python">
+        </div>
+      </div>
+      <br>
+      <h3 class="topico">Instalação do Python</h3>
+      <p>Recomendamos baixar o Python do site oficial:
+        <a href="https://www.python.org/downloads/" 
+          target="_blank" rel="noopener" style="color: yellow;">
+          AQUI
+        </a>
+      </p>
+      <p>Durante a instalação, certifique-se de marcar a opção "Add Python to PATH" para 
+        facilitar a execução do Python via terminal.</p>
+      <br>
+      <h3 class="topico">Verificando a Instalação</h3>
+      <p>Após a instalação, abra o terminal (Prompt de Comando no Windows ou Terminal no 
+        macOS/Linux) e digite:</p>
+      <div class="codigo">
+          <pre>
+
+python --version
+          </pre>
+      </div>
+      <p>Se a versão do Python for exibida, a instalação foi bem-sucedida.</p>
+      <br>
+      <h3 class="topico">Executando um Programa Python</h3>
+      <p>1. Crie um arquivo chamado <code>meu_programa.py</code> com o seguinte conteúdo:</p>
+      <div class="codigo">
+          <pre>
+
+print("Olá, mundo!")
+          </pre>
+      </div>
+      <p>2. Salve o arquivo e abra o terminal na pasta onde ele está localizado.</p>
+      <p>3. Execute o programa digitando:</p>
+      <div class="codigo">
+          <pre>
+
+python meu_programa.py
+          </pre>
+      </div>
+      <p>Você verá a saída: <strong>Olá, mundo!</strong></p>  
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="online">
+      <h2 class="topico">Execução Online via Browser</h2>
+      <p>Se você não deseja instalar o Python em seu computador, pode usar ambientes 
+        online para escrever e executar código Python diretamente no navegador. 
+        Há diversas opções disponíveis. Aqui estão três exemplos:</p>
+      <br>
+      <h3 class="topico">Usando o site Programiz</h3>
+      <p>O Programiz também oferece um ambiente online para executar código Python.</p>
+      <br>
+      <p>Para usar o Programiz:</p>
+      <ol>
+        <li>Acesse <a href="https://www.programiz.com/python-programming/online-compiler/" 
+          target="_blank" rel="noopener" style="color: yellow;">https://www.programiz.com/python-programming/online-compiler/</a></li>
+        <li>Digite seu código no editor e clique em "Run" para executá-lo.</li>
+      </ol>
+      <br>
+      <h3 class="topico">Usando o site Replit</h3>
+      <p>O Replit é uma plataforma online que permite escrever e executar código em várias 
+        linguagens, incluindo Python, diretamente no navegador.</p>
+      <br>
+      <p>Para usar o Replit:</p>
+      <ol>
+        <li>Acesse <a href="https://replit.com/" 
+          target="_blank" rel="noopener" style="color: yellow;">https://replit.com/</a></li>
+        <li>Clique em "Start coding" e selecione Python como linguagem.</li>
+        <li>Digite seu código no editor e clique em "Run" para executá-lo.</li>
+      </ol>
+      <br>
+      <h3 class="topico">Usando o Google Colab</h3>
+      <p>O Google Colab é um ambiente de desenvolvimento baseado na nuvem que permite escrever e executar código em várias 
+        linguagens, incluindo Python, diretamente no navegador.</p>
+      <br>
+      <p>Para usar o Google Colab:</p>
+      <ol>
+        <li>Acesse <a href="https://colab.research.google.com/" 
+          target="_blank" rel="noopener" style="color: yellow;">https://colab.research.google.com/</a>
+          ou entre em seu Google Drive.</li>
+        <li>Clique em "New Notebook" para criar um novo notebook.</li>
+        <li>Digite seu código em uma célula e pressione Shift + Enter para executá-lo.</li>
+      </ol>
+      <br>
+      <h3 class="topico">Resumo</h3>
+      <p>Esses ambientes online são ideais para testar rapidamente trechos de código,
+        aprender Python sem instalar nada, ou quando você está em um computador que não permite instalações.</p>
+      <p>Escolha o ambiente que melhor se adapta às suas necessidades e comece a programar em Python!</p>
+    </section>
+  </main>
+
+  <!-- Scripts de cotrole d(e) interação, sidebar e navegação da aula -->
+  <script src="aula.js"></script>
+</body>
+</html>

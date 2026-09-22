@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Curso: LP Aula05</title>
+  <!-- Google Fonts + Material Icons + estilos locais -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira+Stencil+One&family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <link rel="stylesheet" href="./aula.css">
+</head>
+<body>
+  <!-- Camada de cabecalho -->
+  <div class="logo">
+    <button class="escola" onclick="window.location.assign('index.html')">
+      MENU DE AULAS
+    </button>
+    <img src="imagens/eu_pixar3d_dir.png" class="icone">
+  </div>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <br>
+    <div id="btn_menu">
+      <button class="escola">
+        TOPICOS
+      </button>
+    </div>
+    <!-- Conteúdo da sidebar -->
+    <div id="menu">
+      <ul>
+      <li><a href="#funcoes" class="itemMenu">
+        <span>Funções</span></a></li>
+      <li><a href="#parametros" class="itemMenu">
+        <span>Parâmetros e Argumentos</span></a></li>
+      <li><a href="#return" class="itemMenu">
+        <span>Retornos</span></a></li>
+      <li><a href="#escopos" class="itemMenu">
+        <span>Escopo de Variáveis</span></a></li>
+      <li><a href="#praticas" class="itemMenu">
+        <span>Práticas Recomendadas</span></a></li>
+      <li><a href="#resumo" class="itemMenu">
+        <span>Resumo da Aula</span></a></li>
+    </ul>
+  </nav>
+
+  <!-- Cabeçalho da aula -->
+  <header>
+    <h3 class="escola">Curso: Lógica de Programação Usando Linguagem Python</h3>
+    <h1>Aula 06:<br>Funções em Python</h1>
+    <p class="subtitle">Conceito, Aplicação e Escopos</p>
+  </header>
+
+  <!--------------------------- Conteúdo da aula ------------------------------->
+  <main>
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="funcoes">
+      <h2 class="escola">Funções em Python</h2>  
+      <div class="duas_colunas">
+        <div class="coluna">
+          <h3 class="topico">O Que é uma Função?</h3>
+          <p>Na linguagem Python, uma função é um bloco de código reutilizável que realiza 
+            uma tarefa específica. As funções permitem organizar o código em partes menores 
+            e mais gerenciáveis, facilitando a manutenção e o desenvolvimento de programas.</p>
+        </div>
+        <div class="coluna">
+          <img src="./imagens/funcao.png" style="width: 200px;">
+        </div>
+      </div>
+      <div class="exemplo">
+        <h3 class="topico">Sintaxe</h3>                 
+        <div class="codigo">
+          <pre>
+# para criar uma função, usamos a palavra reservada "def" 
+# seguida do nome da função e parênteses
+
+def nome_da_funcao( ):
+    # corpo da função
+    # aqui entramos o código que será executado quando a função for chamada
+
+# para chamar a função, usamos o nome da função seguido de parênteses
+nome_da_funcao()
+          </pre>
+        </div>
+      </div>
+      <br>
+      <div class="exemplo">
+        <h3 class="topico">Exemplo</h3>                 
+        <div class="codigo">
+          <pre>
+# Definindo a função
+def saudacao( ):
+    print("Bem-vindo ao curso de Python!")
+    print("Vamos aprender sobre funções!")
+
+# Chamando a função
+saudacao( )
+          </pre>
+        </div>
+      </div>
+      <br>        
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex01">
+      <h2 class="atividade">Exercício 1</h2>
+      <p>Crie uma função chamada "apresentacao" que
+        imprima seu nome, idade e cidade onde mora.</p>
+      <br>  
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+# Definindo a função
+def apresentacao():
+    print("Meu nome é Fulano de Tal!")
+    print("Tenho 20 anos!")
+    print("Moro em Xique-Xique!")
+
+# Chamando a função
+apresentacao()
+          </pre>
+        </div>
+      </div>
+      <br>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="parametros">
+      <h2 class="escola">Parâmetros e Argumentos</h2>
+      <h3 class="topico">Criando funções mais complexas</h3>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <h3 class="topico">Definição</h3>
+          <p><strong>Parâmetros</strong> são variáveis listadas na definição da
+            função, enquanto <strong>argumentos</strong> são os valores passados 
+            para a função quando ela é chamada.</p>
+          <p>Imagine os parâmetros como "caixas" que recebem valores,
+            enquanto argumentos são os valores colocados nessas caixas.</p>
+        </div>
+                    <img src="./imagens/parametros.jpg" style="width: 400px;">
+                </div>
+      </div>      
+      <br>
+      <div class="exemplo">
+          <h3 class="topico">Exemplos</h3>
+          <div class="codigo">
+              <pre>
+# --- Exemplo com um parâmetro:
+
+def saudar_pessoa(nome):
+    print(f"Olá, {nome}! Seja bem-vindo!")
+
+
+saudar_pessoa("João") # "João" é o argumento
+
+
+# --- Exemplo com múltiplos parâmetros:
+
+def calcular_soma(a, b):
+    resultado = a + b
+    print(f"A soma de {a} + {b} = {resultado}")
+
+calcular_soma(5, 3)
+
+# --- Exemplo com parâmetros com valores padrão:
+
+def saudar(nome, saudacao="Olá"):
+    print(f"{saudacao}, {nome}!")
+
+saudar("Maria") # Usa o valor padrão
+saudar("Pedro", "Bom dia") # Substitui o valor padrão
+              </pre>
+          </div>
+      </div>
+      <br>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex02">
+      <h2 class="atividade">Exercício 2</h2>
+      <p>Crie uma função chamada "calcular_media" que receba três notas 
+        como parâmetros e imprima a média aritmética dessas notas.</p>
+      <br>
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+# Definindo a função
+def calcular_media(nota1, nota2, nota3):
+    media = (nota1 + nota2 + nota3) / 3
+    print(f"A média é: {media}")
+
+# Chamando a função
+calcular_media(7, 8, 9)
+          </pre>
+        </div>
+      </div>
+      <br>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="return">
+      <h2 class="escola">Return</h2>
+      <h3>Retorno de Valores</h3>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <h3 class="topico">Definição</h3>
+          <p>A instrução <strong>return</strong> permite que uma função
+            devolva um valor ao código que a chamou. Isso torna as
+            funções muito mais úteis e versáteis.</p>
+        </div>
+        <div class="coluna">
+          <img src="./imagens/consultar.png" style="width: 200px;">
+        </div>
+      </div>      
+      <div class="exemplo">
+          <h3 class="topico">Exemplos</h3>                 
+          <div class="codigo">
+              <pre>
+# --- Retornando um único valor:
+
+def somar(a, b):
+    return a + b
+
+resultado = somar(10, 5)
+print(f"O resultado é: {resultado}")
+
+# --- Retornando múltiplos valores:
+
+def operacoes(a, b):
+    soma = a + b
+    subtracao = a - b
+    multiplicacao = a * b
+    return soma, subtracao, multiplicacao
+
+resultado1, resultado2, resultado3 = operacoes(10, 5)
+print(f"Soma: {resultado1}, Subtração: {resultado2}, Multiplicação: {resultado3}")
+              </pre>
+          </div>
+      </div>
+      <br>
+      <div class="destaque">
+          <h3>Importante:</h3>
+          <p>Para retornar um valor, a função precisa ter um return.</p>
+          <p>Após o return, a função é encerrada.</p>
+          <p>Se a função não tiver um return, ela retornará "None"
+              automaticamente por padrão.</p>
+      </div>
+      <br>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex03">
+      <h2 class="atividade">Exercício 3</h2>
+      <p>Crie uma função chamada "converter_temperatura" que receba uma 
+        temperatura em Celsius e retorne o valor em Fahrenheit.<br>
+        Fórmula: F = (C × 1.8) + 32</p>
+      <br>            
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+# Definindo a função
+def converter_temperatura(celsius):
+    fahrenheit = celsius * 1.8 + 32
+    return fahrenheit
+
+# Chamando a função
+resultado = converter_temperatura(25)
+print(f"A temperatura em Fahrenheit é: {resultado}")
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="escopos">  
+      <h2 class="escola">Escopo de Variáveis</h2>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <h3 class="topico">Definição</h3>
+            <p>O escopo determina onde uma variável pode ser acessada no código.
+              Variáveis definidas dentro de uma função não podem ser acessadas
+              fora dela.</p>
+        </div>
+        <div class="coluna">
+          <img src="./imagens/escopo.jpg" style="width: 200px;">
+        </div>
+      </div>
+      <h3 class="topico">Escopo LOCAL</h3>
+      <p>Variáveis definidas dentro de uma função só existem dentro dela.</p> 
+      <br>
+      <div class="exemplo">
+          <h3 class="topico">Exemplo</h3>                 
+          <div class="codigo">
+              <pre>
+def minha_funcao():
+    variavel_local = 10     # Só existe dentro da função
+    print(variavel_local)   # Isso funciona!
+
+minha_funcao()
+print(variavel_local) # Isso causaria um erro!
+              </pre>
+          </div>
+      </div>
+      <br>
+      <h3 class="topico">Escopo GLOBAL</h3>
+      <p>Variáveis definidas fora de uma função existem em todo o programa.</p> 
+      <br>
+      <div class="exemplo">
+          <h3 class="topico">Exemplo</h3>                 
+          <div class="codigo">
+              <pre>
+variavel_global = 20
+
+def mostrar_global():
+    print(variavel_global) # Isso funciona. Acessa a variável global.
+
+mostrar_global()
+print(variavel_global) # Isso também funciona. 
+              </pre>
+          </div>
+      </div>
+      <br>
+      <h3 class="topico">Modificando variáveis globais:</h3>
+      <p>Para modificar uma variável global dentro de uma função, use 
+          <strong>global</strong>.</p>
+      <br>
+      <div class="exemplo">
+          <h3 class="topico">Exemplo</h3>                 
+          <div class="codigo">
+              <pre>
+contador = 0
+
+def incrementar( ):
+    global contador
+    contador += 1
+    print(f"Contador: {contador}")
+
+incrementar( )
+incrementar( ) 
+              </pre>
+          </div>
+      </div>
+      <div class="destaque">
+          <h3>Boa prática:</h3>
+          <p>Evite usar variáveis globais quando possível. Prefira passar 
+              valores como parâmetros e retornar resultados.</p>
+          <p>Variáveis globais são desaconselháveis em funções Python porque 
+              tornam o código menos seguro, difícil de depurar e de reutilizar, 
+              aumentando o risco de conflitos de nome e alterações acidentais 
+              que podem gerar bugs, afetando a modularidade e a manutenção do 
+              programa./p>
+      </div>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex04">
+      <h2 class="atividade">Exercício 4</h2>
+      <p>Crie um programa com uma variável global saldo = 1000. Crie duas funções:
+        <strong>depositar</strong> e <strong>sacar</strong>.</p>
+      <ul>
+          <li>depositar(valor): adiciona o valor ao saldo</li>
+          <li>sacar(valor): subtrai o valor do saldo se houver saldo suficiente</li>
+      </ul>
+      <br>            
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+# Definindo a variável global
+saldo = 1000
+
+# Definindo as funções
+def depositar(valor):
+    global saldo
+    saldo += valor
+
+def sacar(valor):
+    global saldo
+    if valor &lt;= saldo:
+        saldo -= valor
+    else:
+        print("Saldo insuficiente!")
+
+# Chamando as funções
+depositar(500)
+sacar(200)
+print(f"Saldo atual: {saldo}")
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="sets">
+      <h2 class="escola">Funções Lambda</h2>   
+      <div class="duas_colunas">
+        <div class="coluna">
+          <h3 class="topico">Definição</h3>
+          <p>Funções lambda, ou funções anônimas, são funções definidas sem
+            um nome. Elas são úteis para operações simples e podem ser
+            criadas em uma única linha.</p>
+        </div>
+        <div class="coluna">
+          <img src="./imagens/lambda.png" style="width: 200px;">
+        </div>
+      </div>        
+      <h3 class="topico">Características Principais</h3>
+      <ul>
+        <li>Sintaxe concisa: Permitem definir funções simples em uma única linha.</li>
+        <li>Funções anônimas: Não possuem um nome específico.</li>
+        <li>Limitações: São adequadas apenas para operações simples.</li>
+        <li>Uso comum: frequentemente utilizadas com funções como `map()`, `filter()` e `reduce()`.</li>
+      </ul>
+      <br>
+      <div class="exemplo">
+          <h3>Sintaxe:</h3>                 
+          <div class="codigo">
+              <pre>
+lambda argumentos: expressão
+              </pre>
+          </div>
+      </div>
+      <br>
+      <div class="exemplo">
+          <h3 class="topico">Exemplo</h3>                 
+          <div class="codigo">
+              <pre>
+# Função tradicional
+def quadrado(x):
+    return x ** 2
+
+# Função lambda equivalente
+quadrado_lambda = lambda x: x ** 2
+
+print(quadrado(5))
+print(quadrado_lambda(5))
+              </pre>
+          </div>
+      </div>
+      <br>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex05">
+      <h2 class="atividade">Exercício 5</h2>
+      <p>Crie uma função lambda que receba dois números
+        e retorne o maior deles. Teste com os valores 15 e 23.</p>
+      <br>            
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+# Função lambda para encontrar o maior número
+maior = lambda a, b: a if a > b else b
+
+# Chamando a função lambda
+resultado = maior(15, 23)
+print(f"O maior número entre 15 e 23 é: {resultado}")
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="praticas">
+      <h2 class="escola">Boas Práticas</h2>
+      <h3 class="topico">1.Use nomes descritivos:</h3>
+      <p>Nomes que identificam facilmente o que a função faz facilitam a
+        compreensão do código.</p>
+      <div class="exemplo">
+        <h3>Exemplo:</h3>                 
+        <div class="codigo">
+            <pre>
+# Ruim
+
+def ornitorrinco(x, y):
+    return x + y
+
+# Bom
+
+def calcular_soma(numero1, numero2):
+return numero1 + numero2
+            </pre>
+        </div>
+      </div>
+      <br>
+      <h3 class="topico">2. Funções devem fazer apenas uma coisa:</h3>
+      <p>Uma função deve ter uma única responsabilidade, facilitando a
+        manutenção e o entendimento do código.</p>
+      <div class="exemplo">
+        <h3>Exemplo:</h3>                 
+        <div class="codigo">
+            <pre>
+# Ruim - faz múltiplas coisas
+
+def processar_dados(dados):
+    # Bloco de código que valida dados, 
+    # transforma, salva e envia email.
+
+
+# Bom - separe em funções específicas
+
+def validar_dados(dados):
+    # validação
+    pass
+
+def transformar_dados(dados):
+    # transformação
+    pass
+
+def salvar_dados(dados):
+    # salvamento
+    pass
+
+def enviar_email(dados):
+    # envio de email
+    pass
+            </pre>
+        </div>
+      </div>
+      <br>
+      <h3 class="topico">3. Use docstrings para documentar:</h3>
+      <p>Uma boa prática para documentar funções, classes e módulos 
+          é utilizar docstrings.</p>
+      <div class="exemplo">
+        <h3>Exemplo:</h3>                 
+        <div class="codigo">
+            <pre>
+def calcular_area_retangulo(largura, altura):
+    """
+    Calcula a área de um retângulo.
+    Args:
+        largura (float): A largura do retângulo
+        altura (float): A altura do retângulo
+    Returns:
+        float: A área do retângulo
+    """
+    return largura * altura
+
+# Exibe a documentação formatada da função 
+help(calcular_area_retangulo)
+
+# Imprime apenas o texto da docstring da função
+print(calcular_area_retangulo.__doc__)
+            </pre>
+        </div>
+      </div>
+      <br>
+      <h3 class="topico">4. Evite efeitos colaterais não intencionais:</h3>
+      <p>Uma boa prática para evitar efeitos colaterais não intencionais é
+        utilizar parâmetros de entrada e saída claros e evitar modificar
+        variáveis globais.</p>
+      <div class="exemplo">
+        <h3>Exemplo:</h3>                 
+        <div class="codigo">
+            <pre>
+# Ruim - modifica lista original
+
+def adicionar_item(lista, item):
+    lista.append(item)
+    return lista
+
+# Bom - retorna nova lista
+
+def adicionar_item(lista, item):
+    nova_lista = lista.copy()
+    nova_lista.append(item)
+    return nova_lista
+            </pre>
+        </div>
+      </div>
+      <br>   
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex06">
+      <h2 class="atividade">Exercício 6</h2>
+      <p>Refatore a seguinte função aplicando as boas práticas aprendidas:</p>       
+      <div class="codigo">
+          <pre>
+def f(a, b, c):
+    x = a + b
+    y = x * c
+    print(y)
+    return y
+          </pre>
+      </div>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex07">
+      <h2 class="atividade">Exercício 7</h2>
+      <p>Crie uma função validar_senha(senha) 
+        que retorne True se a senha atender a todos os critérios:</p>
+          <ul>
+              <li> Mínimo de 8 caracteres</li>
+              <li> Pelo menos uma letra maiúscula</li>
+              <li> Pelo menos uma letra minúscula</li>
+              <li> Pelo menos um número</li>
+              <li> Pelo menos um caractere especial (!@#$%&*)</li>
+          </ul>
+      <div class="destaque">
+          <p>Dica: Tente usar novas funções de manipulação de strings
+            como any(), isupper(), islower() e isdigit() em sua resposta.</p>
+      </div>  
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+def validar_senha(senha):
+    tamanhoMinimo = False
+    peloMenosUmaMaiuscula = False
+    peloMenosUmaMinuscula = False
+    peloMenosUmNumero = False
+    peloMenosUmEspecial = False
+
+    if len(senha) >= 8:
+        tamanhoMinimo = True
+
+    for letra in senha:
+        #teste de maiuscula
+        if letra.isupper():
+            peloMenosUmaMaiuscula = True
+        #teste de minuscula
+        if letra.islower():
+            peloMenosUmaMinuscula = True
+        #teste de numero
+        if letra.isdigit():
+            peloMenosUmNumero = True
+        #teste de especial
+        if letra in "!@#$%&*":
+            peloMenosUmEspecial = True
+
+    if tamanhoMinimo and peloMenosUmaMaiuscula and \
+       peloMenosUmaMinuscula and peloMenosUmNumero and \
+       peloMenosUmEspecial:
+        return True
+    return False
+
+print(validar_senha("Senha123!"))
+print(validar_senha("senha123"))
+print(validar_senha("SENHA123"))
+print(validar_senha("Senha!"))
+print(validar_senha("Senha123"))
+print(validar_senha("Senha1234"))
+print(validar_senha("Senha!@#"))
+print(validar_senha("Senha123!@#"))
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex07">
+      <h2 class="atividade">DESAFIO</h2>
+      <p>Crie uma alicação com as seguintes funções:</p>
+      <ol>
+          <li> Criar uma lista de vendas vazia</li>
+          <li> Criar uma função para registrar uma venda</li>
+          <li> Criar uma função para calcular o total de vendas</li>
+          <li> Criar uma função para calcular o produto mais vendido</li>
+          <li> Criar uma função para gerar um relatório formatado
+              com as seguintes informações:
+              <ul>
+                  <li> Total de vendas realizadas</li>
+                  <li> Valor total arrecadado</li>
+                  <li> Produto mais vendido</li>
+                  <li> Ticket médio (valor total / número de vendas)</li>
+              </ul>
+          </li>
+      </ol>
+      <p>Estrutura de dados sugerida:</p>
+      <pre>
+vendas = [ ]
+
+# Cada venda é um dicionário: {'produto': str, 'quantidade': int, 'preco': float}
+      </pre>
+      <br>
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+# --- Dados de vendas
+
+vendas = []
+
+# --- Funções
+
+def registrar_venda(produto, quantidade, preco):
+    venda = {'produto': produto, 'quantidade': quantidade, 'preco': preco}
+    vendas.append(venda)
+
+def calcular_total_vendas():
+    total = 0
+    for venda in vendas:
+        total += venda['quantidade'] * venda['preco']
+    return total
+
+def calcular_produto_mais_vendido():
+    mais_vendido = None
+    maior_quantidade = 0
+    for venda in vendas:
+        if venda['quantidade'] > maior_quantidade:
+            mais_vendido = venda['produto']
+            maior_quantidade = venda['quantidade']  
+    return mais_vendido
+
+def gerar_relatorio():
+    total_vendas = calcular_total_vendas()
+    produto_mais_vendido = calcular_produto_mais_vendido()
+    ticket_medio = total_vendas / len(vendas)
+    relatorio = f"Total de vendas: {total_vendas}\n"
+    relatorio += f"Produto mais vendido: {produto_mais_vendido}\n"
+    relatorio += f"Ticket médio: {ticket_medio:.2f}"
+    return relatorio
+
+# --- Exemplo de uso
+
+registrar_venda("Produto A", 3, 10.0)
+registrar_venda("Produto B", 5, 20.0)
+registrar_venda("Produto A", 2, 10.0)
+
+print(gerar_relatorio())
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resumo da Aula ------------------------------------ -->
+    <section class="teoria" id="resumo">
+      <h1 class="escola">Resumo da Aula</h1>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <h2 class="topico">O que Aprendemos?</h2>
+          <ul>
+                  <li>Criação, Parâmetros, Argumentos e Retornos de funções</li>
+                  <li>Funções Lambda (Anônimas)</li>
+                  <li>Escopos e Boas Práticas</li>
+          </ul>
+        </div>
+        <div class="coluna">
+          <img src="imagens/aprendendo.png" width="100%" alt="Resumo da Aula">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts de cotrole d(e) interação, sidebar e navegação da aula -->
+  <script src="aula.js"></script>
+</body>
+</html>

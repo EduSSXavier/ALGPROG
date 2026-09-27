@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Curso: LP Aula07</title>
+  <!-- Google Fonts + Material Icons + estilos locais -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira+Stencil+One&family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <link rel="stylesheet" href="./aula.css">
+</head>
+<body>
+  <!-- Camada de cabecalho -->
+  <div class="logo">
+    <button class="escola" onclick="window.location.assign('index.html')">
+      MENU DE AULAS
+    </button>
+    <img src="imagens/eu_pixar3d_dir.png" class="icone">
+  </div>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <br>
+    <div id="btn_menu">
+      <button class="escola">
+        TOPICOS
+      </button>
+    </div>
+    <!-- Conteúdo da sidebar -->
+    <div id="menu">
+      <ul>
+      <li><a href="#introd" class="itemMenu">
+        <span>Introdução</span></a></li>
+      <li><a href="#pfunxpoo" class="itemMenu">
+        <span>Prog. Funcional X POO</span></a></li>
+      <li><a href="#classes" class="itemMenu">
+        <span>Classes</span></a></li>
+      <li><a href="#atribmet" class="itemMenu">
+        <span>Atributos e Métodos</span></a></li>
+      <li><a href="#construt" class="itemMenu">
+        <span>Construtores</span></a></li>
+      <li><a href="#projeto" class="itemMenu">
+        <span>Projeto</span></a></li>
+      <li><a href="#resumo" class="itemMenu">
+        <span>Resumo da Aula</span></a></li>
+    </ul>
+  </nav>
+
+  <!-- Cabeçalho da aula -->
+  <header>
+    <h3 class="escola">Curso: Lógica de Programação Usando Linguagem Python</h3>
+    <h1>Aula 07:<br>Programação Orientada a Objetos (Parte 1)</h1>
+    <p class="subtitle">Conceitos fundamentais</p>
+  </header>
+
+  <!--------------------------- Conteúdo da aula ------------------------------->
+  <main>
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="introd">
+      <h2 class="escola">Introdução</h2>
+      <h3 class="topico">O que é um "Paradigma de Programação"?</h3>
+      <p>Paradigma significa um modelo, um padrão, um exemplo ou uma estrutura teórica que 
+        serve de referência e estabelece os limites de como algo é compreendido ou feito.</p>
+      <p>Um <strong>paradigma de programação</strong> é um estilo ou abordagem para estruturar 
+        e organizar o código de um programa. Cada paradigma tem suas próprias regras e princípios 
+        que orientam a forma como os programadores pensam e escrevem o código.</p>
+      <img src="./imagens/paradigma.jpg" style="width: 50%;">
+      <p>A escolha do paradigma impacta a eficiência, legibilidade e manutenibilidade do código.</p>
+      <br>
+      <h3 class="topico">O Paradigma de Programação Orientada a Objetos</h3>
+      <p>O paradigma de programação orientada a objetos (POO) é um estilo de programação que 
+        organiza o código em torno de "objetos", que são instâncias de "classes".</p>
+      <p>Uma <strong>CLASSE</strong> é como um molde ou uma planta que define as características 
+        e comportamentos de um tipo específico de objeto. Ela descreve os atributos (dados) e 
+        métodos (funções) que os objetos dessa classe terão.</p>
+      <p>Um <strong>OBJETO</strong> é uma instância concreta de uma classe. Ele possui seus 
+        próprios valores para os atributos definidos na classe e pode executar os métodos da 
+        classe.</p>
+      <p><strong>ATRIBUTOS</strong> são as características ou propriedades de um objeto (ex: 
+        cor, tamanho, nome).</p>
+      <p><strong>MÉTODOS</strong> são as ações ou comportamentos que um objeto pode realizar 
+        (ex: andar, calcular, exibir).</p>
+      <div class="exemplo">
+          <h3 class="topico">Exemplo</h3>                 
+          <div class="codigo">
+              <pre>
+# Classe Cachorro - o molde
+
+class Cachorro:
+    def __init__(self, nome_cachorro, raca_cachorro):
+        self.nome = nome_cachorro
+        self.raca = raca_cachorro
+    def latir(self):
+        return f"{self.nome} diz: Au au!"
+
+# Objetos - cachorros específicos criados a partir do molde
+
+rex = Cachorro("Rex", "Labrador")
+bob = Cachorro("Bob", "Poodle")
+print(rex.latir()) # Rex diz: Au au!
+print(bob.latir()) # Bob diz: Au au!
+              </pre>
+          </div>
+      </div>
+      <br>
+      <p>O paradigma de programação orientada a objetos promove a modularidade, reutilização 
+        de código e encapsulamento, tornando o desenvolvimento de software mais organizado e 
+        eficiente.</p>
+      <br>        
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="pfunxpoo">
+      <h2 class="escola">Programação Funcional versus Orientada a Objetos</h2>
+      <h3 class="topico">Programação Funcional</h3>
+      <p>Na programação funcional, o foco está em funções puras que recebem entradas e 
+        produzem saídas sem alterar o estado do programa. O código é estruturado em torno 
+        de funções e a ênfase está na transformação de dados.</p>
+      <div class="exemplo">
+          <h3 class="topico">Exemplo</h3>                 
+          <div class="codigo">
+              <pre>
+# Exemplo Funcional
+
+def calcular_area_retangulo(largura, altura):
+    return largura * altura
+
+def calcular_perimetro_retangulo(largura, altura):
+    return 2 * (largura + altura)
+
+# Dados separados das funções
+
+largura = 5
+altura = 3
+area = calcular_area_retangulo(largura, altura)
+perimetro = calcular_perimetro_retangulo(largura, altura)
+              </pre>
+          </div>
+      </div>
+      <br>
+      <h3 class="topico">Programação Orientada a Objetos</h3>
+      <p>Na programação orientada a objetos, o foco está em objetos que possuem atributos 
+        e métodos. O código é estruturado em torno de classes e objetos, permitindo uma 
+        modelagem mais próxima da realidade.</p>
+      <img src="./imagens/poo1.png" style="width: 30%;">
+      <div class="exemplo">
+          <h3 class="topico">Exemplo</h3>                 
+          <div class="codigo">  
+              <pre>
+# Exemplo Orientado a Objetos
+
+class Retangulo:
+    def __init__(self, largura, altura):
+        self.largura = largura
+        self.altura = altura
+
+    def calcular_area(self):
+        return self.largura * self.altura
+
+    def calcular_perimetro(self):   
+        return 2 * (self.largura + self.altura)
+
+# Criando um objeto Retangulo
+
+retangulo = Retangulo(5, 3)
+area = retangulo.calcular_area()
+perimetro = retangulo.calcular_perimetro()
+              </pre>
+          </div>
+      </div>
+      <br>
+      
+      <br>
+      <h3 class="escola">Comparação</h3>
+      <table>
+        <tr>
+          <th>Aspecto</th>
+          <th>Programação Funcional</th>
+          <th>Programação Orientada a Objetos</th>
+        </tr>
+        <tr>
+          <td>Organização</td>
+          <td>Funções separadas</td>
+          <td>Dados + Métodos juntos</td>
+        </tr>
+        <tr>
+          <td>Reutilização</td>
+          <td>Funções reutilizáveis</td>
+          <td>Classes reutilizáveis</td>
+        </tr>
+        <tr>
+          <td>Adequação</td>
+          <td>Tarefas específicas</td>
+          <td>Sistemas complexos</td>
+        </tr>
+      </table>
+      
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="classes">
+      <h2 class="escola">Criando Classes e Instâncias</h2>
+      <p>Uma classe é definida usando a palavra-chave class , seguida do nome 
+        da classe (sempre iniciando com letra maiúscula, por convenção).</p>
+      <div class="exemplo">
+          <h3 class="topico">Exemplo</h3>                 
+          <div class="codigo">
+              <pre>
+# Definindo uma classe
+
+class Carro:
+    pass # pass indica que a classe está vazia por enquanto
+
+# Criando instâncias (objetos) da classe
+
+Ferrari = Carro()
+Fiat_Uno = Carro()
+print(type(Ferrari))
+print(Ferrari == Fiat_Uno) # False - são objetos diferentes
+              </pre>
+      </div>
+      <br>
+      <div class="exemplo">
+          <h3 class="topico">Exemplo com atributos</h3>                 
+          <div class="codigo">  
+              <pre>
+# Definindo uma classe
+
+class Pessoa:
+    especie = "Homo sapiens" # Este atributo é compartilhado por 
+                             # todas as instâncias da classe
+
+# Criando instâncias
+
+pessoa1 = Pessoa()
+pessoa2 = Pessoa()
+print(pessoa1.especie) # Homo sapiens
+print(pessoa2.especie) # Homo sapiens
+              </pre>
+          </div>
+      </div>
+      <br>
+      <div class="exemplo">
+          <h3 class="topico">Exemplo com método construtor</h3>                 
+          <div class="codigo">  
+              <pre>
+# Definindo uma classe
+
+class Animal:
+    def __init__(self, nome, especie):
+        self.nome = nome
+        self.especie = especie
+
+# Criando instâncias
+
+animal1 = Animal("Buddy", "Cachorro")
+animal2 = Animal("Whiskers", "Gato")
+print(animal1.nome) # Buddy
+print(animal1.especie) # Cachorro
+print(animal2.nome) # Whiskers
+print(animal2.especie) # Gato
+              </pre>
+          </div>
+      </div>
+      <br>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex03">
+      <h2 class="atividade">Exercício 1</h2>
+      <p>Crie uma classe chamada Livro vazia (use "pass") e crie 
+        duas instâncias dessa classe chamadas livro1 e livro2.</p>
+      <br>
+      <h2 class="atividade">Exercício 2</h2>
+      <p>Crie uma classe ContaBancaria com um atributo de classe 
+        chamado "banco" com o valor "Banco Python". Crie uma instância 
+        e imprima o nome do banco.</p>
+      <br>
+      <h2 class="atividade">Exercício 3</h2>
+      <p>Crie três instâncias da classe Livro do exercício 1 e verifique 
+        se elas são objetos diferentes usando o operador "==".</p>
+      <br>
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+# Exercício 1
+class Livro:
+    pass
+
+# Criando instâncias
+livro1 = Livro()
+livro2 = Livro()
+
+# Exercício 2
+class ContaBancaria:
+    banco = "Banco Python"
+
+# Criando instância
+conta = ContaBancaria()
+print(conta.banco) # Banco Python
+
+# Exercício 3
+livro3 = Livro()
+
+# Verificando se são objetos diferentes
+print(livro1 == livro2) # False
+print(livro1 == livro3) # False
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="atribmet">  
+      <h2 class="escola">Atributos e Métodos</h2>
+      <h3 class="topico">Atributos</h3>
+      <p>Atributos são variáveis que pertencem a um objeto. Existem dois tipos:</p>
+      <ul>
+        <li><strong>Atributos de instância:</strong> Específicos de cada objeto, definidos 
+          dentro do método construtor <code>__init__</code>.</li>
+        <li><strong>Atributos de classe:</strong> Compartilhados por todos os objetos da 
+          classe, definidos diretamente na classe.</li>
+      </ul>
+      <br>
+      <h3 class="topico">Métodos</h3>
+      <p>Métodos são funções que pertencem a um objeto. Existem dois tipos:</p>
+      <ul>
+        <li><strong>Métodos de instância:</strong> Operam nos atributos de instância 
+          e são chamados em objetos específicos.</li>
+        <li><strong>Métodos de classe:</strong> Operam nos atributos de classe e são 
+          chamados na própria classe.</li>
+      </ul>
+      <br>
+      <div class="exemplo">
+          <h3 class="topico">Exemplo</h3>                 
+          <div class="codigo">
+              <pre>
+# Definindo uma classe Computador com atributos e métodos
+
+class Computador:
+    # Atributo de classe
+    tipo = "Desktop"
+
+    # Atributo de instância
+    def __init__(self, marca, processador, ram):
+        self.marca = marca
+        self.processador = processador
+        self.ram = ram
+
+    # Método de classe
+    @classmethod
+    def mostrar_tipo(cls):
+        return cls.tipo
+    
+    # Método de instância
+    def alterar_atributos(self, marca, processador, ram):
+        # Atributos de instância
+        self.marca = marca
+        self.processador = processador
+        self.ram = ram
+
+# Criando instâncias
+pc1 = Computador("Dell", "Intel i5", 8)
+pc2 = Computador("HP", "AMD Ryzen 5", 16)
+
+print(pc1.marca) # Dell
+print(pc2.processador) # AMD Ryzen 5
+print(pc1.mostrar_tipo()) # Desktop
+print(pc2.mostrar_tipo()) # Desktop
+print(Computador.mostrar_tipo()) # Desktop
+
+pc1.alterar_atributos("Lenovo", "Intel i7", 16)
+print(pc1.marca) # Lenovo
+pc2.alterar_atributos("Asus", "AMD Ryzen 7", 32)
+print(pc2.processador) # AMD Ryzen 7
+              </pre>
+          </div>
+      </div>
+      <br>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex04">
+      <h2 class="atividade">Exercício 4</h2>
+      <p>Crie uma classe Circulo com um atributo raio . Adicione métodos para 
+        calcular a área (π × raio²) e o perímetro (2 × π × raio). Considere 3.14 para π.</p>
+      <br>
+      <h2 class="atividade">Exercício 5</h2>
+      <p>Crie uma classe ContadorDePalavras com um método contar que recebe uma frase e 
+        retorna o número de palavras nela.</p>
+      <br>
+      <h2 class="atividade">Exercício 6</h2>
+      <p>Crie uma classe chamada Pessoa com os seguintes atributos de instância: nome, 
+        ano de nascimento e altura. Adicione um método chamado calcular_idade que retorna a idade 
+        da pessoa em anos.</p>
+      <br>            
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+# Exercício 4
+class Circulo:
+    def __init__(self, raio):
+        self.raio = raio
+        self.pi = 3.14
+
+    def calcular_area(self):
+        return self.pi * self.raio ** 2
+
+    def calcular_perimetro(self):
+        return 2 * self.pi * self.raio
+
+# Criando uma instância e executando os métodos
+circulo1 = Circulo(5)
+print(f"Área: {circulo1.calcular_area()}")
+print(f"Perímetro: {circulo1.calcular_perimetro()}")
+
+# Exercício 5
+class ContadorDePalavras:
+    def contar(self, frase):
+        palavras = frase.split()
+        return len(palavras)
+
+# Criando uma instância e executando o método
+contador = ContadorDePalavras()
+frase = "Esta é uma frase de exemplo."
+print(f"Número de palavras: {contador.contar(frase)}")
+
+# Exercício 6
+class Pessoa:
+    def __init__(self, nome, ano_nascimento, altura):
+        self.nome = nome
+        self.ano_nascimento = ano_nascimento
+        self.altura = altura
+
+    def calcular_idade(self):
+        return 2026 - self.ano_nascimento
+
+# Criando uma instância e executando o método
+pessoa1 = Pessoa("Alice", 1993, 1.65)
+print(f"Idade de {pessoa1.nome}: {pessoa1.calcular_idade()} anos")
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="construt">
+      <h2 class="escola">Construtor "__init__"</h2>   
+      <h3 class="topico">Método Construtor</h3>
+      <p>O método <code>__init__</code> é um método especial em Python que é chamado 
+        automaticamente quando uma nova instância de uma classe é criada. Ele é usado 
+        para inicializar os atributos do objeto com valores específicos.</p>
+      <p>O método <code>__init__</code> é definido dentro da classe e recebe o parâmetro 
+        <code>self</code>, que representa a instância atual do objeto. Além de 
+        <code>self</code>, você pode adicionar outros parâmetros para passar valores ao 
+        criar a instância.</p>
+      <p>Dentro do método <code>__init__</code>, você pode atribuir valores aos atributos 
+        do objeto usando a sintaxe <code>self.atributo = valor </code>. Isso permite que 
+        cada instância da classe tenha seus próprios valores para os atributos.</p>
+      <p>O método <code>__init__</code> é uma parte fundamental da programação orientada a 
+        objetos em Python, permitindo que você configure e personalize objetos de acordo 
+        com suas necessidades ao criá-los.</p>
+      <br>
+      <div class="exemplo">
+          <h3>Exemplo completo</h3>                 
+          <div class="codigo">
+              <pre>
+class Estudante:
+    def __init__(self, nome, matricula, curso):
+        self.nome = nome
+        self.matricula = matricula
+        self.curso = curso
+        self.notas = [] # Inicializa com lista vazia
+    def adicionar_nota(self, nota):
+        self.notas.append(nota)
+    def calcular_media(self):
+        if len(self.notas) == 0:
+            return 0
+        return sum(self.notas) / len(self.notas)
+    def exibir_info(self):
+        print(f"Estudante: {self.nome}")
+        print(f"Matrícula: {self.matricula}")
+        print(f"Curso: {self.curso}")
+        print(f"Média: {self.calcular_media():.2f}")
+
+# Criando estudantes
+
+aluno1 = Estudante("Maria Silva", "2023001", "Engenharia")
+aluno1.adicionar_nota(8.5)
+aluno1.adicionar_nota(9.0)
+aluno1.adicionar_nota(7.5)
+aluno1.exibir_info()
+              </pre>
+          </div>
+      </div>
+      <br>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex07">
+      <h2 class="atividade">Exercício 7</h2>
+      <p>Crie uma classe ContaBancaria com um construtor que recebe o nome do
+       titular e o saldo inicial (padrão 0). Adicione métodos depositar e sacar .</p>
+      <br>
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+# Criando a classe ContaBancaria
+
+class ContaBancaria:
+    def __init__(self, titular, saldo_inicial=0):
+        self.titular = titular
+        self.saldo = saldo_inicial
+
+    def depositar(self, valor):
+        self.saldo += valor
+
+    def sacar(self, valor):
+        if valor <= self.saldo:
+            self.saldo -= valor
+        else:
+            print("Saldo insuficiente.")
+
+# Criando uma instância da conta
+
+conta1 = ContaBancaria("João", 1000)
+conta1.depositar(500)
+conta1.sacar(200)
+print(f"Titular: {conta1.titular}, Saldo: {conta1.saldo}")
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projeto ------------------------------------ -->
+    <section class="projeto" id="projeto">
+      <h1 class="ideia">Projeto Prático</h1>
+      <h2 class="topico">Sistema de Gerenciamento de Alunos</h2>
+      <p>Crie uma classe Aluno que represente um aluno de uma escola.</p>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <h2 class="topico">Atributos</h2>
+          <ul>
+                  <li>nome (string)</li>
+                  <li>matricula (string)</li>
+                  <li>turma (string)</li>
+                  <li>notas (lista de números)</li>
+          </ul>
+        </div>
+        <div class="coluna">
+          <h2 class="topico">Métodos</h2>
+          <ul>
+                  <li>adicionar_nota(nota)</li>
+                  <li>calcular_media()</li>
+                  <li>verificar_aprovacao() - Retorna "Aprovado" (média >= 7.0) ou "Reprovado"</li>
+                  <li>mudar_turma(nova_turma)</li>
+                  <li>exibir_boletim() - imprime todas as informações
+                    do aluno, incluindo notas e status de aprovação</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exemplo">
+        <h3>Exemplo de uso esperado</h3>                 
+        <div class="codigo">
+            <pre>
+# Criar aluno
+aluno1 = Aluno("Pedro Santos", "2024001", "3A")
+
+# Adicionar notas
+aluno1.adicionar_nota(8.5)
+aluno1.adicionar_nota(7.0)
+aluno1.adicionar_nota(9.0)
+aluno1.adicionar_nota(6.5)
+
+# Verificar situação
+print(aluno1.calcular_media()) # 7.75
+print(aluno1.verificar_aprovacao()) # Aprovado
+
+# Mudar de turma
+aluno1.mudar_turma("3B")
+
+# Exibir boletim completo
+aluno1.exibir_boletim()
+            </pre>
+        </div>
+      </div>
+      <br>
+      <div class="destaque">
+          <h3 class="topico">Desafio Extra:</h3>
+          <p>Adicione os métodos melhor_nota() e pior_nota() que retornam 
+            respectivamente a maior e menor nota do aluno.</p>
+      </div>
+    </section>
+
+    <!-- Resumo da Aula ------------------------------------ -->
+    <section class="teoria" id="resumo">
+      <h1 class="escola">Resumo da Aula</h1>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <h2 class="topico">O que Aprendemos?</h2>
+          <ul>
+                  <li>Criação, Parâmetros, Argumentos e Retornos de funções</li>
+                  <li>Funções Lambda (Anônimas)</li>
+                  <li>Escopos e Boas Práticas</li>
+          </ul>
+        </div>
+        <div class="coluna">
+          <img src="imagens/aprendendo.png" width="100%" alt="Resumo da Aula">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts de cotrole d(e) interação, sidebar e navegação da aula -->
+  <script src="aula.js"></script>
+</body>
+</html>

@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Curso: LP Aula08</title>
+  <!-- Google Fonts + Material Icons + estilos locais -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira+Stencil+One&family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <link rel="stylesheet" href="./aula.css">
+</head>
+<body>
+  <!-- Camada de cabecalho -->
+  <div class="logo">
+    <button class="escola" onclick="window.location.assign('index.html')">
+      MENU DE AULAS
+    </button>
+    <img src="imagens/eu_pixar3d_dir.png" class="icone">
+  </div>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <br>
+    <div id="btn_menu">
+      <button class="escola">
+        TOPICOS
+      </button>
+    </div>
+    <!-- Conteúdo da sidebar -->
+    <div id="menu">
+      <ul>
+      <li><a href="#heranca" class="itemMenu">
+        <span>Herança</span></a></li>
+      <li><a href="#super" class="itemMenu">
+        <span>super()</span></a></li>
+      <li><a href="#polimorf" class="itemMenu">
+        <span>Polimorfismo</span></a></li>
+      <li><a href="#projeto" class="itemMenu">
+        <span>Projeto</span></a></li>
+      <li><a href="#resumo" class="itemMenu">
+        <span>Resumo da Aula</span></a></li>
+    </ul>
+  </nav>
+
+  <!-- Cabeçalho da aula -->
+  <header>
+    <h3 class="escola">Curso: Lógica de Programação Usando Linguagem Python</h3>
+    <h1>Aula 08:<br>Programação Orientada a Objetos (Parte 2)</h1>
+    <p class="subtitle">Herança e Polimorfismo</p>
+  </header>
+
+  <!--------------------------- Conteúdo da aula ------------------------------->
+  <main>
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="heranca">
+      <h2 class="escola">Herança</h2>
+      <h3 class="topico">O que é Herança?</h3>
+      <p>A herança permite que uma classe (chamada de classe filha ou subclasse) 
+        <strong>herde atributos e métodos de outra classe</strong> (chamada de classe 
+        mãe/pai ou superclasse). Isso promove reutilização de código e estabelece 
+        relações hierárquicas.</p>
+      <br>
+      <div class="exemplo">
+          <h3 class="topico">Sintaxe Básica</h3>                 
+          <div class="codigo">
+              <pre>
+class ClassePai:
+    # código da classe pai
+    pass
+
+class ClasseFilha(ClassePai):
+    # código da classe filha
+    pass
+              </pre>
+          </div>
+          <h3 class="topico">Exemplos</h3>                 
+          <div class="codigo">
+              <pre>
+# --- Classe base (superclasse) ---
+class Animal:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+
+    def fazer_som(self):
+        print("O animal faz um som")
+
+    def apresentar(self):
+        print(f"Nome: {self.nome}, Idade: {self.idade} anos")
+
+# --- Classe derivada (subclasse) ---
+class Cachorro(Animal):
+    def __init__(self, nome, idade, raca):
+    # Chama o construtor da classe pai
+    Animal.__init__(self, nome, idade)
+    self.raca = raca
+
+    # Sobrescrevendo o método da classe pai
+    def fazer_som(self):
+        print(f"{self.nome} late: Au au!")
+
+    # Método específico da classe Cachorro
+    def buscar_bola(self):
+        print(f"{self.nome} está buscando a bola!")
+
+# --- Outra classe derivada ---
+class Gato(Animal):
+    def __init__(self, nome, idade, cor):
+        Animal.__init__(self, nome, idade)
+        self.cor = cor
+
+    def fazer_som(self):
+        print(f"{self.nome} mia: Miau!")
+    
+    # Método específico da classe Gato
+    def arranhar(self):
+        print(f"{self.nome} está arranhando o sofá!")
+
+# --- Testando as classes ---
+rex = Cachorro("Rex", 5, "Labrador")
+rex.apresentar()     # Método herdado
+rex.fazer_som()      # Método sobrescrito
+rex.buscar_bola()    # Método próprio
+print()
+mimi = Gato("Mimi", 3, "Branco")
+mimi.apresentar()    # Método herdado
+mimi.fazer_som()     # Método sobrescrito
+mimi.arranhar()      # Método próprio
+              </pre>
+          </div>
+      </div>
+      <br>
+      <div class="destaque">
+          <h3 class="topico">Resumo</h3>
+          <p>A herança é um conceito fundamental da programação orientada a objetos, 
+            permitindo que classes compartilhem atributos e métodos, promovendo 
+            reutilização de código e facilitando a manutenção do software.</p>
+      </div>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex01">
+      <h2 class="atividade">Exercício 1</h2>
+      <p>Crie uma classe Veiculo com atributos marca e ano , e um método info() que exibe 
+        essas informações.<br>
+        Em seguida, crie duas classes filhas: Moto e Caminhao , cada 
+        uma com um atributo adicional próprio (cilindradas para Moto e capacidade_carga 
+        para Caminhao).</p>
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+class Veiculo:
+    def __init__(self, marca, ano):
+        self.marca = marca
+        self.ano = ano
+    
+    def info(self):
+        return f"Marca: {self.marca}, Ano: {self.ano}"
+
+class Moto(Veiculo):
+    def __init__(self, marca, ano, cilindradas):
+        super().__init__(marca, ano)
+        self.cilindradas = cilindradas
+    
+    def info(self):
+        info_base = super().info()
+        return f"{info_base}, Cilindradas: {self.cilindradas}"
+
+class Caminhao(Veiculo):
+    def __init__(self, marca, ano, capacidade_carga):
+        super().__init__(marca, ano)
+        self.capacidade_carga = capacidade_carga
+    
+    def info(self):
+        info_base = super().info()
+        return f"{info_base}, Capacidade de carga: {self.capacidade_carga} kg"
+
+# Instanciação de objetos
+moto1 = Moto("Honda", 2023, 300)
+moto2 = Moto("Yamaha", 2022, 150)
+
+caminhao1 = Caminhao("Volvo", 2021, 15000)
+caminhao2 = Caminhao("Scania", 2024, 20000)
+
+# Uso dos métodos
+print(moto1.info())
+print(moto2.info())
+print(caminhao1.info())
+print(caminhao2.info())
+          </pre>
+        </div>
+      </div>
+      <br>
+      <h2 class="atividade">Exercício 2</h2>
+      <p>Crie uma hierarquia de classes: ContaBancaria como classe base com atributos titular 
+        e saldo , e métodos depositar() e sacar(). Você pode aproveitar o que foi criado na 
+        aula anterior.<br>
+        Em seguida, crie uma classe filha ContaPoupanca que adiciona um método render_juros() 
+        que aumenta o saldo em 1%.</p>
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+class ContaBancaria:
+    def __init__(self, titular, saldo=0.0):
+        self.titular = titular
+        self.saldo = saldo
+    
+    def depositar(self, valor):
+        if valor <= 0:
+            raise ValueError("O valor do depósito deve ser positivo.")
+        self.saldo += valor
+        return self.saldo
+    
+    def sacar(self, valor):
+        if valor <= 0:
+            raise ValueError("O valor do saque deve ser positivo.")
+        if valor > self.saldo:
+            raise ValueError("Saldo insuficiente para realizar o saque.")
+        self.saldo -= valor
+        return self.saldo
+    
+    def __str__(self):
+        return f"Conta de {self.titular} | Saldo: R$ {self.saldo:.2f}"
+
+class ContaPoupanca(ContaBancaria):
+    def __init__(self, titular, saldo=0.0):
+        super().__init__(titular, saldo)
+    
+    def render_juros(self):
+        juros = self.saldo * 0.01  # 1% de juros
+        self.saldo += juros
+        return juros, self.saldo
+    
+    def __str__(self):
+        return f"Conta Poupança de {self.titular} | Saldo: R$ {self.saldo:.2f}"
+
+# Instanciação e uso dos métodos
+conta_corrente = ContaBancaria("Eduardo Xavier", 1000.0)
+print(conta_corrente)
+conta_corrente.depositar(500.0)
+print(conta_corrente)
+conta_corrente.sacar(200.0)
+print(conta_corrente)
+
+conta_poupanca = ContaPoupanca("Maria Silva", 2000.0)
+print(conta_poupanca)
+conta_poupanca.depositar(300.0)
+print(conta_poupanca)
+juros, novo_saldo = conta_poupanca.render_juros()
+print(f"Juros de 1%: R$ {juros:.2f} | Novo saldo: R$ {novo_saldo:.2f}")
+print(conta_poupanca)
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="super">
+      <h2 class="escola">super()</h2>
+      <h3 class="topico">O que é super()</h3>
+      <p><strong>super()</strong> é uma função em Python que permite chamar métodos 
+        da classe pai de uma forma segura e elegante.</p>
+      <h3 class="topico">Por que usar super()?</h3>
+      <ul>
+        <li>Evita a necessidade de referenciar explicitamente o nome da classe pai.</li>
+        <li>Facilita a manutenção do código, especialmente em hierarquias complexas.</li>
+        <li>Permite trabalhar corretamente com herança múltipla.</li>
+      </ul>
+      <br>
+      <div class="exemplo">
+          <h3 class="topico">Exemplo</h3>                 
+          <div class="codigo">
+              <pre>
+class Pessoa:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+        print(f"Construtor de Pessoa executado para {nome}")
+
+    def apresentar(self):
+        print(f"Olá, meu nome é {self.nome} e tenho {self.idade} anos")
+
+class Estudante(Pessoa):
+    def __init__(self, nome, idade, matricula):
+        # Usando super() para chamar o construtor da classe pai
+        super().__init__(nome, idade)
+        self.matricula = matricula
+        print(f"Construtor de Estudante executado")
+
+    def apresentar(self):
+        # Usando super() para chamar o método da classe pai
+        super().apresentar()
+        print(f"Minha matrícula é {self.matricula}")
+
+class Atleta(Pessoa):
+    def __init__(self, nome, idade, esporte):
+        super().__init__(nome, idade)
+        self.esporte = esporte
+        print(f"Construtor de Atleta executado")
+
+    def apresentar(self):
+        super().apresentar()
+        print(f"Eu pratico {self.esporte}")
+
+# Testando as classes
+
+print("=== Criando Estudante ===")
+est = Estudante("Ana", 20, "2023001")
+est.apresentar()
+print("\n=== Criando Atleta ===")
+atl = Atleta("Carlos", 22, "Futebol")
+atl.apresentar()
+              </pre>
+          </div>
+      </div>
+      <br>
+      <h3 class="topico">Herança Múltipla</h3>
+      <p>Python suporta herança múltipla, permitindo que uma classe herde de várias 
+        classes pai.</p>
+      <div class="exemplo">
+          <h3 class="topico">Exemplo</h3>                 
+          <div class="codigo">
+              <pre>
+class Animal:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+        print(f">>> Animal.__init__ chamado -> {self.nome}, {self.idade} anos")
+
+class Voador:
+    def __init__(self, altitude_maxima):
+        self.altitude_maxima = altitude_maxima
+        print(f">>> Voador.__init__ chamado -> altitude máxima {self.altitude_maxima}m")
+
+class Nadador:
+    def __init__(self, profundidade_maxima):
+        self.profundidade_maxima = profundidade_maxima
+        print(f">>> Nadador.__init__ chamado -> profundidade máxima {self.profundidade_maxima}m")
+
+# Ordem das classes pai importa para o MRO!
+class Pato(Animal, Voador, Nadador):
+    def __init__(self, nome, idade, altitude_maxima=100, profundidade_maxima=5):
+        self.especie = "Pato"
+        print("Pato.__init__ começando...")
+        Animal.__init__(self, nome, idade)
+        Voador.__init__(self, altitude_maxima)
+        Nadador.__init__(self, profundidade_maxima)
+        print("Pato completamente inicializado!\n")
+
+# Testando
+pato_teste = Pato(
+    nome="Donald",
+    idade=7,
+    altitude_maxima=150,
+    profundidade_maxima=8
+)
+
+print("Atributos do pato:")
+print(f"Nome: {pato_teste.nome}")
+print(f"Idade: {pato_teste.idade}")
+print(f"Altitude máxima: {pato_teste.altitude_maxima}m")
+print(f"Profundidade máxima: {pato_teste.profundidade_maxima}m")
+              </pre>
+          </div>
+        </div>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex03">
+      <h2 class="atividade">Exercício 3</h2>
+      <p>Crie uma classe Eletronico com atributos marca e preco , e um método ligar().
+        <br>Em seguida, crie uma classe Smartphone que herda de Eletronico , adiciona o 
+        atributo sistema_operacional , e sobrescreve o método ligar() chamando o método 
+        da classe pai com super() e depois adicionando comportamento adicional.</p>
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+class Eletronico:
+    def __init__(self, marca, preco):
+        self.marca = marca
+        self.preco = preco
+
+    def ligar(self):
+        print(f"{self.marca} está ligado.")
+
+class Smartphone(Eletronico):
+    def __init__(self, marca, preco, sistema_operacional):
+        super().__init__(marca, preco)
+        self.sistema_operacional = sistema_operacional
+
+    def ligar(self):
+        super().ligar()
+        print(f"O {self.marca} com {self.sistema_operacional} está pronto para uso.")
+          </pre>
+        </div>
+      </div>
+      <br>
+      <h2 class="atividade">Exercício 4</h2>
+      <p>Crie uma hierarquia de três níveis: SerVivo → Animal → Mamifero . Cada classe 
+        deve ter um construtor que imprime uma mensagem e chama o construtor da 'classe 
+        pai usando super().<br>Crie uma instância de Mamifero e observe a ordem de chamada 
+        dos construtores.</p>
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+class SerVivo:
+    def __init__(self, nome):
+        self.nome = nome
+        print(f"{self.nome} é um ser vivo.")
+
+class Animal(SerVivo):
+    def __init__(self, nome, especie):
+        super().__init__(nome)
+        self.especie = especie
+        print(f"{self.nome} é um {self.especie}.")
+
+class Mamifero(Animal):
+    def __init__(self, nome, especie, tipo_pelo):
+        super().__init__(nome, especie)
+        self.tipo_pelo = tipo_pelo
+        print(f"{self.nome} é um mamífero com {self.tipo_pelo}.")
+
+# Testando a hierarquia
+mamifero_teste = Mamifero("Bobby", "Cachorro", "pêlo curto")
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="polimorf">
+      <h2 class="escola">Polimorfismo</h2>
+      <h3 class="topico">O que é polimorfismo?</h3>
+      <p>Polimorfismo significa "muitas formas". Na POO, refere-se à capacidade de 
+        objetos de diferentes classes responderem ao mesmo método de maneiras diferentes.</p>
+      <h3 class="topico">Polimorfismo em Python</h3>
+      <p>A linguagem Python possui tipagem dinâmica (duck typing: "se anda como um pato e 
+        faz quack como um pato, então é um pato"). Isso significa que o Python não verifica 
+        o tipo do objeto em tempo de compilação, apenas se o objeto possui o método chamado.</p>
+      <br>
+      <div class="exemplo">
+          <h3 class="topico">Exemplos</h3>                 
+          <div class="codigo">
+              <pre>
+class Passaro:
+    def voar(self):
+        print("O pássaro está voando no céu")
+    def emitir_som(self):
+        print("O pássaro canta")
+
+class Aviao:
+    def voar(self):
+        print("O avião está voando a 10.000 metros de altitude")
+    def emitir_som(self):
+        print("O avião faz: vrummmmm")
+
+class Pinguim:
+    def voar(self):
+        print("O pinguim não consegue voar, mas nada muito bem!")
+    def emitir_som(self):
+        print("O pinguim faz: wak wak")
+
+# Função que aceita qualquer objeto com método voar()
+def fazer_barulho(objeto):
+    objeto.voar()
+    objeto.emitir_som()
+
+# Testando o polimorfismo
+canario = Passaro()
+planador = Aviao()
+gelado = Pinguim()
+
+print("=== Polimorfismo em Ação ===")
+fazer_barulho(canario)
+print()
+fazer_barulho(planador)
+print()
+fazer_barulho(gelado)
+              </pre>
+          </div>
+      </div>
+      <br>
+      <h3 class="topico">Limitações do Python</h3>
+      <h4>1. Ausência de Sobrecarga de Métodos Tradicional</h4>
+      <p>Em Python, a sobrecarga de métodos tradicional (overloading) não é suportada. 
+        Se você definir múltiplos métodos com o mesmo nome, o último definido sobrescreverá 
+        os anteriores.</p>
+      <div class="exemplo">
+          <h3 class="topico">Exemplo</h3>                 
+          <div class="codigo">  
+              <pre>
+class Calculadora:
+    # Em Java/C++, poderíamos ter múltiplos métodos soma()
+    # com diferentes assinaturas. Em Python, isso NÃO funciona:
+    def soma(self, a, b):
+        return a + b        
+    # Este método substitui o anterior!
+    def soma(self, a, b, c):
+        return a + b + c
+
+calc = Calculadora()
+# calc.soma(2, 3) # Retoarna um ERRO! Precisa de 3 argumentos
+print(calc.soma(2, 3, 4)) # Funciona
+
+# Solução em Python: usar argumentos padrão ou *args
+class CalculadoraMelhorada:
+    def soma(self, *numeros):
+        return sum(numeros)
+
+calc2 = CalculadoraMelhorada()
+print(calc2.soma(2, 3)) # Funciona
+print(calc2.soma(2, 3, 4, 5)) # Funciona também
+              </pre>
+          </div>
+      </div>
+      <br>
+      <h4>2. Não há Verificação de Tipo em Tempo de Compilação</h4>
+      <p>Python permite passar qualquer objeto para qualquer função, desde que o 
+        objeto tenha os métodos necessários. Isso é muito flexível, mas pode causar 
+        erros em tempo de execução.</p>
+      <div class="exemplo">
+          <h3 class="topico">Exemplo</h3>                 
+          <div class="codigo">  
+              <pre>
+def processar_pagamento(conta):
+    conta.debitar(100)  # Python só verifica se o método existe 
+                        # em runtime. Isso pode causar erro se 
+                        # conta não tiver o método debitar().
+              </pre>
+          </div>
+      </div>
+      <br>
+      <h4>3. Não há Interfaces ou Classes Abstratas Nativas Estritas</h4>
+      <p>Embora Python tenha o módulo abc (Abstract Base Classes), 
+        o uso é opcional e não é obrigatório como em Java.</p>
+      <div class="exemplo">
+          <h3 class="topico">Exemplo</h3>                 
+          <div class="codigo">  
+              <pre>
+from abc import ABC, abstractmethod
+
+class FormaAbstrata(ABC):
+    @abstractmethod
+    def calcular_area(self):
+        pass
+
+class Quadrado(FormaAbstrata):
+    pass 
+    # ERRO: não implementou calcular_area()
+
+class Circulo(FormaAbstrata):
+    def __init__(self, raio):
+        self.raio = raio
+    def calcular_area(self):
+        return 3.14 * self.raio ** 2
+    # Funciona porque implementou o método abstrato
+
+c = Circulo(5)
+print(f"Área do círculo: {c.calcular_area()}")
+              </pre>
+          </div>
+      </div>
+      <br>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex05">
+      <h2 class="atividade">Exercício 5</h2>
+      <p>Crie uma classe Documento com método abrir() . Crie classes filhas PDF, 
+        Word e Excel, cada uma sobrescrevendo o método abrir() com mensagens 
+        diferentes.<br> Em seguida, crie uma função que recebe uma lista de documentos 
+        e abre todos eles.</p>
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+class Documento:
+    def __init__(self, nome):
+        self.nome = nome
+
+    def abrir(self):
+        raise NotImplementedError("Subclasses devem implementar o método abrir()")
+
+class PDF(Documento):
+    def abrir(self):
+        return f"Abriendo documento PDF: {self.nome}"
+
+class Word(Documento):
+    def abrir(self):
+        return f"Abriendo documento Word: {self.nome}"
+
+class Excel(Documento):
+    def abrir(self):
+        return f"Abriendo documento Excel: {self.nome}"
+
+def abrir_documentos(documentos):
+    for doc in documentos:
+        print(doc.abrir())
+          </pre>
+        </div>
+      </div>
+      <br>
+      <h2 class="atividade">Exercício 7</h2>
+      <p>Crie uma classe abstrata Pagamento com método abstrato processar() . Construa 
+        classes concretas PagamentoCartao, PagamentoPix e PagamentoDinheiro que 
+        implementam o método.<br> Em seguida, teste criando instâncias e processando 
+        diferentes tipos de pagamento.</p>
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+from abc import ABC, abstractmethod
+
+class Pagamento(ABC):
+    @abstractmethod
+    def processar(self, valor):
+        pass
+
+class PagamentoCartao(Pagamento):
+    def processar(self, valor):
+        return f"Processando pagamento de R$ {valor:.2f} com cartão."
+
+class PagamentoPix(Pagamento):
+    def processar(self, valor):
+        return f"Processando pagamento de R$ {valor:.2f} com PIX."
+
+class PagamentoDinheiro(Pagamento):
+    def processar(self, valor):
+        return f"Processando pagamento de R$ {valor:.2f} em dinheiro."
+
+# Testando os pagamentos
+cartao = PagamentoCartao()
+pix = PagamentoPix()
+dinheiro = PagamentoDinheiro()
+
+print(cartao.processar(100.0))
+print(pix.processar(200.0))
+print(dinheiro.processar(300.0))
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projeto ------------------------------------ -->
+    <section class="projeto" id="projeto">
+      <h1 class="ideia">Projeto Prático</h1>
+      <h2 class="topico">Sistema de Funcionários</h2>
+      <p>Crie uma estrutua orientada a objetos para atender um sistema de gestão de funcionarios 
+        de uma escola, contemplando as seguintes categorias: professor, coordenador e diretor.</p>
+      <p>Cada categoria é um subgrupo de funcionário, com atributos e métodos específicos.</p>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <h2 class="topico">Funcionario</h2>
+          <ul>
+                  <li>Atributos: nome, cpf, salario_base</li>
+                  <li>Métodos: calcular_salario(), exibir_info()</li>
+                  <li>O cálculo de salário simplesmente devolve o salário base.</li>
+          </ul>
+          <h2 class="topico">Professor</h2>
+          <ul>
+                  <li>Atributos: todos os de Funcionário, além da lista de disciplinas lecionadas</li>
+                  <li>Métodos: calcular_salario(), exibir_info()</li>
+                  <li>O cálculo de salário devolve o salário base mais 5% para cada 
+                    disciplina lecionada.</li>
+          </ul>
+        </div>
+        <div class="coluna">
+          <h2 class="topico">Coordenador</h2>
+          <ul>
+                  <li>Atributos: todos os de Funcionário, além da gratificação de coordenação</li>
+                  <li>Métodos: calcular_salario(), exibir_info()</li>
+                  <li>O cálculo de salário devolve o salário base mais a gratificação de 
+                    coordenação.</li>
+          </ul>
+          <h2 class="topico">Diretor</h2>
+          <ul>
+                  <li>Atributos: todos os de Funcionário, além da quantidade de coordenadores 
+                    gerenciados</li>
+                  <li>Métodos: calcular_salario(), exibir_info()</li>
+                  <li>O cálculo de salário devolve o salário base mais 3% para cada 
+                    coordenador gerenciado.</li>
+          </ul>
+        </div>
+      </div>
+      <p>Crie professores, coordenadores e diretores para uma determinada escola e 
+        exiba o salário calculado de cada um. Ao final, informe qual o total de salários 
+        pagos pela escola.</p>
+    </section>
+
+    <!-- Resumo da Aula ------------------------------------ -->
+    <section class="teoria" id="resumo">
+      <h1 class="escola">Resumo da Aula</h1>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <h2 class="topico">O que Aprendemos?</h2>
+          <ul>
+                  <li>Conceitos de Herança em POO</li>
+                  <li>Conceitos de Polimorfismo em POO</li>
+          </ul>
+        </div>
+        <div class="coluna">
+          <img src="imagens/aprendendo.png" width="100%" alt="Resumo da Aula">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts de cotrole d(e) interação, sidebar e navegação da aula -->
+  <script src="aula.js"></script>
+</body>
+</html>

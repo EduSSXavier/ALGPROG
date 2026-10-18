@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Curso: LP Aula09</title>
+  <!-- Google Fonts + Material Icons + estilos locais -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira+Stencil+One&family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <link rel="stylesheet" href="./aula.css">
+</head>
+<body>
+  <!-- Camada de cabecalho -->
+  <div class="logo">
+    <button class="escola" onclick="window.location.assign('index.html')">
+      MENU DE AULAS
+    </button>
+    <img src="imagens/eu_pixar3d_dir.png" class="icone">
+  </div>
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <br>
+    <div id="btn_menu">
+      <button class="escola">
+        TOPICOS
+      </button>
+    </div>
+    <!-- Conteúdo da sidebar -->
+    <div id="menu">
+      <ul>
+      <li><a href="#encap" class="itemMenu">
+        <span>Encapsulamento</span></a></li>
+      <li><a href="#assoc" class="itemMenu">
+        <span>Associação</span></a></li>
+      <li><a href="#projeto" class="itemMenu">
+        <span>Projeto</span></a></li>
+      <li><a href="#resumo" class="itemMenu">
+        <span>Resumo da Aula</span></a></li>
+    </ul>
+  </nav>
+
+  <!-- Cabeçalho da aula -->
+  <header>
+    <h3 class="escola">Curso: Lógica de Programação Usando Linguagem Python</h3>
+    <h1>Aula 09:<br>Programação Orientada a Objetos (Parte 3)</h1>
+    <p class="subtitle">Encapsulamento e Associação</p>
+  </header>
+
+  <!--------------------------- Conteúdo da aula ------------------------------->
+  <main>
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="encap">
+      <h2 class="escola">Encapsulamento</h2>
+      <div class="duas_colunas">
+        <div class="coluna">          
+          <h3 class="topico">O que é Encapsulamento?</h3>
+          <p>O encapsulamento é um princípio da programação orientada a objetos que consiste em 
+            agrupar os dados (atributos) e os métodos (funções) que operam sobre esses dados em 
+            uma única unidade, chamada de classe. Ele também permite controlar o acesso aos 
+            atributos e métodos de uma classe, protegendo-os de modificações externas não 
+            autorizadas.</p>
+        </div>
+        <div class="coluna">
+          <div style="text-align: center;">
+            <img src="imagens/capsula.jpg" alt="Condicional">
+          </div>
+        </div>
+      </div>
+      <br>
+      <h3 class="topico">Por que encapsular?</h3>
+      <ul>
+        <li><strong>Segurança:</strong> Proteger os dados internos da classe, evitando 
+          que eles sejam acessados diretamente ou modificados de fora dela</li>
+        <li><strong>Manutenibilidade:</strong> Permitir que as classes sejam modificadas 
+          sem afetar outras partes do código</li>
+        <li><strong>Controle de acesso:</strong> Define quem pode ler ou modificar os 
+          dados</li>
+        <li><strong>Validação:</strong> Permite verificar dados antes de armazená-los e 
+          evitar erros</li>
+        <li><strong>Flexibilidade:</strong> Permite a adição de novos comportamentos sem 
+          afetar o código existente</li>
+      </ul>
+      <br>
+      <h3 class="topico">Níveis de Visibilidade em Python</h3>
+      <p>Em Python, a visibilidade é indicada através de underscores:</p>
+      <ul>
+        <li><strong>Público:</strong> atributo - pode ser acessado de qualquer lugar</li>
+        <li><strong>Privado:</strong> _atributo - indica visibilidade interna ou uso interno (convenção, não bloqueio real)</li>
+        <li><strong>Protegido:</strong> __atributo - dificulta o acesso externo através de name mangling (ou mutilação/confusão de nomes)</li>
+      </ul>
+      <div class="exemplo">
+          <h3 class="topico">Exemplos</h3>                 
+          <div class="codigo">
+              <pre>
+class Pessoa:
+    def __init__(self, nome, email, fone):
+        self.nome = nome # Atributo público
+        self._email = email # Atributo privado
+        self.__fone = fone # Atributo protegido
+    def apresentar(self):
+        print("==============================")
+        print(f"Olá, meu nome é {self.nome}")
+        print(f"Meu email é {self._email}")
+        print(f"Meu telefone é {self.__fone}")
+        print("==============================")
+
+alguem = Pessoa("Maria", "maria@gmail.com", "9999-9999")
+print(alguem.nome)      # Isto funciona
+print(alguem._email)    # Isto também funciona, mas não deve ser usado
+print(alguem.__fone)    # Isto não funciona (erro)
+
+alguem.apresentar()
+              </pre>
+          </div>
+      </div>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="encap">
+      <h2 class="escola">Métodos de Encapsulamento</h2>
+      <h3>1. Criando Getters e Setters Manualmente</h3>
+      <p>Podemos criar métodos "getter" e "setter" tradicionais de form manual. 
+        Essa é uma abordagem mais explícita e comum em outras linguagens como 
+        Java, podendo ser facilmente implementada em Python.</p>
+      <br>
+      <div class="exemplo">
+        <h3 class="topico">Exemplos</h3>                 
+        <div class="codigo">
+          <pre>
+class Produto:
+    def __init__(self, nome, preco):
+        self.__nome = nome # Atributo privado
+        self.__preco = preco
+    
+    # Getter para nome
+    def get_nome(self):
+        return self.__nome
+    
+    # Setter para nome
+    def set_nome(self, nome):
+        if not nome or len(nome) < 3:
+            raise ValueError("Nome deve ter pelo menos 3 caracteres")
+        self.__nome = nome
+
+    # Getter para preço
+    def get_preco(self):
+        return self.__preco
+
+    # Setter para preço
+    def set_preco(self, preco):
+        if preco < 0:
+            raise ValueError("Preço não pode ser negativo")
+        self.__preco = preco
+
+    # Outros métodos da classe
+    def aplicar_desconto(self, percentual):
+        """Aplica desconto ao produto"""
+        if percentual < 0 or percentual > 100:
+            raise ValueError("Desconto deve estar entre 0 e 100%")
+        desconto = self.__preco * (percentual / 100)
+        self.__preco -= desconto
+        print(f"Desconto de {percentual}% aplicado!")
+
+# ----- Como usar -----
+
+# Criando produto
+produto = Produto("Notebook", 3000)
+
+# Usando getters
+print(f"Produto: {produto.get_nome()}")
+print(f"Preço: R$ {produto.get_preco():.2f}")
+
+# Usando setters
+produto.set_nome("Notebook Gamer")
+produto.set_preco(3500)
+
+# Aplicando desconto
+produto.aplicar_desconto(10)
+print(f"Novo preço: R$ {produto.get_preco():.2f}")
+          </pre>
+        </div>
+      </div>
+      <br>
+      <h3>2. Usando Decorators</h3>
+      <div class="duas_colunas">
+        <div class="coluna">          
+          <h3 class="topico">Como funciona?</h3>
+          <p>O decorador @property é a forma mais "pythônica" de implementar encapsulamento. 
+            Ele permite criar métodos que se comportam como atributos.</p>
+          <h3 class="topico">Por que usar?</h3>
+          <p>Quando queremos criar uma propriedade (atributo) que se comporta como um metodo, 
+            o decorator @property é uma opção.</p>
+        </div>
+        <div class="coluna">
+          <div style="text-align: center;">
+            <img src="imagens/desafio.png" alt="Condicional">
+          </div>
+        </div>
+      </div>
+      <h3>Mas o que é um decorator?</h3>
+      <p>Um decorator é uma função que recebe outra função como argumento e retorna uma 
+        nova função com comportamento modificado. Ele é usado para adicionar funcionalidades 
+        a funções ou métodos existentes sem alterar seu código-fonte original.</p>
+      <p>Em Python, os decorators são frequentemente usados para:</p>
+      <ul>
+        <li>Adicionar funcionalidades a métodos de classes</li>
+        <li>Implementar padrões de projeto, como Singleton ou Observer</li>
+        <li>Controlar acesso a métodos (autenticação, autorização)</li>
+        <li>Medir tempo de execução de funções</li>
+      </ul>
+      <br>
+      <h3>Aplicando um decorator @property em POO</h3>
+      <p>O decorator @property (que já existe previamente) permite que criemos um getter e 
+        um setter para um atributo privado. Ele transforma métodos em propriedades, 
+        permitindo que sejam acessados como atributos, mas com a lógica de validação 
+        ou processamento encapsulada.</p>
+      <div class="exemplo">
+          <h3 class="topico">Exemplo @property:</h3>                 
+          <div class="codigo">
+              <pre>
+class Produto:
+    def __init__(self, nome, preco):
+        self.__nome = nome # Atributo privado
+        self.__preco = preco
+    
+    @property
+    def nome(self):
+        """Getter para o nome"""
+        return self.__nome
+        # Setter para nome
+
+    @nome.setter
+    def nome(self, nome):
+        """Setter para o nome com validação"""
+        if not nome or len(nome) < 3:
+            raise ValueError("Nome deve ter pelo menos 3 caracteres")
+        self.__nome = nome
+    
+    @property
+    def preco(self):
+        """Getter para o preço"""
+        return self.__preco
+    
+    @preco.setter
+    def set_preco(self, preco):
+        """Setter para o preço com validação"""
+        if preco < 0:
+            raise ValueError("Preço não pode ser negativo")
+        self.__preco = preco
+
+# ----- Como usar -----
+
+# Criando objeto
+prod = Produto("Caneta", 10.0)
+
+# Acessando como se fossem atributos normais (usando o getter)
+print(prod.nome)    # Caneta
+print(prod.preco)   # 10.0
+
+# Modificando com validação automática (usando o setter)
+prod.nome = "Borracha"
+prod.preco = 3.5
+
+# Tentativa de atribuir valor inválido (gera erro)
+prod.preco = -5 # Vai gerar erro!
+              </pre>
+          </div>
+      </div>
+      <div class="destaque">
+        <h3 class="topico">Diferença entre @property e get/set</h3>
+        <table>
+          <tr>
+            <th>@property</th>
+            <th>get/set</th>
+          </tr>
+          <tr>
+            <td>Mais "pythônico"</td>
+            <td>Mais explícito, comum em outras linguagens</td>
+          </tr>
+          <tr>
+            <td>Permite acessar métodos como atributos (obj.nome)</td>
+            <td>Requer chamadas explícitas de métodos (obj.get_nome())</td>
+          </tr>
+          <tr>
+            <td>Validação e lógica encapsuladas</td>
+            <td>Validação e lógica podem ser separadas</td>
+          </tr>
+          <tr>
+            <td>Recomendado em Python</td>
+            <td>Usado em Java, C++,... (também funciona em Python)</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex01">
+      <h2 class="atividade">Exercício 1</h2>
+      <p>Crie uma classe Funcionario usando encapsulamento e métodos getter e setter 
+        tradicionais. A classe deve ter os atributos nome, cargo e salario . O cargo 
+        não pode ser vazio.O salário mínimo permitido é R$ 2.000,00.</p>
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+class Funcionario:
+    def __init__(self, nome, cargo, salario):
+        self.nome = nome
+        self.cargo = cargo
+        self.salario = salario
+
+    def get_nome(self):
+        return self.nome
+
+    def set_nome(self, nome):
+        self.nome = nome
+
+    def get_cargo(self):
+        return self.cargo
+
+    def set_cargo(self, cargo):
+        if not cargo:
+            raise ValueError("Cargo não pode ser vazio")
+        self.cargo = cargo
+
+    def get_salario(self):
+        return self.salario
+
+    def set_salario(self, salario):
+        if salario < 2000.00:
+            raise ValueError("Salário mínimo permitido é R$ 2.000,00")
+        self.salario = salario
+          </pre>
+        </div>
+      </div>
+      <br>
+      <h2 class="atividade">Exercício 2</h2>
+      <p>Crie uma nova versão do exercício anterior, detavez usando o decorator 
+        @property para implementar gets e sets.</p>
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+class Funcionario:
+    def __init__(self, nome, cargo, salario):
+        self.__nome = nome
+        self.__cargo = cargo
+        self.__salario = salario
+    
+    @property
+    def nome(self):
+        return self.__nome
+
+    @nome.setter
+    def nome(self, nome):
+        self.__nome = nome
+
+    @property
+    def cargo(self):
+        return self.__cargo
+    
+    @cargo.setter
+    def cargo(self, cargo):
+        if not cargo:
+            raise ValueError("Cargo não pode ser vazio")
+        self.__cargo = cargo
+
+    @property
+    def salario(self):
+        return self.__salario
+
+    @salario.setter
+    def salario(self, salario):
+        if salario < 2000.00:
+            raise ValueError("Salário mínimo permitido é R$ 2.000,00")
+        self.__salario = salario
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="assoc">
+      <h2 class="escola">Associação</h2>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <h3 class="topico">O Conceito de Associação entre Objetos</h3>
+          <p>Associação representa relacionamentos entre objetos de diferentes classes. 
+            É quando um objeto "conhece" ou "usa" outro objeto.</p>
+          <h3 class="topico">Tipos de associação</h3>
+          <h4>Agregação:</h4>
+          <ul>
+            <li>Relação "tem um" (has-a) <strong>fraca</strong></li>
+            <li>Um objeto pode existir sem o outro</li>
+            <li>Exemplo: Carro tem Motor</li>
+          </ul>
+          <h4>Composição:</h4>
+          <ul>
+            <li>Relação "tem um" (has-a) <strong>forte</strong></li>
+            <li>Um objeto não existe sem o outro</li>
+            <li>Exemplo: Casa tem Cômodos</li>
+          </ul>
+          <h4>Associação simples:</h4>
+          <ul>
+            <li>Objetos se relacionam mas não há "propriedade"</li>
+            <li>Exemplo: Professor leciona Disciplinas</li>
+          </ul>
+        </div>
+        <div class="coluna">
+          <div style="text-align: center;">
+            <img src="imagens/associacao.jpg" alt="Condicional">
+            <br><br>
+            <img src="imagens/associacao2.jpg" alt="Condicional">
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="exemplo">
+          <h3 class="topico">Exemplo de Associação:</h3>                 
+          <div class="codigo">
+              <pre>
+class Endereco:
+    def __init__(self, rua, numero, cidade):
+        self.rua = rua
+        self.numero = numero
+        self.cidade = cidade
+    def __str__(self):
+        return f"{self.rua}, {self.numero} - {self.cidade}"
+
+class Pessoa:
+    def __init__(self, nome, endereco):
+        self.nome = nome
+        self.endereco = endereco # Associação: Pessoa tem um Endereço
+    def exibir_info(self):
+        print(f"Nome: {self.nome}")
+        print(f"Endereço: {self.endereco}")
+
+# Criando objetos associados
+endereco = Endereco("Av. Paulista", 1000, "São Paulo")
+pessoa = Pessoa("João", endereco)
+pessoa.exibir_info()
+              </pre>
+          </div>
+      </div>
+      <br>
+      <h3 class="topico">Cardinalidade:</h3>
+      <ul>
+        <li><strong>1:1 (um para um):</strong> Uma pessoa tem um CPF</li>
+        <li><strong>1:N (um para muitos):</strong> Um autor escreve vários livros</li>
+        <li><strong>N:N (muitos para muitos):</strong> Alunos cursam várias disciplinas, 
+          disciplinas têm vários alunos</li>  
+      </ul>
+    </section>
+
+    <!-- Exercício ------------------------------------ -->
+    <section class="exercicio" id="ex01">
+      <h2 class="atividade">Exercício 3</h2>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <p>Crie classes Autor e Livro com associação 1:N (um autor pode ter vários 
+            livros). Implemente métodos para adicionar livros ao autor e listar todos 
+            os livros.</p>
+          <p>Tente aplicar os seguintes conceitos:</p>
+          <ul>
+            <li>Associação 1:N (Um autor possui múltiplos livros)</li>
+            <li>Encapsulamento (Atributos protegidos com @property)</li>
+            <li>Validação de dados (Verifica se o objeto adicionado é 
+              realmente um Livro)</li>
+            <li>Lista interna (A coleção de livros é gerenciada internamente, 
+              sem manipulação externa direta)</li>
+          </ul>
+        </div>
+        <div class="coluna">
+          <div style="text-align: center;">
+            <img src="imagens/livro.jpg" alt="Condicional">
+          </div>
+        </div>
+      </div>
+      <button class="toggle_resposta">
+        <span class="material-icons-round">keyboard_arrow_down</span> 
+        Mostrar/Ocultar resposta
+      </button>
+      <div class="resposta">
+        <div class="codigo">
+          <pre>
+class Livro:
+    def __init__(self, titulo: str, ano: int):
+        self.__titulo = titulo
+        self.__ano = ano
+
+    @property
+    def titulo(self):
+        return self.__titulo
+
+    @property
+    def ano(self):
+        return self.__ano
+
+    def __str__(self):
+        return f"'{self.__titulo}' ({self.__ano})"
+
+class Autor:
+    def __init__(self, nome: str):
+        self.__nome = nome
+        self.__livros = []  # Lista interna - não deve ser manipulada diretamente
+
+    @property
+    def nome(self):
+        return self.__nome
+
+    @property
+    def livros(self):
+        """Retorna uma cópia da lista para evitar manipulação externa direta."""
+        return self.__livros.copy()
+
+    def adicionar_livro(self, umLivro):
+        """Adiciona um livro ao autor com validação."""
+        if not isinstance(umLivro, Livro):
+            raise TypeError("Só é possível adicionar objetos da classe Livro.")
+        
+        if umLivro in self.__livros:
+            raise ValueError(f"O livro {umLivro} já está associado a este autor.")
+        
+        self.__livros.append(umLivro)
+
+    def listar_livros(self):
+        """Lista todos os livros do autor."""
+        if not self.__livros:
+            print(f"O autor {self.__nome} ainda não possui livros cadastrados.")
+            return
+
+        print(f"Livros de {self.__nome}:")
+        for umLivro in self.__livros, 1:
+            print(f"Título: {umLivro.titulo} - Ano: {umLivro.ano}")
+
+
+# --- Exemplo de uso ---
+autor = Autor("Machado de Assis")
+
+livro1 = Livro("Dom Casmurro", 1899)
+livro2 = Livro("Memórias Póstumas de Brás Cubas", 1881)
+livro3 = Livro("Quincas Borba", 1891)
+
+autor.adicionar_livro(livro1)
+autor.adicionar_livro(livro2)
+autor.adicionar_livro(livro3)
+
+autor.listar_livros()
+
+# A tentativa abaixo é inválida
+# (descomente para testar a validação)
+# autor.adicionar_livro("não é um livro")  # TypeError
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projeto ------------------------------------ -->
+    <section class="projeto" id="projeto">
+      <h1 class="ideia">Projeto Prático</h1>
+      <h2 class="topico">Gerenciamento de Escola</h2>
+      <p>Vamos criar um sistema completo que demonstra encapsulamento e associação 
+        entre três classes: Aluno, Turma e Disciplina. O sistema permitirá consultar 
+        dados e visualizar os relacionamentos</p>
+      <h2 class="topico">Relacionamentos:</h2>
+      <ul>
+          <li>Uma Disciplina pode ter várias Turmas</li>
+          <li>Uma Turma pertence a uma Disciplina e tem vários Alunos</li>
+          <li>Um Aluno pode estar matriculado em várias Turmas</li>
+      </ul>
+      <h2 class="topico">Sugestão:</h2>
+      <p>Além das classes Aluno, Turma e Disciplina, crie uma classe SistemaEscolar 
+        que areha todas essas classes, além de todos os métodos necessários para o 
+        funcionamento do sistema (exemplo: consultar dados de um aluno, matricular 
+        um aluno, etc).</p>
+      <p>Para ganhar tempo, não nos preocuparemos em criar interfaces gráficas para 
+        interagir com o sistema. Basta implementar as classes e seus métodos.</p>
+    </section>
+
+    <!-- Resumo da Aula ------------------------------------ -->
+    <section class="teoria" id="resumo">
+      <h1 class="escola">Resumo da Aula</h1>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <h2 class="topico">O que Aprendemos?</h2>
+          <ul>
+                  <li>Conceitos de Encapsulamento em POO</li>
+                  <li>Conceitos de Associação em POO</li>
+          </ul>
+        </div>
+        <div class="coluna">
+          <img src="imagens/aprendendo.png" width="100%" alt="Resumo da Aula">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts de cotrole d(e) interação, sidebar e navegação da aula -->
+  <script src="aula.js"></script>
+</body>
+</html>

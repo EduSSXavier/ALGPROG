@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Curso: LP Aula10</title>
+  <!-- Google Fonts + Material Icons + estilos locais -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira+Stencil+One&family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <link rel="stylesheet" href="./aula.css">
+</head>
+<body>
+  <!-- Camada de cabecalho -->
+  <div class="logo">
+    <button class="escola" onclick="window.location.assign('index.html')">
+      MENU DE AULAS
+    </button>
+    <img src="imagens/eu_pixar3d_dir.png" class="icone">
+  </div>
+
+  <!-- Sidebar 
+  <nav class="sidebar" id="sidebar">
+    <br>
+    <div id="btn_menu">
+      <button class="escola">
+        TOPICOS
+      </button>
+    </div>
+    !-- Conteúdo da sidebar --
+    <div id="menu">
+      <ul>
+      <li><a href="#teoria" class="itemMenu">
+        <span>Slides</span></a></li>
+      <li><a href="#ativ" class="itemMenu">
+        <span>Atividades</span></a></li>
+      <li><a href="#resumo" class="itemMenu">
+        <span>Resumo da Aula</span></a></li>
+    </ul>
+  </nav> 
+  -->
+
+  <!-- Cabeçalho da aula -->
+  <header>
+    <h3 class="escola">Curso: Lógica de Programação Usando Linguagem Python</h3>
+    <h1>Aula 10:<br>APIs em Python</h1>
+    <p class="subtitle">Consumo de APIs</p>
+  </header>
+
+  <!--------------------------- Conteúdo da aula ------------------------------->
+  <main>
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="encap">
+      <h2 class="escola">Consumo de APIs</h2>
+      <div class="destaque">
+        <ul>
+          <li>Slides: <a href="aula10_slides_consumo.html" target="_blank">Clique aqui</a></li>
+          <li>Atividades: <a href="aula10_atividades_consumo.html" target="_blank">Clique aqui</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="encap">
+      <h2 class="escola">Criação de APIs em Python usando Flask</h2>
+      <h3>Endpoints e Rotas</h3>
+      <p>Um <strong>endpoint</strong> é um ponto de acesso em uma API, onde podemos realizar operações como GET, POST, PUT e DELETE. 
+        As <strong>rotas</strong> são os caminhos que definem como os endpoints são acessados.</p>
+      <h3>Exemplo prático:</h3>
+      <div class="destaque">
+        <p>Para a criação de APIs em Python, utilizaremos o framework Flask, que é leve e fácil de usar. 
+          Com ele, podemos criar endpoints que respondem a requisições HTTP, permitindo que outros sistemas 
+          consumam nossos dados.</p>
+        <ul>
+          <li>Servidor: <a href="aula10_criar_API_Flask.py" target="_blank">Clique aqui</a> para ver um programa de exemplo</li>
+          <li>Atividades: <a href="aula10_usar_API_Flask.py" target="_blank">Clique aqui</a> para ver um programa de exemplo</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Resumo da Aula ------------------------------------ -->
+    <section class="teoria" id="resumo">
+      <h1 class="escola">Resumo da Aula</h1>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <h2 class="topico">O que Aprendemos?</h2>
+          <ul>
+              <li>Consumo de APIs com a biblioteca requests</li>
+              <li>Criação de APIs com o framework Flask</li>
+          </ul>
+        </div>
+        <div class="coluna">
+          <img src="imagens/aprendendo.png" width="100%" alt="Resumo da Aula">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts de cotrole d(e) interação, sidebar e navegação da aula -->
+  <script src="aula.js"></script>
+</body>
+</html>

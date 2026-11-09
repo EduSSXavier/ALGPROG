@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roteiro: consumindo APIs com Python</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#12141a;--surface:#1b1e26;--text:#e9e7e2;--muted:#9a9da8;--line:#2d313c;--a1:#f2b84b;--a2:#6aa7ff;--code:#0c0e12;--ok:#5fd0a0;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--bg:#f6f5f1;--surface:#ffffff;--text:#1d1f24;--muted:#5c606b;--line:#dcdad3;--a1:#9a6200;--a2:#1f5fbf;--code:#eceae4;--ok:#16794f}}
+:root[data-theme="light"]{--bg:#f6f5f1;--surface:#ffffff;--text:#1d1f24;--muted:#5c606b;--line:#dcdad3;--a1:#9a6200;--a2:#1f5fbf;--code:#eceae4;--ok:#16794f}
+:root[data-theme="dark"]{--bg:#12141a;--surface:#1b1e26;--text:#e9e7e2;--muted:#9a9da8;--line:#2d313c;--a1:#f2b84b;--a2:#6aa7ff;--code:#0c0e12;--ok:#5fd0a0}
+html{height:100%;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font:400 18px/1.6 "IBM Plex Sans",system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+header.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--bg);border-bottom:1px solid var(--line);padding:12px 20px}
+.bar-in{max-width:760px;margin:0 auto;display:flex;align-items:center;gap:16px}
+.track{flex:1;height:8px;background:var(--line);border-radius:4px;overflow:hidden}
+.fill{height:100%;width:0;background:var(--ok);transition:width .3s}
+.count{font-size:15px;color:var(--muted);white-space:nowrap}
+main{max-width:760px;margin:0 auto;padding:40px 20px 96px}
+h1{font-size:40px;line-height:1.15;margin:0 0 16px;font-weight:700}
+h2{font-size:28px;margin:64px 0 8px;font-weight:700;line-height:1.2}
+h3{font-size:20px;margin:0 0 8px;font-weight:600}
+p{margin:0 0 16px}
+.lead{color:var(--muted);font-size:20px}
+.p1 h2{color:var(--a1)} .p2 h2{color:var(--a2)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;margin:20px 0;border-left:4px solid var(--a1)}
+.p2 .card{border-left-color:var(--a2)}
+.card.done{border-left-color:var(--ok)}
+.card.done h3::after{content:" (concluído)";color:var(--ok);font-weight:400;font-size:16px}
+pre{position:relative;background:var(--code);border:1px solid var(--line);border-radius:8px;padding:16px;margin:12px 0;overflow-x:auto;font:400 15px/1.55 "IBM Plex Mono",ui-monospace,Menlo,monospace}
+code{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.88em}
+p code,li code{background:var(--code);padding:2px 6px;border-radius:4px}
+button{font:inherit;cursor:pointer}
+.copy{position:absolute;top:8px;right:8px;font-size:13px;background:var(--surface);color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:2px 10px}
+.copy:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--a2);outline-offset:2px}
+.check{border-top:1px dashed var(--line);margin-top:16px;padding-top:12px;font-size:16px;color:var(--muted)}
+.check b{color:var(--text)}
+label.done-l{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:16px;font-weight:600;cursor:pointer}
+input[type=checkbox]{width:22px;height:22px;accent-color:var(--ok)}
+details{margin:8px 0}
+summary{cursor:pointer;color:var(--a2);font-size:16px}
+ul{margin:0 0 16px;padding-left:22px}
+a{color:var(--a2)}
+.reset{background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:8px 16px;margin-top:24px}
+@media (max-width:520px){h1{font-size:32px}h2{font-size:24px}.card{padding:18px}}
+@media (prefers-reduced-motion: reduce){.fill{transition:none}}
+</style>
+</head>
+<body>
+<header class="bar"><div class="bar-in"><div class="track" role="progressbar" aria-label="Progresso do roteiro" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="fill" id="fill"></div></div><span class="count" id="count">0 de 0</span></div></header>
+<main>
+<h1>Consumindo APIs com Python</h1>
+<p class="lead">Na primeira parte você segue um passo a passo com a DogApi. Na segunda, resolve desafios com a API ViaCEP, sem receber o código pronto. Use o Google Colab: uma célula por passo.</p>
+<p>Marque cada etapa ao concluir. Seu progresso fica salvo neste navegador.</p>
+
+<section class="p1">
+<h2>Parte 1: DogApi, passo a passo</h2>
+<p>Cerca de 30 minutos. A DogApi (<code>dogapi.dog</code>) é pública e não pede cadastro nem chave.</p>
+
+<div class="card" data-step="p1s1"><h3>1. Veja a API no navegador</h3>
+<p>Antes de programar, abra no navegador do seu celular ou computador:</p>
+<pre><code>https://dogapi.dog/api/v2/facts?limit=1</code></pre>
+<p>Esse é o “pedido” que seu programa Python vai repetir.</p>
+<div class="check"><b>Verifique:</b> você viu um texto em formato JSON com a chave <code>data</code>.</div>
+<label class="done-l"><input type="checkbox"> Concluí</label></div>
+
+<div class="card" data-step="p1s2"><h3>2. Faça sua primeira requisição</h3>
+<p>No Colab, rode:</p>
+<pre><code>import requests
+
+resp = requests.get("https://dogapi.dog/api/v2/facts", params={"limit": 1}, timeout=10)
+print(resp.status_code)
+print(resp.json())</code></pre>
+<div class="check"><b>Verifique:</b> o status impresso é <code>200</code> e o JSON tem a chave <code>data</code>.</div>
+<label class="done-l"><input type="checkbox"> Concluí</label></div>
+
+<div class="card" data-step="p1s3"><h3>3. Extraia o fato curioso</h3>
+<p>O JSON vira um dicionário Python. Explore o que há dentro de <code>attributes</code>:</p>
+<pre><code>dados = resp.json()
+atributos = dados["data"][0]["attributes"]
+print(atributos)</code></pre>
+<p>Descubra qual chave guarda o texto do fato e imprima somente ele.</p>
+<div class="check"><b>Verifique:</b> aparece apenas uma frase sobre cães, sem chaves nem colchetes.</div>
+<label class="done-l"><input type="checkbox"> Concluí</label></div>
+
+<div class="card" data-step="p1s4"><h3>4. Liste raças</h3>
+<pre><code>resp = requests.get("https://dogapi.dog/api/v2/breeds", timeout=10)
+racas = resp.json()["data"]
+for raca in racas:
+    print(raca["attributes"]["name"])</code></pre>
+<p>A API entrega os resultados em páginas, por isso você recebe só uma parte da lista.</p>
+<div class="check"><b>Verifique:</b> aparece uma lista de nomes de raças, um por linha.</div>
+<label class="done-l"><input type="checkbox"> Concluí</label></div>
+
+<div class="card" data-step="p1s5"><h3>5. Busque os detalhes de uma raça</h3>
+<p>Cada raça tem um <code>id</code>. Use o da primeira para montar uma nova URL:</p>
+<pre><code>id_raca = racas[0]["id"]
+url = f"https://dogapi.dog/api/v2/breeds/{id_raca}"
+detalhe = requests.get(url, timeout=10).json()
+print(detalhe["data"]["attributes"])</code></pre>
+<p>Agora imprima uma frase formatada, por exemplo “Raça: NOME. Descrição: TEXTO”, usando as chaves que você encontrou.</p>
+<div class="check"><b>Verifique:</b> a frase mostra o nome e a descrição da mesma raça.</div>
+<label class="done-l"><input type="checkbox"> Concluí</label></div>
+
+<div class="card" data-step="p1s6"><h3>6. Trate um erro</h3>
+<p>Peça uma raça que não existe e observe a resposta:</p>
+<pre><code>resp = requests.get("https://dogapi.dog/api/v2/breeds/id-que-nao-existe", timeout=10)
+print(resp.status_code)</code></pre>
+<p>Agora crie a função <code>buscar_raca(id_raca)</code>, que devolve o dicionário da raça quando o status é 200 e <code>None</code> nos outros casos. Teste com um id válido e com um inválido.</p>
+<div class="check"><b>Verifique:</b> com o id inválido o programa não quebra e retorna <code>None</code>.</div>
+<label class="done-l"><input type="checkbox"> Concluí</label></div>
+</section>
+
+<section class="p2">
+<h2>Parte 2: Desafios com a ViaCEP</h2>
+<p>Cerca de 20 minutos. A ViaCEP consulta endereços pelo CEP, também sem chave. O formato da URL é:</p>
+<pre><code>https://viacep.com.br/ws/CEP/json/</code></pre>
+<p>Agora o código é seu. Abra as dicas apenas se travar.</p>
+
+<div class="card" data-step="p2c1"><h3>Desafio 1: consulte um CEP</h3>
+<p>Peça um CEP ao usuário com <code>input()</code>, consulte a API e mostre logradouro, bairro, cidade e estado.</p>
+<details><summary>Dica</summary><p>Monte a URL com um f-string. Imprima o JSON inteiro primeiro para descobrir os nomes das chaves.</p></details>
+<div class="check"><b>Verifique:</b> um CEP real devolve o endereço completo.</div>
+<label class="done-l"><input type="checkbox"> Concluí</label></div>
+
+<div class="card" data-step="p2c2"><h3>Desafio 2: proteja o programa de CEPs inválidos</h3>
+<p>Teste um CEP com formato errado (por exemplo <code>123</code>) e um que não existe (por exemplo <code>00000000</code>). Observe o status e o corpo de cada resposta, e faça o programa mostrar uma mensagem clara em cada caso.</p>
+<details><summary>Dica</summary><p>Um dos casos devolve status diferente de 200. O outro devolve 200, mas com uma chave <code>erro</code> no JSON. Trate os dois.</p></details>
+<div class="check"><b>Verifique:</b> nenhum CEP inválido faz o Python mostrar um erro vermelho (traceback).</div>
+<label class="done-l"><input type="checkbox"> Concluí</label></div>
+
+<div class="card" data-step="p2c3"><h3>Desafio 3: crie a função consultar_cep</h3>
+<p>Transforme sua solução em <code>consultar_cep(cep)</code>. Ela deve aceitar “40020-000” e “40020000”, rejeitar o que não tiver 8 dígitos, usar <code>timeout</code> e devolver um dicionário ou <code>None</code>.</p>
+<details><summary>Dica</summary><p>Para limpar o CEP, mantenha só os dígitos: <code>"".join(c for c in cep if c.isdigit())</code>. Capture também <code>requests.exceptions.RequestException</code> para falhas de rede.</p></details>
+<div class="check"><b>Verifique:</b> a mesma função funciona com hífen, sem hífen e com entradas inválidas.</div>
+<label class="done-l"><input type="checkbox"> Concluí</label></div>
+
+<div class="card" data-step="p2c4"><h3>Desafio bônus: descubra o CEP pelo endereço</h3>
+<p>A ViaCEP também faz a busca inversa, com o formato <code>https://viacep.com.br/ws/UF/Cidade/Logradouro/json/</code>. Consulte uma rua da sua cidade e imprima o CEP de cada resultado.</p>
+<details><summary>Dica</summary><p>Nesse caso a resposta é uma lista de dicionários, não um dicionário só. O logradouro precisa ter ao menos 3 caracteres.</p></details>
+<div class="check"><b>Verifique:</b> aparece uma lista de CEPs da rua escolhida.</div>
+<label class="done-l"><input type="checkbox"> Concluí</label></div>
+</section>
+
+<button class="reset" id="reset" type="button">Reiniciar progresso</button>
+</main>
+<script>
+(function(){
+var KEY="roteiro-apis-python-v1",st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){st={}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+var cards=[].slice.call(document.querySelectorAll(".card[data-step]"));
+function paint(){
+  var n=0;
+  cards.forEach(function(c){
+    var id=c.getAttribute("data-step"),on=!!st[id],cb=c.querySelector("input");
+    cb.checked=on;c.classList.toggle("done",on);if(on)n++;
+  });
+  var pct=cards.length?Math.round(n/cards.length*100):0;
+  document.getElementById("fill").style.width=pct+"%";
+  document.getElementById("count").textContent=n+" de "+cards.length;
+  document.querySelector(".track").setAttribute("aria-valuenow",pct);
+}
+cards.forEach(function(c){
+  c.querySelector("input").addEventListener("change",function(e){
+    st[c.getAttribute("data-step")]=e.target.checked;save();paint();
+  });
+});
+document.getElementById("reset").addEventListener("click",function(){st={};save();paint();});
+[].slice.call(document.querySelectorAll("pre")).forEach(function(pre){
+  var b=document.createElement("button");b.type="button";b.className="copy";b.textContent="Copiar";
+  b.addEventListener("click",function(){
+    var t=pre.querySelector("code").innerText;
+    function ok(){b.textContent="Copiado";setTimeout(function(){b.textContent="Copiar"},1500)}
+    try{navigator.clipboard.writeText(t).then(ok,fb)}catch(e){fb()}
+    function fb(){try{var a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();document.execCommand("copy");document.body.removeChild(a);ok()}catch(e){}}
+  });
+  pre.appendChild(b);
+});
+paint();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Curso: LP Aula11</title>
+  <!-- Google Fonts + Material Icons + estilos locais -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira+Stencil+One&family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <link rel="stylesheet" href="./aula.css">
+</head>
+<body>
+  <!-- Camada de cabecalho -->
+  <div class="logo">
+    <button class="escola" onclick="window.location.assign('index.html')">
+      MENU DE AULAS
+    </button>
+    <img src="imagens/eu_pixar3d_dir.png" class="icone">
+  </div>
+
+  <!-- Sidebar 
+  <nav class="sidebar" id="sidebar">
+    <br>
+    <div id="btn_menu">
+      <button class="escola">
+        TOPICOS
+      </button>
+    </div>
+    !-- Conteúdo da sidebar --
+    <div id="menu">
+      <ul>
+      <li><a href="#teoria" class="itemMenu">
+        <span>Slides</span></a></li>
+      <li><a href="#ativ" class="itemMenu">
+        <span>Atividades</span></a></li>
+      <li><a href="#resumo" class="itemMenu">
+        <span>Resumo da Aula</span></a></li>
+    </ul>
+  </nav> 
+  -->
+
+  <!-- Cabeçalho da aula -->
+  <header>
+    <h3 class="escola">Curso: Lógica de Programação Usando Linguagem Python</h3>
+    <h1>Aula 11:<br>Projeto Prático com API Python</h1>
+    <p class="subtitle">Vamos construir um aplicativo que utiliza API em Python!</p>
+  </header>
+
+  <!--------------------------- Conteúdo da aula ------------------------------->
+  <main>
+    <!-- Novo Item ------------------------------------ -->
+    <section class="teoria" id="encap">
+      <h2 class="escola">Construção da API</h2>
+      <p>O código a seguir demonstra como criar um servidor API simples em Python usando o framework Flask.</p>
+      <p>O professor utilizará este código como exemplo para criar uma API que será executada na máquina dele
+        (servidor) e que será consumida pelo aplicativo que será desenvolvido por você (cliente).</p>
+      
+      <div class="destaque">
+        <ul>
+          <li>Versão simplificada: <a href="aula11_servidor_api_controle_de_visitantes.py" target="_blank">
+            Clique aqui</a></li>
+          <li>Versão Orientada a Objetos: <a href="aula11_servidor_api_controle_de_visitantes_OO.py" target="_blank">
+            Clique aqui</a></li>
+        </ul>  
+      </div>
+      
+      <p>OBS 1: Para o executar corretamente o servidor, instale o Flask, caso ainda não tenha feito isso: 
+        <code>pip install flask</code></p>
+      <p>OBS 2: Os códigos estão sendo compartilhado apenas para fins de estudo, caso o aluno deseje executar
+        o servidor em outra máquina.</p>
+    </section>
+
+    <!-- Projeto ------------------------------------ -->
+    <section class="projeto" id="projeto">
+      <h1 class="ideia">Projeto Prático</h1>
+      <h2 class="topico">Controle de Visitantes de um Prédio Empresarial</h2>
+      <p>Vamos criar um sistema para controlar o acesso de visitantes a um prédio empresarial, utilizando 
+        conceitos de programação orientada a objetos.</p>
+      <div class="destaque">
+        <p>Enunciado completo da construção da aplicação: <a href="aula11_Enunciado da Prática - Consumo de API REST com Python.pdf" target="_blank">
+            Clique aqui</a></p>
+      </div>
+    </section>
+
+    <!-- Resumo da Aula ------------------------------------ -->
+    <section class="teoria" id="resumo">
+      <h1 class="escola">Resumo da Aula</h1>
+      <div class="duas_colunas">
+        <div class="coluna">
+          <h2 class="topico">O que Aprendemos?</h2>
+          <ul>
+              <li>Consumo de APIs com a biblioteca requests</li>
+              <li>Criação de APIs com o framework Flask</li>
+              <li>Criação de APIs com o framework Flask usando Orientação a Objetos</li>
+          </ul>
+        </div>
+        <div class="coluna">
+          <img src="imagens/aprendendo.png" width="100%" alt="Resumo da Aula">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts de cotrole d(e) interação, sidebar e navegação da aula -->
+  <script src="aula.js"></script>
+</body>
+</html>
